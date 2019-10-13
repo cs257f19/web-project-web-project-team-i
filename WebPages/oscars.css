@@ -1,0 +1,39 @@
+header {
+  padding: 20px;
+}
+
+#title{
+  font-size: 24px;
+}
+
+#subtitle{
+  font-size: 12px;
+}
+
+
+#navbar, #topnav {
+  display: inline-block;
+}
+
+.topnav {
+  float: right;
+  display: block;
+}
+
+
+.homepage-graph {
+  display: block;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homepage-movies {
+  padding: 16px;
+  margin-top: 16px;
+  display: inline-block;
+}
+
+.homepage-movies a{
+  display: block;
+}
