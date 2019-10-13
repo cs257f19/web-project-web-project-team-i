@@ -1,9 +1,13 @@
 header {
-  padding: 20px;
+  padding: 40px;
+  background-color: goldenrod;
+  width: 100%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+
 #title{
-  font-size: 24px;
+  font-size: 30px;
 }
 
 #subtitle{
@@ -11,7 +15,7 @@ header {
 }
 
 
-#navbar, #topnav {
+#topnav {
   display: inline-block;
 }
 
@@ -20,6 +24,12 @@ header {
   display: block;
 }
 
+.main {
+  padding: 100px;
+  vertical-align: middle;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
 
 .homepage-graph {
   display: block;
@@ -28,12 +38,45 @@ header {
   margin-right: auto;
 }
 
+.featured-contents{
+  /* display: inline; */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .homepage-movies {
-  padding: 16px;
+  padding: 50px 0px;
   margin-top: 16px;
   display: inline-block;
+  text-align: center;
+}
+
+.homepage-movies .title{
+  text-align: left;
 }
 
 .homepage-movies a{
   display: block;
+}
+
+
+footer{
+  background-color: goldenrod;
+  width: 100%;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+footer #topnav{
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  display: contents;
+  float: inherit;
+}
+
+footer div{
+  padding: 10px;
 }
