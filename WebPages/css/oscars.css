@@ -1,0 +1,82 @@
+header {
+  padding: 40px;
+  background-color: goldenrod;
+  width: 100%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+#title{
+  font-size: 30px;
+}
+
+#subtitle{
+  font-size: 12px;
+}
+
+
+#topnav {
+  display: inline-block;
+}
+
+.topnav {
+  float: right;
+  display: block;
+}
+
+.main {
+  padding: 100px;
+  vertical-align: middle;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.homepage-graph {
+  display: block;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featured-contents{
+  /* display: inline; */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homepage-movies {
+  padding: 50px 0px;
+  margin-top: 16px;
+  display: inline-block;
+  text-align: center;
+}
+
+.homepage-movies .title{
+  text-align: left;
+}
+
+.homepage-movies a{
+  display: block;
+}
+
+
+footer{
+  background-color: goldenrod;
+  width: 100%;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+footer #topnav{
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  display: contents;
+  float: inherit;
+}
+
+footer div{
+  padding: 10px;
+}
