@@ -5,6 +5,13 @@ header {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+#header iframe{
+  border: 0px solid white;
+  position: relative;
+  top: 0px;
+  height: -webkit-fill-available;
+}
+
 
 #title{
   font-size: 30px;
@@ -60,11 +67,70 @@ header {
   display: block;
 }
 
+#actor .title{
+  text-align: center;
+  font-size: 36px;
+  color: goldenrod;
+}
+
+#actor .caption{
+  font-size: 24px;
+}
+
+#actor .actor-content{
+  left: 100px;
+  position: relative;
+}
+
+#actor .best-actor-photo{
+  float: left;
+  height: 300px;
+  margin-right: 15px;
+}
+
+.sidenav {
+  height: auto;
+  width: 190px;
+  position: fixed;
+  z-index: 1;
+  top: 180px;
+  left: 10px;
+  background-color: goldenrod;
+  overflow-x: auto;
+  margin: 20px;
+  padding: 10px;
+}
+
+.sidenav .title{
+  font-size: 16px;
+  color: darkslategray;
+  margin-bottom: 10px;
+}
+
+.sidenav a{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover{
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 140px;
+  padding: 0px 10px;
+}
 
 footer{
   background-color: goldenrod;
   width: 100%;
+  position: relative;
+  top: 100px;
   text-align: center;
+  
   font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
@@ -79,4 +145,11 @@ footer #topnav{
 
 footer div{
   padding: 10px;
+}
+
+#footer iframe{
+  border: 0px solid white;
+  position: relative;
+  top: 100px;
+  height: -webkit-fill-available;
 }
