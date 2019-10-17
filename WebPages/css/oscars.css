@@ -2,6 +2,7 @@ header {
   padding: 40px;
   background-color: goldenrod;
   width: 100%;
+  position: absolute;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -182,8 +183,8 @@ header .w3-button a {
 footer{
   background-color: goldenrod;
   width: 100%;
-  position: relative;
-  top: 100px;
+  position: fixed;
+  bottom: 0px;
   text-align: center;
   
   font-family: Georgia, 'Times New Roman', Times, serif;
