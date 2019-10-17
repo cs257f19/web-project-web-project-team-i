@@ -5,6 +5,10 @@ header {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.header a {
+  text-decoration: none;
+}
+
 #header iframe{
   border: 0px solid white;
   position: relative;
@@ -15,6 +19,10 @@ header {
 
 #title{
   font-size: 30px;
+}
+
+#title a { 
+  text-decoration: none;
 }
 
 #subtitle{
@@ -30,6 +38,10 @@ header {
   float: right;
   display: block;
 }
+/* 
+header .w3-button a {
+  text-decoration: none;
+} */
 
 .main {
   padding: 100px;
@@ -67,7 +79,8 @@ header {
   display: block;
 }
 
-#actor .title{
+
+.main .title{
   text-align: center;
   font-size: 36px;
   color: goldenrod;
@@ -80,6 +93,7 @@ header {
 #actor .actor-content{
   left: 100px;
   position: relative;
+  padding: 10px 20px 10px 200px;
 }
 
 #actor .best-actor-photo{
@@ -120,9 +134,50 @@ header {
 }
 
 .main {
-  margin-left: 140px;
-  padding: 0px 10px;
+  padding: 50px;
+  position: absolute;
+  top: 200px;
+  width: 100%;
 }
+
+.about-data {
+  text-align: center;
+  font-size: 16px;
+}
+
+.datasets {
+  margin: 50px 10px;
+  display: inline-flex;
+}
+
+.dataset {
+  margin: 0px 0px 20px 20px;
+  width: 350px;
+  padding: 20px 10px 0px 10px;;
+  /* height: 500px; */
+  background-color: rgba(218, 165, 32, 0.295);
+  border: 1px solid goldenrod;
+}
+
+.dataset .title {
+  font-size: 21px;
+  color: black;
+  font-style: italic;
+}
+
+.category {
+  list-style: square inside url("sqpurple.gif");
+  text-align: left;
+  height: 150px;
+  margin: 10px;
+}
+
+
+/* .terms {
+  position: relative;
+  bottom: 20px;
+} */
+
 
 footer{
   background-color: goldenrod;
@@ -145,6 +200,15 @@ footer #topnav{
 
 footer div{
   padding: 10px;
+}
+
+#footer { 
+  position: relative;
+  top: 100px;
+}
+
+.footer a {
+  text-decoration: none;
 }
 
 #footer iframe{
