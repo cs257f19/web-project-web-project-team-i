@@ -1,8 +1,14 @@
+body {
+  position: absolute;
+  width: 100%;
+}
+
 header {
+  position: relative;
+  top: 0px;
   padding: 40px;
   background-color: goldenrod;
   width: 100%;
-  position: absolute;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -136,9 +142,9 @@ header .w3-button a {
 
 .main {
   padding: 50px;
-  position: absolute;
-  top: 200px;
   width: 100%;
+  position: relative;
+  /* height: 800px; */
 }
 
 .about-data {
@@ -182,11 +188,9 @@ header .w3-button a {
 
 footer{
   background-color: goldenrod;
-  width: 100%;
-  position: fixed;
-  bottom: 0px;
+  position: relative;
+  top: 0px;
   text-align: center;
-  
   font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
