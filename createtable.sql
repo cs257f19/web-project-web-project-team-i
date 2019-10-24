@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS movies;
 CREATE TABLE movies (
   picture text,
-  yearOfRelease year,
+  yearOfRelease int,
   nominations int,
   rating int,
   duration int,
@@ -9,7 +9,7 @@ CREATE TABLE movies (
   subgenre text,
   releaseMonth text,
   criticScore int,
-  synopsis LONGTEXT,
+  synopsis text,
   actorFilm text,
   actorName text,
   actorRating int,
@@ -18,7 +18,7 @@ CREATE TABLE movies (
   actorSubgenre text,
   actorReleaseMonth text,
   actorCriticScore int,
-  actorSynopsis LONGTEXT,
+  actorSynopsis text,
   actressFilm text,
   actressName text,
   actressRating int,
@@ -27,7 +27,7 @@ CREATE TABLE movies (
   actressSubgenre text,
   actressReleaseMonth text,
   actressCriticScore int,
-  actressSynopsis LONGTEXT,
+  actressSynopsis text,
   directorFilm text,
   directorName text,
   directorRating int,
@@ -36,5 +36,5 @@ CREATE TABLE movies (
   directorSubgenre text,
   directorReleaseMonth text,
   directorCriticScore int,
-  directorSynopsis LONGTEXT
+  directorSynopsis text
 );
