@@ -11,6 +11,24 @@ class DataSource:
     def __init__(self):
         pass
 
+	def connect(user, password):
+		'''
+		Establishes a connection to the database with the following credentials:
+			user - username, which is also the name of the database
+			password - the password for this database on perlman
+
+		Returns: a database connection.
+
+		Note: exits if a connection cannot be established.
+		'''
+		try:
+			connection = psycopg2.connect(database=user, user=user, password=password)
+		except Exception as e:
+			print("Connection error: ", e)
+			exit()
+		return connection
+
+
     def getBestPicture(self, year):
         '''
         Returns a list of all of the Best Picture winners from the specified starting year until the specified ending year.
@@ -21,7 +39,51 @@ class DataSource:
         RETURN:
             a string value of the Best Picture winner for the specified year
         '''
-        return ""
+		yearOfRelease = year - 1
+
+		try:
+			cursor = connection.cursor()
+			query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
+			cursor.execute(query)
+			result = cursor.fetchall()
+
+			picture = result[0]
+
+		except Exception as e:
+			print ("Something went wrong when executing the query: ", e)
+
+        return picture
+
+
+	def getBestPicAvgRating(self, start=0, end=0):
+        '''
+        Returns a float of the average IMDB rating of Best Picture Winners from the specified starting year until the specified ending year.
+
+        PARAMETERS:
+            start = starting year
+			end = ending year
+
+        RETURN:
+            float value of the average IMDB Rating of Best Picture winner for the specified year range
+        '''
+		try:
+			cursor = connection.cursor()
+			query = "SELECT	rating FROM movies WHERE yearOfRelease BETWEEN "  + start + " AND " + end
+			cursor.execute(query)
+			ratings = cursor.fetchall()
+
+			total = 0.0
+			for rating in ratings:
+				total += rating
+
+			avgRating = total / (len(ratings)+1)
+
+		except Exception as e:
+			print ("Something went wrong when executing the query: ", e)
+
+		return avgRating
+
+
 
     def getBestPicNoms(self, picture):
         '''
@@ -33,7 +95,25 @@ class DataSource:
         RETURN:
             Integer value for number of nominations earned
         '''
-        return 0
+		yearOfRelease = year - 1
+
+		try:
+			cursor = connection.cursor()
+			query = "COUNT(*) FROM movies WHERE picture = "  + picture +
+											" OR actorFilm = "  + picture +
+											" OR actressFilm = "  + picture +
+											" OR directorFilm = " + picture
+			cursor.execute(query)
+			result = cursor.fetchall()
+
+			count = result[0]
+
+		except Exception as e:
+			print ("Something went wrong when executing the query: ", e)
+
+        return count
+
+
 
     def getBestPicRating(self, picture):
         '''
@@ -455,4 +535,28 @@ class DataSource:
         '''
         return ""
 
-	
+
+
+
+
+
+	def main():
+		# Replace these credentials with your own
+		user = 'kuritar'
+		password = getpass.getpass()
+
+		# Connect to the database
+		connection = connect(user, password)
+
+		# Execute a simple query:
+		results = getBestPicAvgRating(connection, 1950, 1970)
+
+		if results is not None:
+			print("Query results: ")
+			for item in results:
+				print(item)
+
+		# Disconnect from database
+		connection.close()
+
+	main()
