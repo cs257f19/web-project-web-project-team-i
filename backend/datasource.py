@@ -95,23 +95,20 @@ class DataSource:
         RETURN:
             Integer value for number of nominations earned
         '''
-		yearOfRelease = year - 1
 
 		try:
 			cursor = connection.cursor()
-			query = "COUNT(*) FROM movies WHERE picture = "  + picture +
-											" OR actorFilm = "  + picture +
-											" OR actressFilm = "  + picture +
-											" OR directorFilm = " + picture
+			query = "SELELCT nominations FROM movies WHERE picture = "  + picture
+
 			cursor.execute(query)
 			result = cursor.fetchall()
 
-			count = result[0]
+			nominations = result[0]
 
 		except Exception as e:
 			print ("Something went wrong when executing the query: ", e)
 
-        return count
+        return nominations
 
 
 
