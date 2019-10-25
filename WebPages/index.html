@@ -3,121 +3,105 @@
 <head>
   <meta charset ="utf-8">
   <title>Oscar Winners</title>
-  <link rel="stylesheet" href="css/oscars.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="css/oscars.css">
+  <link rel="icon" href="img/head.jpg">
 </head>
 
 <body>
-    <header>
-        <div id="title"><a href="index.html">
-            Oscar Winners
-        </a>
-        </div>
-        <div id="subtitle">
-          Casting future Oscar Winners
-        </div>
-    
-          <div class ="topnav">
-            <input type="text" placeholder="Search">
-          </div>
-    
-          <div class="w3-dropdown-hover">
-            <button class="w3-button">Winners by Category</button>
-            <div class="w3-dropdown-content w3-bar-block w3-border">
-              <a href="#" class="w3-bar-item w3-button">Director</a>
-              <a href="#" class="w3-bar-item w3-button">Actor</a>
-              <a href="#" class="w3-bar-item w3-button">Actress</a>
-              <a href="#" class="w3-bar-item w3-button">Picture</a>
-              <a href="#" class="w3-bar-item w3-button">Cinematography</a>
-            </div>
-          </div>
-    
-          <div class="w3-dropdown-hover">
-            <button class="w3-button">Trends by Decade</button>
-            <div class="w3-dropdown-content w3-bar-block w3-border">
-              <a href="#" class="w3-bar-item w3-button">2010-2019</a>
-              <a href="#" class="w3-bar-item w3-button">2000-2009</a>
-              <a href="#" class="w3-bar-item w3-button">1990-1999</a>
-              <a href="#" class="w3-bar-item w3-button">1980-1989</a>
-              <a href="#" class="w3-bar-item w3-button">1970-1979</a>
-              <a href="#" class="w3-bar-item w3-button">1960-1969</a>
-              <a href="#" class="w3-bar-item w3-button">1950-1959</a>
-              <a href="#" class="w3-bar-item w3-button">1940-1949</a>
-              <a href="#" class="w3-bar-item w3-button">1930-1939</a>
-              <a href="#" class="w3-bar-item w3-button">1927-1929</a>
-            </div>
-          </div>
-    
-          <button class="w3-button">About the Oscars</button>
-          <button class="w3-button">Potential 2020 Winners</button>
-          <button class="w3-button">Surveys</button>
-          <button class="w3-button"><a href="pages/about-data.html">About the Data</a></button>
-    
-      </header>
-
-<div class="main">
-  <!-- featured data analysis -->
-  <div>
-    <div class="title">The Predicted Best Picture Winner</div>
-    <img class="homepage-graph" src="img/prediction-graph.png" ></img>
-  </div>
-
-  <!-- featured movies container -->
-  <div class="featured-contents">
-    <!-- featured movie trailer-->
-    <div class="homepage-movies">
-      <div class="title">Featured Past Winner</div>
-      <iframe width="500" height="315"
-      src="https://www.youtube.com/embed/mP0VHJYFOAU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-      </iframe>
-      <a href = "https://www.bohemianrhapsodymovie.co.uk/synopsis/">Plot synopsis</a>
-    </div> <!-- featured -->
-
-    <!-- potential winner trailer-->
-    <div class="homepage-movies">
-      <div class="title">Potential 2020 Winner</div>
-      <iframe width = "500" height = "315"
-      src ="https://www.youtube.com/embed/ELeMaP8EPAA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"allowfullscreen>
-      </iframe>
-      <a href = "https://www.sonypictures.com/movies/onceuponatimeinhollywood">Plot synopsis</a>
+  <header>
+    <div id="title">
+      <a href="index.html">Oscar Winners</a>
     </div>
-  </div> <!-- potential -->
-
-</div> <!-- main -->
-
-<footer>
-
+    <div id="subtitle">
+      Casting future Oscar Winners
+    </div>
+    
     <div class ="topnav">
       <input type="text" placeholder="Search">
     </div>
+    
+    <div class="w3-dropdown-hover">
+      <button class="w3-button">Winners by Category</button>
+      <div class="w3-dropdown-content w3-bar-block w3-border">
+        <a href="#" class="w3-bar-item w3-button">Director</a>
+        <a href="pages/actors.html" class="w3-bar-item w3-button">Actor</a>
+        <a href="#" class="w3-bar-item w3-button">Actress</a>
+        <a href="#" class="w3-bar-item w3-button">Picture</a>
+        <a href="#" class="w3-bar-item w3-button">Cinematography</a>
+      </div>
+    </div>
+    
+    <div class="w3-dropdown-hover">
+      <button class="w3-button">Trends by Decade</button>
+      <div class="w3-dropdown-content w3-bar-block w3-border">
+        <a href="#" class="w3-bar-item w3-button">2010-2019</a>
+        <a href="#" class="w3-bar-item w3-button">2000-2009</a>
+        <a href="#" class="w3-bar-item w3-button">1990-1999</a>
+        <a href="#" class="w3-bar-item w3-button">1980-1989</a>
+        <a href="#" class="w3-bar-item w3-button">1970-1979</a>
+        <a href="#" class="w3-bar-item w3-button">1960-1969</a>
+        <a href="#" class="w3-bar-item w3-button">1950-1959</a>
+        <a href="#" class="w3-bar-item w3-button">1940-1949</a>
+        <a href="#" class="w3-bar-item w3-button">1930-1939</a>
+        <a href="#" class="w3-bar-item w3-button">1927-1929</a>
+      </div>
+    </div>
+    
+    <button class="w3-button">About the Oscars</button>
+    <button class="w3-button">Potential 2020 Winners</button>
+    <button class="w3-button">Surveys</button>
+    <button class="w3-button"><a href="pages/about-data.html">About the Data</a></button>
+    
+  </header>
 
+  <div class="main">
+    <!-- featured data analysis -->
+    <div>
+      <div class="title">The Predicted Best Picture Winner</div>
+      <img class="homepage-graph" alt = "Graph visualizing box office info, critic reviews and awards won for 2017 Oscar Best Picture nominees" src="img/prediction-graph.png" ></img>
+    </div>
 
-<div>
-</div>
-<div>
-  </div>
+    <!-- featured movies container -->
+    <div class="featured-contents">
+      <!-- featured movie trailer-->
+      <div class="homepage-movies">
+        <div class="title">Featured Past Winner</div>
+        <iframe title = "Trailer for Bohemian Rhapsody" width="500" height="315"
+        src="https://www.youtube.com/embed/mP0VHJYFOAU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+        <a href = "https://www.bohemianrhapsodymovie.co.uk/synopsis/">Plot synopsis</a>
+      </div> <!-- featured -->
 
-  <div>
-    About
-  </div>
+      <!-- potential winner trailer-->
+      <div class="homepage-movies">
+        <div class="title">Potential 2020 Winner</div>
+        <iframe title = "Trailer for Once Upon A Time In Hollywood" width = "500" height = "315"
+        src ="https://www.youtube.com/embed/ELeMaP8EPAA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"allowfullscreen>
+        </iframe>
+        <a href = "https://www.sonypictures.com/movies/onceuponatimeinhollywood">Plot synopsis</a>
+      </div> <!-- potential -->
+    </div> <!-- featured -->
+  </div> <!-- main -->
 
-  <div>
-    Data
-  </div>
+  <footer>
+    <div class ="topnav">
+      <input type="text" placeholder="Search">
+    </div>
+    <div></div>
+    <div></div>
 
+    <div>About</div>
 
-  <div>
-      Terms of Use
-  </div>
+    <div>Data</div>
 
-  <div>
-    Contact Us
-  </div>
+    <div>Terms of Use</div>
 
-  <div>&copy;Oscar Winners</div>
+    <div>Contact Us</div>
 
-</footer>
+    <div>&copy;Oscar Winners</div>
 
+  </footer>
 
 </body>
 </html>
