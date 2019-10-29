@@ -83,6 +83,37 @@ class DataSource:
 
 		return avgRating
 
+    def getBestPicAvgScore(self, start=0, end=0):
+        '''
+                Returns a float of the average Metacritic score of Best Picture Winners from the specified starting year until the specified ending year.
+
+                PARAMETERS:
+                    start = starting year
+                    end = ending year
+
+                RETURN:
+                    float value of the average Metacritic score of Best Picture winner for the specified year range
+                '''
+        try:
+            cursor = connection.cursor()
+            query = "SELECT	criticScore FROM movies WHERE yearOfRelease BETWEEN " + start + " AND " + end
+            cursor.execute(query)
+            scores = cursor.fetchall()
+
+            total = 0.0
+            for score in scores:
+                if score == 0:
+                    return "The value was not found."
+                else:
+                    total += score
+
+            avgScore = total / (len(scores) + 1)
+
+        except Exception as e:
+            print ("Something went wrong when executing the query: ", e)
+
+        return avgScore
+
 
 
     def getBestPicNoms(self, picture):
