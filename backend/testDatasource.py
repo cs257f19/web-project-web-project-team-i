@@ -9,6 +9,16 @@ class DataSourceTester(unittest.TestCase):
     //Making sure all the years have a value
     //Making sure the average is the actual average
     
-    def testAvgScoreEqualsTestAvgScore:
-        avgScore = 74
-        return if avgScore == 
+    def AvgScoreEqualsTestAvgScore:
+        start = 2000
+        end = 2010
+        avg = 91.2
+        self.assertEqual(ds.getBestPicAvgScore(start,end), avg)
+
+    def AvgScoreNotEqualTestAvgScore:
+        start = 2000
+        end = 2010
+        avg = 70.0
+        self.assertNotEqual(ds.getBestPicAvgScore(start, end), avg)
+
+    
