@@ -4,7 +4,7 @@ import getpass
 class DataSource:
     def __init__(self):
         pass
-    
+
     def connect(user, password):
         '''
 		Establishes a connection to the database with the following credentials:
@@ -23,24 +23,6 @@ class DataSource:
         return connection
 
 
-	def connect(user, password):
-		'''
-		Establishes a connection to the database with the following credentials:
-			user - username, which is also the name of the database
-			password - the password for this database on perlman
-
-		Returns: a database connection.
-
-		Note: exits if a connection cannot be established.
-		'''
-		try:
-			connection = psycopg2.connect(database=user, user=user, password=password)
-		except Exception as e:
-			print("Connection error: ", e)
-			exit()
-		return connection
-
-
     def getBestPicture(self, year):
         '''
         Returns a list of all of the Best Picture winners from the specified starting year until the specified ending year.
@@ -51,99 +33,23 @@ class DataSource:
         RETURN:
             a string value of the Best Picture winner for the specified year
         '''
-<<<<<<< HEAD
-		yearOfRelease = year - 1
 
-		try:
-			cursor = connection.cursor()
-			query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
-			cursor.execute(query)
-			result = cursor.fetchall()
-
-			picture = result[0]
-
-		except Exception as e:
-			print ("Something went wrong when executing the query: ", e)
-
-        return picture
-
-
-	def getBestPicAvgRating(self, start=0, end=0):
-        '''
-        Returns a float of the average IMDB rating of Best Picture Winners from the specified starting year until the specified ending year.
-
-        PARAMETERS:
-            start = starting year
-			end = ending year
-
-        RETURN:
-            float value of the average IMDB Rating of Best Picture winner for the specified year range
-        '''
-		try:
-			cursor = connection.cursor()
-			query = "SELECT	rating FROM movies WHERE yearOfRelease BETWEEN "  + start + " AND " + end
-			cursor.execute(query)
-			ratings = cursor.fetchall()
-
-			total = 0.0
-			for rating in ratings:
-				total += rating
-
-			avgRating = total / (len(ratings)+1)
-
-		except Exception as e:
-			print ("Something went wrong when executing the query: ", e)
-
-		return avgRating
-
-    def getBestPicAvgScore(self, start=0, end=0):
-        '''
-                Returns a float of the average Metacritic score of Best Picture Winners from the specified starting year until the specified ending year.
-
-                PARAMETERS:
-                    start = starting year
-                    end = ending year
-
-                RETURN:
-                    float value of the average Metacritic score of Best Picture winner for the specified year range
-                '''
-        try:
-            cursor = connection.cursor()
-            query = "SELECT	criticScore FROM movies WHERE yearOfRelease BETWEEN " + start + " AND " + end
-            cursor.execute(query)
-            scores = cursor.fetchall()
-
-            total = 0.0
-            for score in scores:
-                total += score
-
-            avgScore = total / (len(scores) + 1)
-
-        except Exception as e:
-            print ("Something went wrong when executing the query: ", e)
-
-        return avgScore
-
-
-||||||| merged common ancestors
-        return ""
-=======
         yearOfRelease = year - 1
-        
+
         try:
             cursor = connection.cursor()
             query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
             cursor.execute(query)
             result = cursor.fetchall()
-            
+
             picture = result[0]
-        
+
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
-            
+
         return picture
-        
-        
+
+
     def getBestPicAvgRating(self, start=0, end=0):
         '''
         Returns a float of the average IMDB rating of Best Picture Winners from the specified starting year until the specified ending year.
@@ -160,16 +66,16 @@ class DataSource:
             query = "SELECT	rating FROM movies WHERE yearOfRelease BETWEEN "  + start + " AND " + end
             cursor.execute(query)
             ratings = cursor.fetchall()
-            
+
             total = 0.0
             for rating in ratings:
                 total += rating
-            
+
             avgRating = total / (len(ratings)+1)
-        
+
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
-            
+
         return avgRating
 
     def getBestPicAvgScore(self, start=0, end=0):
@@ -203,9 +109,6 @@ class DataSource:
 
         return avgScore
 
-
->>>>>>> fb559a54ded24f071a012e446618b63c010e6976
-
     def getBestPicNoms(self, picture):
         '''
         Returns an integer value of the number of nominations that the Best Picture winner earned.
@@ -216,42 +119,19 @@ class DataSource:
         RETURN:
             Integer value for number of nominations earned
         '''
-<<<<<<< HEAD
-
-		try:
-			cursor = connection.cursor()
-			query = "SELELCT nominations FROM movies WHERE picture = "  + picture
-
-			cursor.execute(query)
-			result = cursor.fetchall()
-
-			nominations = result[0]
-
-		except Exception as e:
-			print ("Something went wrong when executing the query: ", e)
-
-        return nominations
-
-
-||||||| merged common ancestors
-        return 0
-=======
         try:
             cursor = connection.cursor()
             query = "SELELCT nominations FROM movies WHERE picture = "  + picture
-            
+
             cursor.execute(query)
             result = cursor.fetchall()
-            
+
             nominations = result[0]
-            
+
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
-            
+
         return nominations
-
-
->>>>>>> fb559a54ded24f071a012e446618b63c010e6976
 
     def getBestPicRating(self, picture):
         '''
@@ -276,7 +156,7 @@ class DataSource:
             Integer value of running time of Best Picture winner.
         '''
         return 0
-    
+
     def getBestPicRating(self, picture):
         '''
         Returns a float value of the IMDb rating of the Best Picture winner.
@@ -287,7 +167,7 @@ class DataSource:
         RETURN:
             Float value of IMDb rating of Best Picture winner.
         '''
-        return 0.
+        return 0
 
     def getBestPicGenre(self, picture):
         '''
@@ -673,36 +553,27 @@ class DataSource:
         '''
         return ""
 
-<<<<<<< HEAD
 
-
-
-
-
-	def main():
-		# Replace these credentials with your own
-		user = 'kuritar'
-		password = getpass.getpass()
-
-		# Connect to the database
-		connection = connect(user, password)
-
-		# Execute a simple query:
-		results = getBestPicAvgRating(connection, 1950, 1970)
-
-		if results is not None:
-			print("Query results: ")
-			for item in results:
-				print(item)
-
-		# Disconnect from database
-		connection.close()
-
-	main()
-||||||| merged common ancestors
-	
-=======
-
+	# def main():
+	# 	# Replace these credentials with your own
+	# 	user = 'kuritar'
+	# 	password = getpass.getpass()
+    #
+	# 	# Connect to the database
+	# 	connection = connect(user, password)
+    #
+	# 	# Execute a simple query:
+	# 	results = getBestPicAvgRating(connection, 1950, 1970)
+    #
+	# 	if results is not None:
+	# 		print("Query results: ")
+	# 		for item in results:
+	# 			print(item)
+    #
+	# 	# Disconnect from database
+	# 	connection.close()
+    #
+	# main()
 
     def main():
         # Replace these credentials with your own
@@ -717,26 +588,5 @@ class DataSource:
         ds.disconnect()
 
 
-    # def main():
-	# 	# Replace these credentials with your own
-    #     user = 'kuritar'
-    #     password = getpass.getpass()
-
-	# 	# Connect to the database
-    #     connection = connect(user, password)
-
-	# 	# Execute a simple query:
-    #     results = getBestPicAvgRating(connection, 1950, 1970)
-
-    #     if results is not None:
-    #         print("Query results: ")
-    #         for item in results:
-    #             print(item)
-
-	# 	# Disconnect from database
-    #     connection.close()
-
-
     if __name__ == "__main__":
         main()
->>>>>>> fb559a54ded24f071a012e446618b63c010e6976
