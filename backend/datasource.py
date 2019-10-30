@@ -120,19 +120,18 @@ class DataSource:
         RETURN:
             Integer value for number of nominations earned
         '''
-
-		try:
-			cursor = connection.cursor()
-			query = "SELELCT nominations FROM movies WHERE picture = "  + picture
-
-			cursor.execute(query)
-			result = cursor.fetchall()
-
-			nominations = result[0]
-
-		except Exception as e:
-			print ("Something went wrong when executing the query: ", e)
-
+        try:
+            cursor = connection.cursor()
+            query = "SELELCT nominations FROM movies WHERE picture = "  + picture
+            
+            cursor.execute(query)
+            result = cursor.fetchall()
+            
+            nominations = result[0]
+            
+        except Exception as e:
+            print ("Something went wrong when executing the query: ", e)
+            
         return nominations
 
 
@@ -149,7 +148,7 @@ class DataSource:
         '''
         return 0
 
-	def getBestPicDuration(self, picture):
+    def getBestPicDuration(self, picture):
         '''
         Returns an integer value of the running time of the Best Picture winner.
 
@@ -160,8 +159,8 @@ class DataSource:
             Integer value of running time of Best Picture winner.
         '''
         return 0
-
-	def getBestPicRating(self, picture):
+    
+    def getBestPicRating(self, picture):
         '''
         Returns a float value of the IMDb rating of the Best Picture winner.
 
@@ -173,7 +172,7 @@ class DataSource:
         '''
         return 0.
 
-	def getBestPicGenre(self, picture):
+    def getBestPicGenre(self, picture):
         '''
         Returns a string value of the genre of the Best Picture winner.
 
@@ -185,7 +184,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestPicSubgenre(self, picture):
+    def getBestPicSubgenre(self, picture):
         '''
         Returns a string value of the subgenre of the Best Picture winner.
 
@@ -197,7 +196,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestPicRelease(self, picture):
+    def getBestPicRelease(self, picture):
         '''
         Returns month of release of the Best Picture winner.
 
@@ -209,7 +208,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestPicCriticScore(self, picture):
+    def getBestPicCriticScore(self, picture):
         '''
         Returns integer value of the Metacritic rating of the Best Picture winner.
 
@@ -221,7 +220,7 @@ class DataSource:
         '''
         return 0
 
-	def getBestPicSynopsis(self, picture):
+    def getBestPicSynopsis(self, picture):
         '''
         Returns a string value of the synopsis of the Best Picture winner.
 
@@ -233,7 +232,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActorPic(self, year):
+    def getBestActorPic(self, year):
         '''
         Returns a string value of the Best Actor winning film in given year.
 
@@ -245,7 +244,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActorName(self, year):
+    def getBestActorName(self, year):
         '''
         Returns a string value of the Best Actor in given year.
 
@@ -257,7 +256,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActorPicRating(self, actorFilm):
+    def getBestActorPicRating(self, actorFilm):
         '''
         Returns a float value of the IMDb rating of the Best Actor winning film.
 
@@ -269,7 +268,7 @@ class DataSource:
         '''
         return 0
 
-	def getBestActorPicDuration(self, actorFilm):
+    def getBestActorPicDuration(self, actorFilm):
         '''
         Returns an int value of the duration of the Best Actor winning film.
 
@@ -281,7 +280,7 @@ class DataSource:
         '''
         return 0
 
-	def getBestActorPicGenre(self, actorFilm):
+    def getBestActorPicGenre(self, actorFilm):
         '''
         Returns a string value of the genre of the Best Actor winning film.
 
@@ -293,7 +292,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActorPicSubgenre(self, actorFilm):
+    def getBestActorPicSubgenre(self, actorFilm):
         '''
         Returns a string value of the subgenre of the Best Actor winning film.
 
@@ -305,7 +304,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActorPicReleaseMonth(self, actorFilm):
+    def getBestActorPicReleaseMonth(self, actorFilm):
         '''
         Returns a string value of the release month of the Best Actor winning film.
 
@@ -317,7 +316,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActorPicCriticScore(self, actorFilm):
+    def getBestActorPicCriticScore(self, actorFilm):
         '''
         Returns an int value of the Metacritic score of the Best Actor winning film.
 
@@ -329,7 +328,7 @@ class DataSource:
         '''
         return 0
 
-	def getBestActorPicSynopsis(self, actorFilm):
+    def getBestActorPicSynopsis(self, actorFilm):
         '''
         Returns a string value of the synopsis of the Best Actor winning film.
 
@@ -341,7 +340,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActressPic(self, year):
+    def getBestActressPic(self, year):
         '''
         Returns a string value of the Best Actress winning film.
 
@@ -353,7 +352,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActressName(self, year):
+    def getBestActressName(self, year):
         '''
         Returns a string value of the name of the Best Actress winning actress.
 
@@ -365,7 +364,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActressRating(self, actressFilm):
+    def getBestActressRating(self, actressFilm):
         '''
         Returns a float value of the IMDb rating of the Best Actress winning film.
 
@@ -377,7 +376,7 @@ class DataSource:
         '''
         return 0
 
-	def getBestActressPicDuration(self, actressFilm):
+    def getBestActressPicDuration(self, actressFilm):
         '''
         Returns a int value of the duration of the Best Actress winning film.
 
@@ -389,7 +388,7 @@ class DataSource:
         '''
         return 0
 
-	def getBestActressPicGenre(self, actressFilm):
+    def getBestActressPicGenre(self, actressFilm):
         '''
         Returns a string value of the genre of the Best Actress winning film.
 
@@ -401,7 +400,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActressPicSubgenre(self, actressFilm):
+    def getBestActressPicSubgenre(self, actressFilm):
         '''
         Returns a string value of the subgenre of the Best Actress winning film.
 
@@ -413,7 +412,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActressPicReleaseMonth(self, actressFilm):
+    def getBestActressPicReleaseMonth(self, actressFilm):
         '''
         Returns a string value of the month of release of the Best Actress winning film.
 
@@ -425,7 +424,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestActressCriticScore(self, actressFilm):
+    def getBestActressCriticScore(self, actressFilm):
         '''
         Returns a int value of the Metacritic score of the Best Actress winning film.
 
@@ -437,7 +436,7 @@ class DataSource:
         '''
         return 0
 
-	def getBestActressPicSynopsis(self, actressFilm):
+    def getBestActressPicSynopsis(self, actressFilm):
         '''
         Returns a string value of the synopsis of the Best Actress winning film.
 
@@ -449,7 +448,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestDirectorPic(self, year):
+    def getBestDirectorPic(self, year):
         '''
         Returns a string value of the Best Director winning film for a specified year.
 
@@ -461,7 +460,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestDirectorName(self, year):
+    def getBestDirectorName(self, year):
         '''
         Returns a string value of the name of the Best Director for a specific year.
 
@@ -473,7 +472,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestDirectorPicRating(self, directorFilm):
+    def getBestDirectorPicRating(self, directorFilm):
         '''
         Returns a float value of the IMDb rating of the Best Director winning film.
 
@@ -485,7 +484,7 @@ class DataSource:
         '''
         return 0
 
-	def getBestDirectorPicDuration(self, directorFilm):
+    def getBestDirectorPicDuration(self, directorFilm):
         '''
         Returns a int value of the duration of the Best Director winning film.
 
@@ -497,7 +496,7 @@ class DataSource:
         '''
         return 0
 
-	def getBestDirectorPicGenre(self, directorFilm):
+    def getBestDirectorPicGenre(self, directorFilm):
         '''
         Returns a string value of the genre of the Best Director winning film.
 
@@ -509,7 +508,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestDirectorPicSubgenre(self, directorFilm):
+    def getBestDirectorPicSubgenre(self, directorFilm):
         '''
         Returns a string value of the subgenre of the Best Director winning film.
 
@@ -521,7 +520,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestDirectorPicReleaseMonth(self, directorFilm):
+    def getBestDirectorPicReleaseMonth(self, directorFilm):
         '''
         Returns a string value of the month of release of the Best Director winning film.
 
@@ -533,7 +532,7 @@ class DataSource:
         '''
         return ""
 
-	def getBestDirectorPicCriticScore(self, directorFilm):
+    def getBestDirectorPicCriticScore(self, directorFilm):
         '''
         Returns a int value of the Metacritic score of the Best Director winning film.
 
@@ -545,7 +544,7 @@ class DataSource:
         '''
         return 0
 
-	def getBestDirectorPicSynopsis(self, directorFilm):
+    def getBestDirectorPicSynopsis(self, directorFilm):
         '''
         Returns a string value of the synopsis of the Best Director winning film.
 
@@ -559,26 +558,38 @@ class DataSource:
 
 
 
+    def main():
+        # Replace these credentials with your own
+        user = 'kuritar'
+        password = getpass.getpass()
+    ​
+        # Connect to the database
+        ds = DataSource()
+        ds.connect(user, password)
+    ​
+        # Disconnect from database
+        ds.disconnect()
 
 
+    # def main():
+	# 	# Replace these credentials with your own
+    #     user = 'kuritar'
+    #     password = getpass.getpass()
 
-	def main():
-		# Replace these credentials with your own
-		user = 'kuritar'
-		password = getpass.getpass()
+	# 	# Connect to the database
+    #     connection = connect(user, password)
 
-		# Connect to the database
-		connection = connect(user, password)
+	# 	# Execute a simple query:
+    #     results = getBestPicAvgRating(connection, 1950, 1970)
 
-		# Execute a simple query:
-		results = getBestPicAvgRating(connection, 1950, 1970)
+    #     if results is not None:
+    #         print("Query results: ")
+    #         for item in results:
+    #             print(item)
 
-		if results is not None:
-			print("Query results: ")
-			for item in results:
-				print(item)
+	# 	# Disconnect from database
+    #     connection.close()
 
-		# Disconnect from database
-		connection.close()
 
-	main()
+    if __name__ == "__main__":
+        main()
