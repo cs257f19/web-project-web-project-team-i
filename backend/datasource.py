@@ -562,11 +562,11 @@ class DataSource:
         # Replace these credentials with your own
         user = 'kuritar'
         password = getpass.getpass()
-    ​
+
         # Connect to the database
         ds = DataSource()
         ds.connect(user, password)
-    ​
+
         # Disconnect from database
         ds.disconnect()
 
