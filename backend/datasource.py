@@ -49,8 +49,7 @@ class DataSource:
 
         try:
             cursor = self.connection.cursor()
-            print(cursor)
-            query = "SELECT picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
+            query = "SELECT picture FROM movies WHERE yearOfRelease="  + yearOfRelease
             
             cursor.execute(query)
             result = cursor.fetchall()
