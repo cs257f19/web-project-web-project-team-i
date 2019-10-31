@@ -48,7 +48,7 @@ class DataSource:
         yearOfRelease = year - 1
 
         try:
-            cursor = connection.cursor()
+            cursor = self.connection.cursor()
             query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
             cursor.execute(query)
             result = cursor.fetchall()
@@ -57,6 +57,7 @@ class DataSource:
 
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
+            return "None"
 
         return picture
 
