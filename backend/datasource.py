@@ -17,7 +17,7 @@ class DataSource:
 		'''
         connection = None
         try:
-            connection = psycopg2.connect(host = "localhost",database=user, user=user, password=password)
+            connection = psycopg2.connect(host = "localhost",database=user, user='kuritar', password='lamp977python')
             cur = connection.cursor()
 
         except Exception as e:
@@ -587,9 +587,6 @@ class DataSource:
 	# main()
 
 def main():
-    # Replace these credentials with your own
-    user = 'kuritar'
-    password = getpass.getpass()
     ds = DataSource()
     ds.connect()
 
