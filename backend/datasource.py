@@ -590,7 +590,8 @@ def main():
     # Replace these credentials with your own
     user = 'kuritar'
     password = getpass.getpass()
-    connect()
+    ds = DataSource()
+    ds.connect()
 
     # Connect to the database
     # ds = DataSource()
