@@ -49,7 +49,7 @@ class DataSource:
 
         try:
             cursor = self.connection.cursor()
-            query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
+            query = "SELECT picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
             cursor.execute(query)
             result = cursor.fetchall()
 
@@ -74,7 +74,7 @@ class DataSource:
             float value of the average IMDB Rating of Best Picture winner for the specified year range
         '''
         try:
-            cursor = connection.cursor()
+            cursor = self.connection.cursor()
             query = "SELECT	rating FROM movies WHERE yearOfRelease BETWEEN "  + start + " AND " + end
             cursor.execute(query)
             ratings = cursor.fetchall()
@@ -102,7 +102,7 @@ class DataSource:
                     float value of the average Metacritic score of Best Picture winner for the specified year range
                 '''
         try:
-            cursor = connection.cursor()
+            cursor = self.connection.cursor()
             query = "SELECT	criticScore FROM movies WHERE yearOfRelease BETWEEN " + start + " AND " + end
             cursor.execute(query)
             scores = cursor.fetchall()
@@ -132,7 +132,7 @@ class DataSource:
             Integer value for number of nominations earned
         '''
         try:
-            cursor = connection.cursor()
+            cursor = self.connection.cursor()
             query = "SELELCT nominations FROM movies WHERE picture = "  + picture
 
             cursor.execute(query)
@@ -169,17 +169,17 @@ class DataSource:
         '''
         return 0
 
-    def getBestPicRating(self, picture):
-        '''
-        Returns a float value of the IMDb rating of the Best Picture winner.
+    # def getBestPicRating(self, picture):
+    #     '''
+    #     Returns a float value of the IMDb rating of the Best Picture winner.
 
-        PARAMETERS:
-            picture
+    #     PARAMETERS:
+    #         picture
 
-        RETURN:
-            Float value of IMDb rating of Best Picture winner.
-        '''
-        return 0
+    #     RETURN:
+    #         Float value of IMDb rating of Best Picture winner.
+    #     '''
+    #     return 0
 
     def getBestPicGenre(self, picture):
         '''
