@@ -16,7 +16,7 @@ class DataSource:
 		Note: exits if a connection cannot be established.
 		'''
         try:
-            self.connection = psycopg2.connect(host = "localhost",database='kuritar', user=user, password=password)
+            connection = psycopg2.connect(host = "localhost",database='kuritar', user=user, password=password)
             # cur = connection.cursor()
 
         except Exception as e:
@@ -30,7 +30,7 @@ class DataSource:
         #Make connection an instance variable
 
     def disconnect(self):
-        self.connection.close()
+        connection.close()
 
 
 
@@ -48,7 +48,7 @@ class DataSource:
         yearOfRelease = year - 1
 
         try:
-            cursor = self.connection.cursor()
+            cursor = connection.cursor()
             query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
             cursor.execute(query)
             result = cursor.fetchall()
@@ -56,8 +56,8 @@ class DataSource:
             picture = result[0]
 
         except Exception as e:
-            print ("Something went wrong when executing the query: ", e)
-            return "None"
+            print ("Something went wrong when executing the query: " + e)
+            return None
 
         return picture
 
@@ -590,6 +590,8 @@ class DataSource:
 def main():
     user = 'kuritar'
     password = 'lamp977python'
+    connection = connect(user, password)
+
     ds = DataSource()
     ds.connect(user, password)
 
