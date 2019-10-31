@@ -54,7 +54,7 @@ class DataSource:
             cursor.execute(query)
             result = cursor.fetchall()
             picture = result[0]
-            return picture
+            return "Hi"
 
         except:
             msg = "Something went wrong when executing the query."
