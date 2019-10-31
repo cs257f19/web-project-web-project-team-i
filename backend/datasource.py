@@ -592,6 +592,7 @@ def main():
     ds = DataSource()
     ds.connect(user, password)
 
+    print(ds.getBestPicture(2000))
     ds.disconnect()
 
     # Connect to the database
