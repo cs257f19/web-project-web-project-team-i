@@ -17,7 +17,7 @@ class DataSource:
 		'''
         connection = None
         try:
-            connection = psycopg2.connect(host = "localhost",database=user, user='kuritar', password='lamp977python')
+            connection = psycopg2.connect(host = "localhost",database='movies', user='kuritar', password='lamp977python', port = 5114)
             cur = connection.cursor()
 
         except Exception as e:
