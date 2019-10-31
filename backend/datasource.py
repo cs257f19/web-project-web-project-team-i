@@ -22,6 +22,7 @@ class DataSource:
         except Exception as e:
             print("Connection error: ", e)
             exit()
+        return connection
         # finally:
         #     if connection is not None:
         #         connection.close()
@@ -29,12 +30,12 @@ class DataSource:
         # return connection
         #Make connection an instance variable
 
-    def disconnect(self):
-        connection.close()
+    # def disconnect(self):
+    #     connection.close()
 
 
 
-    def getBestPicture(self, year):
+    def getBestPicture(connection, year):
         '''
         Returns a list of all of the Best Picture winners from the specified starting year until the specified ending year.
 
@@ -48,37 +49,18 @@ class DataSource:
         yearOfRelease = year - 1
 
         try:
-<<<<<<< HEAD
             cursor = connection.cursor()
             query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
-||||||| merged common ancestors
-            cursor = self.connection.cursor()
-            query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
-=======
-            cursor = self.connection.cursor()
-            query = "SELECT picture FROM movies WHERE yearOfRelease="  + yearOfRelease
-            
->>>>>>> 64046537a37eb024127a546a97f719463ca34e83
             cursor.execute(query)
             result = cursor.fetchall()
-
             picture = result[0]
+            return picture
 
-<<<<<<< HEAD
-        except Exception as e:
-            print ("Something went wrong when executing the query: " + e)
-            return None
-||||||| merged common ancestors
-        except Exception as e:
-            print ("Something went wrong when executing the query: ", e)
-            return "None"
-=======
         except:
             msg = "Something went wrong when executing the query."
             return msg
->>>>>>> 64046537a37eb024127a546a97f719463ca34e83
 
-        return picture
+
 
 
     def getBestPicAvgRating(self, start=0, end=0):
@@ -611,11 +593,12 @@ def main():
     password = 'lamp977python'
     connection = connect(user, password)
 
-    ds = DataSource()
-    ds.connect(user, password)
+    result = getBestPic(connection, 2000)
 
-    print(ds.getBestPicture(2000))
-    ds.disconnect()
+    if result is not None:
+		print("Query results: " + result)
+
+    connection.close()
 
     # Connect to the database
     # ds = DataSource()
