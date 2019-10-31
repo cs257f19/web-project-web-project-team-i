@@ -5,7 +5,7 @@ class DataSource:
     def __init__(self):
         pass
 
-    def connect(self):
+    def connect(self, user, password):
         '''
 		Establishes a connection to the database with the following credentials:
 			user - username, which is also the name of the database
@@ -15,22 +15,22 @@ class DataSource:
 
 		Note: exits if a connection cannot be established.
 		'''
-        connection = None
         try:
-            connection = psycopg2.connect(host = "localhost",database='movies', user='kuritar', password='lamp977python', port = 5114)
-            cur = connection.cursor()
+            self.connection = psycopg2.connect(host = "localhost",database=user, user=user, password=password, port = 5114)
+            # cur = connection.cursor()
 
         except Exception as e:
             print("Connection error: ", e)
-            # exit()
-        finally:
-            if connection is not None:
-                connection.close()
-                print("Database connection closed.")
+            exit()
+        # finally:
+        #     if connection is not None:
+        #         connection.close()
+        #         print("Database connection closed.")
         # return connection
         #Make connection an instance variable
 
-    # def disconnect(connection):
+    def disconnect(self):
+        self.connection.close()
 
 
 
@@ -587,8 +587,12 @@ class DataSource:
 	# main()
 
 def main():
+    user = 'kuritar'
+    password = 'lamp977python'
     ds = DataSource()
-    ds.connect()
+    ds.connect(user, password)
+
+    ds.disconnect()
 
     # Connect to the database
     # ds = DataSource()
