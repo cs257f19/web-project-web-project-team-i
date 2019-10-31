@@ -55,9 +55,9 @@ class DataSource:
 
             picture = result[0]
 
-        except Exception as e:
-            print ("Something went wrong when executing the query: ", e)
-            return "None"
+        except:
+            print("Something went wrong when executing the query.")
+            return None
 
         return picture
 
