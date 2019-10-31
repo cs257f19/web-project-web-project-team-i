@@ -596,7 +596,7 @@ def main():
     result = getBestPic(connection, 2000)
 
     if result is not None:
-		print("Query results: " + result)
+	    print("Query results: " + result)
 
     connection.close()
 
