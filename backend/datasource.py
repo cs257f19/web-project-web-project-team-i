@@ -5,7 +5,7 @@ class DataSource:
     def __init__(self):
         pass
 
-    def connect(user, password):
+    def connect():
         '''
 		Establishes a connection to the database with the following credentials:
 			user - username, which is also the name of the database
@@ -15,12 +15,23 @@ class DataSource:
 
 		Note: exits if a connection cannot be established.
 		'''
+        connection = None
         try:
-            connection = psycopg2.connect(database=user, user=user, password=password)
+            connection = psycopg2.connect(host = "localhost",database=user, user=user, password=password)
+            cur = connection.cursor()
+
         except Exception as e:
             print("Connection error: ", e)
-            exit()
-        return connection
+            # exit()
+        finally:
+            if connection is not None:
+                connection.close()
+                print("Database connection closed.")
+        # return connection
+        #Make connection an instance variable
+
+    # def disconnect(connection):
+
 
 
     def getBestPicture(self, year):
@@ -554,39 +565,40 @@ class DataSource:
         return ""
 
 
-	# def main():
-	# 	# Replace these credentials with your own
-	# 	user = 'kuritar'
-	# 	password = getpass.getpass()
-    #
-	# 	# Connect to the database
-	# 	connection = connect(user, password)
-    #
-	# 	# Execute a simple query:
-	# 	results = getBestPicAvgRating(connection, 1950, 1970)
-    #
-	# 	if results is not None:
-	# 		print("Query results: ")
-	# 		for item in results:
-	# 			print(item)
-    #
-	# 	# Disconnect from database
-	# 	connection.close()
+# def main():
+# 	# Replace these credentials with your own
+# 	user = 'kuritar'
+# 	password = getpass.getpass()
+#
+# 	# Connect to the database
+# 	connection = connect(user, password)
+#
+# 	# Execute a simple query:
+# 	results = getBestPicAvgRating(connection, 1950, 1970)
+#
+# 	if results is not None:
+# 		print("Query results: ")
+# 		for item in results:
+# 			print(item)
+#
+# 	# Disconnect from database
+# 	connection.close()
     #
 	# main()
 
-    def main():
-        # Replace these credentials with your own
-        user = 'kuritar'
-        password = getpass.getpass()
+def main():
+    # Replace these credentials with your own
+    user = 'kuritar'
+    password = getpass.getpass()
+    connect()
 
-        # Connect to the database
-        ds = DataSource()
-        ds.connect(user, password)
+    # Connect to the database
+    # ds = DataSource()
+    # ds.connect(user, password)
 
-        # Disconnect from database
-        ds.disconnect()
+    # Disconnect from database
+    # ds.disconnect()
 
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
