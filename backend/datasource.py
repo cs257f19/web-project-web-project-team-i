@@ -16,12 +16,13 @@ class DataSource:
 		Note: exits if a connection cannot be established.
 		'''
         try:
-            self.connection = psycopg2.connect(host = "localhost",database='kuritar', user=user, password=password)
+            connection = psycopg2.connect(host = "localhost",database='kuritar', user=user, password=password)
             # cur = connection.cursor()
 
         except Exception as e:
             print("Connection error: ", e)
             exit()
+        return connection
         # finally:
         #     if connection is not None:
         #         connection.close()
@@ -29,12 +30,12 @@ class DataSource:
         # return connection
         #Make connection an instance variable
 
-    def disconnect(self):
-        self.connection.close()
+    # def disconnect(self):
+    #     connection.close()
 
 
 
-    def getBestPicture(self, year):
+    def getBestPicture(connection, year):
         '''
         Returns a list of all of the Best Picture winners from the specified starting year until the specified ending year.
 
@@ -48,19 +49,18 @@ class DataSource:
         yearOfRelease = year - 1
 
         try:
-            cursor = self.connection.cursor()
-            query = "SELECT picture FROM movies WHERE yearOfRelease="  + yearOfRelease
-            
+            cursor = connection.cursor()
+            query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
             cursor.execute(query)
             result = cursor.fetchall()
-
             picture = result[0]
+            return picture
 
         except:
             msg = "Something went wrong when executing the query."
             return msg
 
-        return picture
+
 
 
     def getBestPicAvgRating(self, start=0, end=0):
@@ -591,11 +591,14 @@ class DataSource:
 def main():
     user = 'kuritar'
     password = 'lamp977python'
-    ds = DataSource()
-    ds.connect(user, password)
+    connection = connect(user, password)
 
-    print(ds.getBestPicture(2000))
-    ds.disconnect()
+    result = getBestPic(connection, 2000)
+
+    if result is not None:
+		print("Query results: " + result)
+
+    connection.close()
 
     # Connect to the database
     # ds = DataSource()
