@@ -16,7 +16,7 @@ class DataSource:
 		Note: exits if a connection cannot be established.
 		'''
         try:
-            self.connection = psycopg2.connect(host = "localhost",database=user, user=user, password=password, port = 5114)
+            self.connection = psycopg2.connect(host = "localhost",database='kuritar', user=user, password=password)
             # cur = connection.cursor()
 
         except Exception as e:
