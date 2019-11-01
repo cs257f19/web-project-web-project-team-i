@@ -51,6 +51,7 @@ class DataSource:
         try:
             cursor = connection.cursor()
             query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
+            print(query)
             cursor.execute(query)
             result = cursor.fetchall()
             picture = result[0]
@@ -60,6 +61,7 @@ class DataSource:
             msg = "Something went wrong when executing the query."
             return msg
 
+        return picture
 
 
 
