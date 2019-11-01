@@ -594,7 +594,7 @@ def main():
     password = 'lamp977python'
     connection = ds.connect(user, password)
 
-    result = ds.getBestPic(connection, 2000)
+    result = ds.getBestPicture(2000)
 
     if result is not None:
 	    print("Query results: " + result)
