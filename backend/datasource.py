@@ -45,13 +45,14 @@ class DataSource:
         RETURN:
             a string value of the Best Picture winner for the specified year
         '''
-        print(connection)
+
         yearOfRelease = year - 1
 
         try:
             cursor = connection.cursor()
-            print(cursor)
+            print(yearOfRelease, "jjj")
             query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + yearOfRelease
+            print(yearOfRelease)
             cursor.execute(query)
             result = cursor.fetchall()
             picture = result[0]
