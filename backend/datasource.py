@@ -77,7 +77,7 @@ class DataSource:
         '''
         try:
             cursor = connection.cursor()
-            query = "SELECT	rating FROM movies WHERE yearOfRelease BETWEEN "  + start + " AND " + end
+            query = "SELECT	rating FROM movies WHERE yearOfRelease BETWEEN "  + str(start) + " AND " + str(end)
             cursor.execute(query)
             ratings = cursor.fetchall()
             print(str(ratings))
