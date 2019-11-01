@@ -80,7 +80,7 @@ class DataSource:
             query = "SELECT	rating FROM movies WHERE yearOfRelease BETWEEN "  + start + " AND " + end
             cursor.execute(query)
             ratings = cursor.fetchall()
-            print(ratings)
+            print(str(ratings))
             total = 0.0
             for rating in ratings:
                 total += rating
