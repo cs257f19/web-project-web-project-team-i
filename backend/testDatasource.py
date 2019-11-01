@@ -30,7 +30,7 @@ class DataSourceTester(unittest.TestCase):
         ds = self.ds
         start = 2100
         end = 2110
-        msg = "The value was not found."
+        msg = "Something went wrong when executing the query."
         self.assertEqual(ds.getBestPicAvgScore(start, end), msg)
 
 if __name__ == "__main__":
