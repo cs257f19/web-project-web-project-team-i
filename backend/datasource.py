@@ -142,7 +142,7 @@ class DataSource:
             cursor.execute(query)
             result = cursor.fetchall()
 
-            nominations = result[0][0]
+            nominations = result[0]
 
         except:
             msg = "Something went wrong when executing the query."
