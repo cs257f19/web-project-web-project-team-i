@@ -592,12 +592,12 @@ class DataSource:
 	# main()
 
 def main():
-    # ds = DataSource()
+    ds = DataSource()
     user = 'kuritar'
     password = 'lamp977python'
-    connection = connect(user, password)
+    connection = ds.connect(user, password)
 
-    result = getBestPicture(2000)
+    result = ds.getBestPicture(connection, 2000)
 
     if result is not None:
 	    print("Query results: " + result)
