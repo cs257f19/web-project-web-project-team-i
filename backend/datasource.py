@@ -76,7 +76,7 @@ class DataSource:
             float value of the average IMDB Rating of Best Picture winner for the specified year range
         '''
         try:
-            cursor = self.connection.cursor()
+            cursor = connection.cursor()
             query = "SELECT	rating FROM movies WHERE yearOfRelease BETWEEN "  + start + " AND " + end
             cursor.execute(query)
             ratings = cursor.fetchall()
