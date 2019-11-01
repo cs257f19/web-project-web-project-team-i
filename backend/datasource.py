@@ -80,7 +80,6 @@ class DataSource:
             query = "SELECT	rating FROM movies WHERE yearOfRelease BETWEEN "  + str(start) + " AND " + str(end)
             cursor.execute(query)
             ratings = cursor.fetchall()
-            print(ratings[0][0])
             total = start - end
             for rating in ratings[0]:
                 total += rating
@@ -604,7 +603,7 @@ def main():
     # result = ds.getBestPicAvgRating(connection, "American Beauty")
 
     if result is not None:
-	    print("Query results: " + result)
+	    print("Query results: " + str(result))
 
     connection.close()
 
