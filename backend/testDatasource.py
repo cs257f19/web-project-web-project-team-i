@@ -10,14 +10,14 @@ class DataSourceTester(unittest.TestCase):
     #Making sure the average is the actual average
     
 # testcase1: Adding all MetaCritic in the decade
-    def AvgScoreEqualsTestAvgScore:
+    def AvgScoreEqualsTestAvgScore(self):
         start = 2000
         end = 2010
         avg = 91.2
         self.assertEqual(ds.getBestPicAvgScore(start,end), avg)
 
 # testcase2: Making sure all the years have a value
-    def AvgScoreNotEqualTestAvgScore:
+    def AvgScoreNotEqualTestAvgScore(self):
         start = 2000
         end = 2010
         avg = 70.0
