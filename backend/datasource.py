@@ -80,7 +80,8 @@ class DataSource:
             query = "SELECT	rating FROM movies WHERE yearOfRelease BETWEEN "  + str(start) + " AND " + str(end)
             cursor.execute(query)
             ratings = cursor.fetchall()
-            total = start - end
+
+            total = 0.0
             for rating in ratings[0]:
                 total += rating
 
@@ -105,18 +106,18 @@ class DataSource:
                 '''
         try:
             cursor = connection.cursor()
-            query = "SELECT	criticScore FROM movies WHERE yearOfRelease BETWEEN " + start + " AND " + end
+            query = "SELECT	criticScore FROM movies WHERE yearOfRelease BETWEEN " + str(start) + " AND " + str(end)
             cursor.execute(query)
             scores = cursor.fetchall()
 
             total = 0.0
-            for score in scores:
+            for score in scores[0]:
                 if score == 0:
                     return "The value was not found."
                 else:
                     total += score
 
-            avgScore = total / (len(scores) + 1)
+            avgScore = total / (len(scores[0]) + 1)
 
         except:
             msg = "Something went wrong when executing the query."
@@ -141,7 +142,7 @@ class DataSource:
             cursor.execute(query)
             result = cursor.fetchall()
 
-            nominations = result[0]
+            nominations = result[0][0]
 
         except:
             msg = "Something went wrong when executing the query."
@@ -598,8 +599,8 @@ def main():
     connection = ds.connect(user, password)
 
     # result = ds.getBestPicture(connection, 2000)
-    result = ds.getBestPicAvgRating(connection, 2000, 2010)
-    # result = ds.getBestPicAvgScore(connection, 2000, 2010)
+    # result = ds.getBestPicAvgRating(connection, 2000, 2010)
+    result = ds.getBestPicAvgScore(connection, 2000, 2010)
     # result = ds.getBestPicAvgRating(connection, "American Beauty")
 
     if result is not None:
