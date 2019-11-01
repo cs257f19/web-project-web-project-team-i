@@ -54,7 +54,7 @@ class DataSource:
             cursor.execute(query)
             result = cursor.fetchall()
             picture = result[0]
-            print(picture)
+            print(result)
 
 
         except:
