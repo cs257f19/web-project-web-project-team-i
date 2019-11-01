@@ -595,7 +595,7 @@ def main():
     # ds = DataSource()
     user = 'kuritar'
     password = 'lamp977python'
-    connection = ds.connect(user, password)
+    connection = connect(user, password)
 
     result = getBestPicture(2000)
 
