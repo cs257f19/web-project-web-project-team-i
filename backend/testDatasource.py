@@ -11,6 +11,7 @@ class DataSourceTester(unittest.TestCase):
     
 # testcase1: Adding all MetaCritic in the decade
     def AvgScoreEqualsTestAvgScore(self):
+        ds = self.ds
         start = 2000
         end = 2010
         avg = 91.2
@@ -18,6 +19,7 @@ class DataSourceTester(unittest.TestCase):
 
 # testcase2: Making sure all the years have a value
     def AvgScoreNotEqualTestAvgScore(self):
+        ds = self.ds
         start = 2000
         end = 2010
         avg = 70.0
@@ -25,6 +27,7 @@ class DataSourceTester(unittest.TestCase):
 
 # testcase3: Making sure the average is the actual average
     def testNoValue(self):
+        ds = self.ds
         start = 2100
         end = 2110
         msg = "The value was not found."
