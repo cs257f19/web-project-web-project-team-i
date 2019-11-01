@@ -35,7 +35,7 @@ class DataSource:
 
 
 
-    def getBestPicture(connection, year):
+    def getBestPicture(self, connection, year):
         '''
         Returns a list of all of the Best Picture winners from the specified starting year until the specified ending year.
 
@@ -54,7 +54,7 @@ class DataSource:
             cursor.execute(query)
             result = cursor.fetchall()
             picture = result[0]
-            return "Hi"
+
 
         except:
             msg = "Something went wrong when executing the query."
@@ -86,7 +86,7 @@ class DataSource:
 
             avgRating = total / (len(ratings)+1)
 
-        except Exception as e:
+        except:
             msg = "Something went wrong when executing the query."
             return msg
 
@@ -104,7 +104,7 @@ class DataSource:
                     float value of the average Metacritic score of Best Picture winner for the specified year range
                 '''
         try:
-            cursor = self.connection.cursor()
+            cursor = connection.cursor()
             query = "SELECT	criticScore FROM movies WHERE yearOfRelease BETWEEN " + start + " AND " + end
             cursor.execute(query)
             scores = cursor.fetchall()
@@ -118,7 +118,7 @@ class DataSource:
 
             avgScore = total / (len(scores) + 1)
 
-        except Exception as e:
+        except:
             msg = "Something went wrong when executing the query."
             return msg
 
@@ -135,7 +135,7 @@ class DataSource:
             Integer value for number of nominations earned
         '''
         try:
-            cursor = self.connection.cursor()
+            cursor = connection.cursor()
             query = "SELELCT nominations FROM movies WHERE picture = "  + picture
 
             cursor.execute(query)
@@ -143,7 +143,7 @@ class DataSource:
 
             nominations = result[0]
 
-        except Exception as e:
+        except:
             msg = "Something went wrong when executing the query."
             return msg
 
@@ -592,12 +592,12 @@ class DataSource:
 	# main()
 
 def main():
-    ds = DataSource()
+    # ds = DataSource()
     user = 'kuritar'
     password = 'lamp977python'
     connection = ds.connect(user, password)
 
-    result = ds.getBestPicture(2000)
+    result = getBestPicture(2000)
 
     if result is not None:
 	    print("Query results: " + result)
