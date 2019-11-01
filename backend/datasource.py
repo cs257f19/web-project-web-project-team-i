@@ -138,10 +138,10 @@ class DataSource:
         try:
             cursor = connection.cursor()
             query = "SELELCT nominations FROM movies WHERE picture = "  + picture
-            print(query)
             cursor.execute(query)
+            print("yaay")
             result = cursor.fetchall()
-            print(result)
+            print(result[0])
             nominations = result[0]
 
         except:
