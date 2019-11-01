@@ -87,7 +87,8 @@ class DataSource:
             avgRating = total / (len(ratings)+1)
 
         except Exception as e:
-            print ("Something went wrong when executing the query: ", e)
+            msg = "Something went wrong when executing the query."
+            return msg
 
         return avgRating
 
@@ -118,7 +119,8 @@ class DataSource:
             avgScore = total / (len(scores) + 1)
 
         except Exception as e:
-            print ("Something went wrong when executing the query: ", e)
+            msg = "Something went wrong when executing the query."
+            return msg
 
         return avgScore
 
@@ -142,7 +144,8 @@ class DataSource:
             nominations = result[0]
 
         except Exception as e:
-            print ("Something went wrong when executing the query: ", e)
+            msg = "Something went wrong when executing the query."
+            return msg
 
         return nominations
 
