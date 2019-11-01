@@ -53,8 +53,7 @@ class DataSource:
             query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + str(yearOfRelease)
             cursor.execute(query)
             result = cursor.fetchall()
-            picture = result[0]
-            print(result)
+            picture = str(result[0])
 
 
         except:
