@@ -82,7 +82,7 @@ class DataSource:
             ratings = cursor.fetchall()
             print(ratings[0][0])
             total = start - end
-            for rating in ratings:
+            for rating in ratings[0]:
                 total += rating
 
             avgRating = total / (len(ratings)+1)
