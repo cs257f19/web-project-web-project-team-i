@@ -32,3 +32,6 @@ class DataSourceTester(unittest.TestCase):
         end = 2110
         msg = "The value was not found."
         self.assertEqual(ds.getBestPicAvgScore(start, end), msg)
+
+if __name__ == "__main__":
+	unittest.main()
