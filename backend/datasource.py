@@ -137,7 +137,7 @@ class DataSource:
         '''
         try:
             cursor = connection.cursor()
-            query = "SELELCT nominations FROM movies WHERE picture = "  + picture
+            query = "SELELCT nominations FROM movies WHERE picture = "  + str(picture)
             print(query)
             cursor.execute(query)
             result = cursor.fetchall()
