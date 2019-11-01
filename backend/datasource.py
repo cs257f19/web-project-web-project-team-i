@@ -64,7 +64,7 @@ class DataSource:
 
 
 
-    def getBestPicAvgRating(self, start=0, end=0):
+    def getBestPicAvgRating(self, connection, start=0, end=0):
         '''
         Returns a float of the average IMDB rating of Best Picture Winners from the specified starting year until the specified ending year.
 
@@ -93,7 +93,7 @@ class DataSource:
 
         return avgRating
 
-    def getBestPicAvgScore(self, start=0, end=0):
+    def getBestPicAvgScore(self, connection, start=0, end=0):
         '''
                 Returns a float of the average Metacritic score of Best Picture Winners from the specified starting year until the specified ending year.
 
@@ -125,7 +125,7 @@ class DataSource:
 
         return avgScore
 
-    def getBestPicNoms(self, picture):
+    def getBestPicNoms(self, connection, picture):
         '''
         Returns an integer value of the number of nominations that the Best Picture winner earned.
 
@@ -598,7 +598,10 @@ def main():
     password = 'lamp977python'
     connection = ds.connect(user, password)
 
-    result = ds.getBestPicture(connection, 2000)
+    # result = ds.getBestPicture(connection, 2000)
+    result = ds.getBestPicAvgRating(connection, 2000, 2010)
+    # result = ds.getBestPicAvgScore(connection, 2000, 2010)
+    # result = ds.getBestPicAvgRating(connection, "American Beauty")
 
     if result is not None:
 	    print("Query results: " + result)
