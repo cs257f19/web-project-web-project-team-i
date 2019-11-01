@@ -137,7 +137,7 @@ class DataSource:
         '''
         try:
             cursor = connection.cursor()
-            query = "SELELCT nominations FROM movies WHERE picture = "  + str(picture)
+            query = "SELELCT nominations FROM movies WHERE picture = "  + picture
             print(query)
             cursor.execute(query)
             result = cursor.fetchall()
@@ -601,7 +601,7 @@ def main():
     # result = ds.getBestPicture(connection, 2000)
     # result = ds.getBestPicAvgRating(connection, 2000, 2010)
     # result = ds.getBestPicAvgScore(connection, 2000, 2010)
-    result = ds.getBestPicAvgRating(connection, "American Beauty")
+    result = ds.getBestPicNoms(connection, "American Beauty")
 
     if result is not None:
 	    print("Query results: " + str(result))
