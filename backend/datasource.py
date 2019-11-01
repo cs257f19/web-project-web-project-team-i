@@ -30,11 +30,6 @@ class DataSource:
         # return connection
         #Make connection an instance variable
 
-    # def disconnect(self):
-    #     connection.close()
-
-
-
     def getBestPicture(self, connection, year):
         '''
         Returns a list of all of the Best Picture winners from the specified starting year until the specified ending year.
@@ -148,7 +143,7 @@ class DataSource:
 
         return nominations
 
-    def getBestPicRating(self, picture):
+    def getBestPicRating(self, connection, picture):
         '''
         Returns an integer value of the IMDb rating of the Best Picture winner.
 
@@ -158,9 +153,21 @@ class DataSource:
         RETURN:
             Integer value of IMDb rating of Best Picture winner.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT rating FROM movies WHERE picture = '" + picture + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            rating = result[0]
 
-    def getBestPicDuration(self, picture):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return rating
+
+
+    def getBestPicDuration(self, connection, picture):
         '''
         Returns an integer value of the running time of the Best Picture winner.
 
@@ -170,21 +177,20 @@ class DataSource:
         RETURN:
             Integer value of running time of Best Picture winner.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT duration FROM movies WHERE picture = '" + picture + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            duration = result[0]
 
-    # def getBestPicRating(self, picture):
-    #     '''
-    #     Returns a float value of the IMDb rating of the Best Picture winner.
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
 
-    #     PARAMETERS:
-    #         picture
+        return duration
 
-    #     RETURN:
-    #         Float value of IMDb rating of Best Picture winner.
-    #     '''
-    #     return 0
-
-    def getBestPicGenre(self, picture):
+    def getBestPicGenre(self, connection, picture):
         '''
         Returns a string value of the genre of the Best Picture winner.
 
@@ -192,11 +198,22 @@ class DataSource:
             picture
 
         RETURN:
-            String of genre of IMDb rating of Best Picture winner.
+            String of genre of Best Picture winner.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT genre FROM movies WHERE picture = '" + picture + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            genre = result[0]
 
-    def getBestPicSubgenre(self, picture):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return genre
+
+    def getBestPicSubgenre(self, connection, picture):
         '''
         Returns a string value of the subgenre of the Best Picture winner.
 
@@ -206,9 +223,20 @@ class DataSource:
         RETURN:
             String value of subgenre of Best Picture winner.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT subgenre FROM movies WHERE picture = '" + picture + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            subgenre = result[0]
 
-    def getBestPicRelease(self, picture):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return subgenre
+
+    def getBestPicRelease(self, connection, picture):
         '''
         Returns month of release of the Best Picture winner.
 
@@ -218,9 +246,20 @@ class DataSource:
         RETURN:
             String value of release month of Best Picture winner.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT releaseMonth FROM movies WHERE picture = '" + picture + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            month = result[0]
 
-    def getBestPicCriticScore(self, picture):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return month
+
+    def getBestPicCriticScore(self, connection, picture):
         '''
         Returns integer value of the Metacritic rating of the Best Picture winner.
 
@@ -230,9 +269,20 @@ class DataSource:
         RETURN:
             Integer value of Metacritic rating of Best Picture winner.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT criticScore FROM movies WHERE picture = '" + picture + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            score = result[0]
 
-    def getBestPicSynopsis(self, picture):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return score
+
+    def getBestPicSynopsis(self, connection, picture):
         '''
         Returns a string value of the synopsis of the Best Picture winner.
 
@@ -242,9 +292,20 @@ class DataSource:
         RETURN:
             String value of synopsis of Best Picture winner.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT synopsis FROM movies WHERE picture = '" + picture + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            synopsis = result[0]
 
-    def getBestActorPic(self, year):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return synopsis
+
+    def getBestActorPic(self, connection, year):
         '''
         Returns a string value of the Best Actor winning film in given year.
 
@@ -254,9 +315,23 @@ class DataSource:
         RETURN:
             String value of name of film that won Best Actor in the given year.
         '''
-        return ""
+        yearOfRelease = year - 1
 
-    def getBestActorName(self, year):
+        try:
+            cursor = connection.cursor()
+            query = "SELECT	actorFilm FROM movies WHERE yearOfRelease = "  + str(yearOfRelease)
+            cursor.execute(query)
+            result = cursor.fetchall()
+            title = str(result[0])
+
+
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return title
+
+    def getBestActorName(self, connection, year):
         '''
         Returns a string value of the Best Actor in given year.
 
@@ -266,9 +341,23 @@ class DataSource:
         RETURN:
             String value of name of actor who won Best Actor in the given year.
         '''
-        return ""
+        yearOfRelease = year - 1
 
-    def getBestActorPicRating(self, actorFilm):
+        try:
+            cursor = connection.cursor()
+            query = "SELECT	actorName FROM movies WHERE yearOfRelease = "  + str(yearOfRelease)
+            cursor.execute(query)
+            result = cursor.fetchall()
+            actor = str(result[0])
+
+
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return actor
+
+    def getBestActorPicRating(self, connection, actorFilm):
         '''
         Returns a float value of the IMDb rating of the Best Actor winning film.
 
@@ -278,9 +367,20 @@ class DataSource:
         RETURN:
             Float value of IMDb rating.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actorRating FROM movies WHERE actorFilm = '" + actorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            rating = result[0]
 
-    def getBestActorPicDuration(self, actorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return rating
+
+    def getBestActorPicDuration(self, connection, actorFilm):
         '''
         Returns an int value of the duration of the Best Actor winning film.
 
@@ -290,9 +390,20 @@ class DataSource:
         RETURN:
             Int value of duration.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actorDuration FROM movies WHERE actorFilm = '" + actorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            duration = result[0]
 
-    def getBestActorPicGenre(self, actorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return duration
+
+    def getBestActorPicGenre(self, connection, actorFilm):
         '''
         Returns a string value of the genre of the Best Actor winning film.
 
@@ -302,9 +413,20 @@ class DataSource:
         RETURN:
             String value of genre.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actorGenre FROM movies WHERE actorFilm = '" + actorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            genre = result[0]
 
-    def getBestActorPicSubgenre(self, actorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return genre
+
+    def getBestActorPicSubgenre(self, connection, actorFilm):
         '''
         Returns a string value of the subgenre of the Best Actor winning film.
 
@@ -314,9 +436,20 @@ class DataSource:
         RETURN:
             String value of subgenre.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actorSubgenre FROM movies WHERE actorFilm = '" + actorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            subgenre = result[0]
 
-    def getBestActorPicReleaseMonth(self, actorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return subgenre
+
+    def getBestActorPicReleaseMonth(self, connection, actorFilm):
         '''
         Returns a string value of the release month of the Best Actor winning film.
 
@@ -326,9 +459,20 @@ class DataSource:
         RETURN:
             String value of release month.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actorReleaseMonth FROM movies WHERE actorFilm = '" + actorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            month = result[0]
 
-    def getBestActorPicCriticScore(self, actorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return month
+
+    def getBestActorPicCriticScore(self, connection, actorFilm):
         '''
         Returns an int value of the Metacritic score of the Best Actor winning film.
 
@@ -338,9 +482,20 @@ class DataSource:
         RETURN:
             Int value of Metacritic score.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actorCriticScore FROM movies WHERE actorFilm = '" + actorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            score = result[0]
 
-    def getBestActorPicSynopsis(self, actorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return score
+
+    def getBestActorPicSynopsis(self, connection, actorFilm):
         '''
         Returns a string value of the synopsis of the Best Actor winning film.
 
@@ -350,9 +505,20 @@ class DataSource:
         RETURN:
             String value of synposis.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actorSynopsis FROM movies WHERE actorFilm = '" + actorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            synopsis = result[0]
 
-    def getBestActressPic(self, year):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return synopsis
+
+    def getBestActressPic(self, connection, year):
         '''
         Returns a string value of the Best Actress winning film.
 
@@ -362,9 +528,23 @@ class DataSource:
         RETURN:
             String value of Best Actress winning film for the specified year.
         '''
-        return ""
+        yearOfRelease = year - 1
 
-    def getBestActressName(self, year):
+        try:
+            cursor = connection.cursor()
+            query = "SELECT	actressFilm FROM movies WHERE yearOfRelease = "  + str(yearOfRelease)
+            cursor.execute(query)
+            result = cursor.fetchall()
+            title = str(result[0])
+
+
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return title
+
+    def getBestActressName(self, connection, year):
         '''
         Returns a string value of the name of the Best Actress winning actress.
 
@@ -374,9 +554,23 @@ class DataSource:
         RETURN:
             String value of name of Best Actress winning actress.
         '''
-        return ""
+        yearOfRelease = year - 1
 
-    def getBestActressRating(self, actressFilm):
+        try:
+            cursor = connection.cursor()
+            query = "SELECT	actressName FROM movies WHERE yearOfRelease = "  + str(yearOfRelease)
+            cursor.execute(query)
+            result = cursor.fetchall()
+            actress = str(result[0])
+
+
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return actress
+
+    def getBestActressRating(self, connection, actressFilm):
         '''
         Returns a float value of the IMDb rating of the Best Actress winning film.
 
@@ -386,9 +580,20 @@ class DataSource:
         RETURN:
             Float value of Best Actress winning film.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actressRating FROM movies WHERE actressFilm = '" + actressFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            rating = result[0]
 
-    def getBestActressPicDuration(self, actressFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return rating
+
+    def getBestActressPicDuration(self, connection, actressFilm):
         '''
         Returns a int value of the duration of the Best Actress winning film.
 
@@ -398,9 +603,20 @@ class DataSource:
         RETURN:
             Int value of duration of Best Actress winning film.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actressDuration FROM movies WHERE actressFilm = '" + actressFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            duration = result[0]
 
-    def getBestActressPicGenre(self, actressFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return duration
+
+    def getBestActressPicGenre(self, connection, actressFilm):
         '''
         Returns a string value of the genre of the Best Actress winning film.
 
@@ -410,9 +626,20 @@ class DataSource:
         RETURN:
             String value of genre of the Best Actress winning film.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actressGenre FROM movies WHERE actressFilm = '" + actressFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            genre = result[0]
 
-    def getBestActressPicSubgenre(self, actressFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return genre
+
+    def getBestActressPicSubgenre(self, connection, actressFilm):
         '''
         Returns a string value of the subgenre of the Best Actress winning film.
 
@@ -422,9 +649,20 @@ class DataSource:
         RETURN:
             String value of subgenre of Best Actress winning film.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actressSubgenre FROM movies WHERE actressFilm = '" + actressFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            subgenre = result[0]
 
-    def getBestActressPicReleaseMonth(self, actressFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return subgenre
+
+    def getBestActressPicReleaseMonth(self, connection, actressFilm):
         '''
         Returns a string value of the month of release of the Best Actress winning film.
 
@@ -434,9 +672,20 @@ class DataSource:
         RETURN:
             String value of month of release.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actressReleaseMonth FROM movies WHERE actressFilm = '" + actressFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            month = result[0]
 
-    def getBestActressCriticScore(self, actressFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return month
+
+    def getBestActressCriticScore(self, connection, actressFilm):
         '''
         Returns a int value of the Metacritic score of the Best Actress winning film.
 
@@ -446,9 +695,20 @@ class DataSource:
         RETURN:
             Int value of Metacritic score.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actressCriticScore FROM movies WHERE actressFilm = '" + actressFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            score = result[0]
 
-    def getBestActressPicSynopsis(self, actressFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return score
+
+    def getBestActressPicSynopsis(self, connection, actressFilm):
         '''
         Returns a string value of the synopsis of the Best Actress winning film.
 
@@ -458,9 +718,20 @@ class DataSource:
         RETURN:
             String value of synposis.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT actressSynopsis FROM movies WHERE actressFilm = '" + actressFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            synopsis = result[0]
 
-    def getBestDirectorPic(self, year):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return synopsis
+
+    def getBestDirectorPic(self, connection, year):
         '''
         Returns a string value of the Best Director winning film for a specified year.
 
@@ -470,9 +741,23 @@ class DataSource:
         RETURN:
             String value of Best Director winning film for specific year.
         '''
-        return ""
+        yearOfRelease = year - 1
 
-    def getBestDirectorName(self, year):
+        try:
+            cursor = connection.cursor()
+            query = "SELECT	directorFilm FROM movies WHERE yearOfRelease = "  + str(yearOfRelease)
+            cursor.execute(query)
+            result = cursor.fetchall()
+            title = str(result[0])
+
+
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return title
+
+    def getBestDirectorName(self, connection, year):
         '''
         Returns a string value of the name of the Best Director for a specific year.
 
@@ -482,9 +767,23 @@ class DataSource:
         RETURN:
             String value of Best Director for a specific year.
         '''
-        return ""
+        yearOfRelease = year - 1
 
-    def getBestDirectorPicRating(self, directorFilm):
+        try:
+            cursor = connection.cursor()
+            query = "SELECT	directorFilm FROM movies WHERE yearOfRelease = "  + str(yearOfRelease)
+            cursor.execute(query)
+            result = cursor.fetchall()
+            director = str(result[0])
+
+
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return director
+
+    def getBestDirectorPicRating(self, connection, directorFilm):
         '''
         Returns a float value of the IMDb rating of the Best Director winning film.
 
@@ -494,9 +793,20 @@ class DataSource:
         RETURN:
             Float value of IMDb rating of Best Director winning film.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT directorRating FROM movies WHERE directorFilm = '" + directorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            rating = result[0]
 
-    def getBestDirectorPicDuration(self, directorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return rating
+
+    def getBestDirectorPicDuration(self, connection, directorFilm):
         '''
         Returns a int value of the duration of the Best Director winning film.
 
@@ -506,9 +816,20 @@ class DataSource:
         RETURN:
             Int value of duration of Best Director winning film.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT directorDuration FROM movies WHERE directorFilm = '" + directorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            duration = result[0]
 
-    def getBestDirectorPicGenre(self, directorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return duration
+
+    def getBestDirectorPicGenre(self, connection, directorFilm):
         '''
         Returns a string value of the genre of the Best Director winning film.
 
@@ -518,9 +839,20 @@ class DataSource:
         RETURN:
             String value of genre.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT directorGnere FROM movies WHERE directorFilm = '" + directorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            genre = result[0]
 
-    def getBestDirectorPicSubgenre(self, directorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return genre
+
+    def getBestDirectorPicSubgenre(self, connection, directorFilm):
         '''
         Returns a string value of the subgenre of the Best Director winning film.
 
@@ -530,9 +862,20 @@ class DataSource:
         RETURN:
             String value of subgenre.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT directorSugenre FROM movies WHERE directorFilm = '" + directorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            subgenre = result[0]
 
-    def getBestDirectorPicReleaseMonth(self, directorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return subgenre
+
+    def getBestDirectorPicReleaseMonth(self, connection, directorFilm):
         '''
         Returns a string value of the month of release of the Best Director winning film.
 
@@ -542,9 +885,20 @@ class DataSource:
         RETURN:
             String value of month of release.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT directorReleaseMonth FROM movies WHERE directorFilm = '" + directorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            month = result[0]
 
-    def getBestDirectorPicCriticScore(self, directorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return month
+
+    def getBestDirectorPicCriticScore(self, connection, directorFilm):
         '''
         Returns a int value of the Metacritic score of the Best Director winning film.
 
@@ -554,9 +908,20 @@ class DataSource:
         RETURN:
             Int value of Metacritic score.
         '''
-        return 0
+        try:
+            cursor = connection.cursor()
+            query = "SELECT directorCriticScore FROM movies WHERE directorFilm = '" + directorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            score = result[0]
 
-    def getBestDirectorPicSynopsis(self, directorFilm):
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return score
+
+    def getBestDirectorPicSynopsis(self, connection, directorFilm):
         '''
         Returns a string value of the synopsis of the Best Director winning film.
 
@@ -566,29 +931,20 @@ class DataSource:
         RETURN:
             String value of synposis.
         '''
-        return ""
+        try:
+            cursor = connection.cursor()
+            query = "SELECT directorSynopsis FROM movies WHERE directorFilm = '" + directorFilm + "'"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            synopsis = result[0]
+
+        except:
+            msg = "Something went wrong when executing the query."
+            return msg
+
+        return synopsis
 
 
-# def main():
-# 	# Replace these credentials with your own
-# 	user = 'kuritar'
-# 	password = getpass.getpass()
-#
-# 	# Connect to the database
-# 	connection = connect(user, password)
-#
-# 	# Execute a simple query:
-# 	results = getBestPicAvgRating(connection, 1950, 1970)
-#
-# 	if results is not None:
-# 		print("Query results: ")
-# 		for item in results:
-# 			print(item)
-#
-# 	# Disconnect from database
-# 	connection.close()
-    #
-	# main()
 
 def main():
     ds = DataSource()
@@ -596,22 +952,62 @@ def main():
     password = 'lamp977python'
     connection = ds.connect(user, password)
 
-    # result = ds.getBestPicture(connection, 2000)
-    # result = ds.getBestPicAvgRating(connection, 2000, 2010)
-    # result = ds.getBestPicAvgScore(connection, 2000, 2010)
-    result = ds.getBestPicNoms(connection, ' Gladiator')
+    results = []
 
-    if result is not None:
-	    print("Query results: " + str(result))
+    results.append(['picture', ds.getBestPicture(connection, 2000)])
+    results.append(['avgRating', ds.getBestPicAvgRating(connection, 2000, 2010)])
+    results.append(['avgScore', ds.getBestPicAvgScore(connection, 2000, 2010)])
+    results.append(['nominations', ds.getBestPicNoms(connection, 'Gladiator')])
+    results.append(['rating', ds.getBestPicRating(connection, 'Gladiator')])
+    results.append(['duration', ds.getBestPicDuration(connection, 'Gladiator')])
+    results.append(['genre', ds.getBestPicGenre(connection, 'Gladiator')])
+    results.append(['subgenre', ds.getBestPicSubgenre(connection, 'Gladiator')])
+    results.append(['critic score', ds.getBestPicCriticScore(connection, 'Gladiator')])
+    results.append(['synopsis', ds.getBestPicSynopsis(connection, 'Gladiator')])
+
+
+    results.append(['best actor picture', ds.getBestActorPic(connection, 2000)])
+    results.append(['best actor name', ds.getBestActorName(connection, 2000)])
+    results.append(['best actor rating', ds.getBestActorPicRating(connection, 'Gladiator')])
+    results.append(['best actor duration', ds.getBestActorPicDuration(connection, 'Gladiator')])
+    results.append(['best actor genre', ds.getBestPicActorGenre(connection, 'Gladiator')])
+    results.append(['best actor subgenre', ds.getBestActorPicSubgenre(connection, 'Gladiator')])
+    results.append(['best actor critic score', ds.getBestActorPicCriticScore(connection, 'Gladiator')])
+    results.append(['best actor synopsis', ds.getBestPicActorSynopsis(connection, 'Gladiator')])
+
+
+    results.append(['best actress picture', ds.getBestActressPic(connection, 2000)])
+    results.append(['best actress name', ds.getBestActressName(connection, 2000)])
+    results.append(['best actress rating', ds.getBestActressPicRating(connection, 'Gladiator')])
+    results.append(['best actress duration', ds.getBestActressPicDuration(connection, 'Gladiator')])
+    results.append(['best actress genre', ds.getBestPicActressGenre(connection, 'Gladiator')])
+    results.append(['best actress subgenre', ds.getBestActressPicSubgenre(connection, 'Gladiator')])
+    results.append(['best actress critic score', ds.getBestActressPicCriticScore(connection, 'Gladiator')])
+    results.append(['best actress synopsis', ds.getBestPicActressSynopsis(connection, 'Gladiator')])
+
+
+    results.append(['best director picture', ds.getBestDirectorPic(connection, 2000)])
+    results.append(['best director name', ds.getBestDirectorName(connection, 2000)])
+    results.append(['best director rating', ds.getBestDirectorPicRating(connection, 'Gladiator')])
+    results.append(['best director duration', ds.getBestDirectorPicDuration(connection, 'Gladiator')])
+    results.append(['best director genre', ds.getBestPicDirectorGenre(connection, 'Gladiator')])
+    results.append(['best director subgenre', ds.getBestDirectorPicSubgenre(connection, 'Gladiator')])
+    results.append(['best director critic score', ds.getBestDirectorPicCriticScore(connection, 'Gladiator')])
+    results.append(['best director synopsis', ds.getBestPicDirectorSynopsis(connection, 'Gladiator')])
+
+
+    # picture = ds.getBestPicture(connection, 2000)
+    # avgRating = ds.getBestPicAvgRating(connection, 2000, 2010)
+    # avgScore = ds.getBestPicAvgScore(connection, 2000, 2010)
+    # nominations = ds.getBestPicNoms(connection, 'Gladiator')
+
+    for result in results:
+        if result[1] is not None:
+	        print("Query results of " + result[0] + ": " +  str(result[1]))
+        else:
+            print("The result was None.")
 
     connection.close()
-
-    # Connect to the database
-    # ds = DataSource()
-    # ds.connect(user, password)
-
-    # Disconnect from database
-    # ds.disconnect()
 
 
 if __name__ == "__main__":
