@@ -149,8 +149,11 @@ class DataSource:
         try:
             cursor = connection.cursor()
             query = "SELECT rating FROM movies WHERE picture = '" + picture + "'"
+            print(query)
             cursor.execute(query)
+            print('query done')
             result = cursor.fetchall()
+            print(result)
             rating = result[0]
 
         except:
