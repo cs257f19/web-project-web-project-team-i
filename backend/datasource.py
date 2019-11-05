@@ -17,25 +17,18 @@ class DataSource:
 		'''
         try:
             connection = psycopg2.connect(host = "localhost",database='kuritar', user=user, password=password)
-            # cur = connection.cursor()
 
         except Exception as e:
             print("Connection error: ", e)
             exit()
         return connection
-        # finally:
-        #     if connection is not None:
-        #         connection.close()
-        #         print("Database connection closed.")
-        # return connection
-        #Make connection an instance variable
 
     def getBestPicture(self, connection, year):
         '''
-        Returns a list of all of the Best Picture winners from the specified starting year until the specified ending year.
+        Returns a list of all of the Best Picture winners from the specified starting year until the specified ending year
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             a string value of the Best Picture winner for the specified year
@@ -61,11 +54,11 @@ class DataSource:
 
     def getBestPicAvgRating(self, connection, start=0, end=0):
         '''
-        Returns a float of the average IMDB rating of Best Picture Winners from the specified starting year until the specified ending year.
+        Returns a float of the average IMDB rating of Best Picture Winners from the specified starting year until the specified ending year
 
         PARAMETERS:
-            start = starting year
-			end = ending year
+            int start = starting year, obtained from yearOfRelease column of SQL table
+			int end = ending year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             float value of the average IMDB Rating of Best Picture winner for the specified year range
@@ -90,15 +83,15 @@ class DataSource:
 
     def getBestPicAvgScore(self, connection, start=0, end=0):
         '''
-                Returns a float of the average Metacritic score of Best Picture Winners from the specified starting year until the specified ending year.
+        Returns a float of the average Metacritic score of Best Picture Winners from the specified starting year until the specified ending year
 
-                PARAMETERS:
-                    start = starting year
-                    end = ending year
+        PARAMETERS:
+            start = starting year, obtained from yearOfRelease column of SQL table
+            end = ending year, obtained from yearOfRelease column of SQL table
 
-                RETURN:
-                    float value of the average Metacritic score of Best Picture winner for the specified year range
-                '''
+        RETURN:
+            float value of the average Metacritic score of Best Picture winner for the specified year range
+        '''
         try:
             cursor = connection.cursor()
             query = "SELECT	criticScore FROM movies WHERE yearOfRelease BETWEEN " + str(start) + " AND " + str(end)
@@ -125,7 +118,7 @@ class DataSource:
         Returns an integer value of the number of nominations that the Best Picture winner earned.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column in SQL table
 
         RETURN:
             Integer value for number of nominations earned
@@ -145,10 +138,10 @@ class DataSource:
 
     def getBestPicRating(self, connection, picture):
         '''
-        Returns an integer value of the IMDb rating of the Best Picture winner.
+        Returns an integer value of the IMDb rating of the Best Picture winner
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table
 
         RETURN:
             Integer value of IMDb rating of Best Picture winner.
@@ -172,7 +165,7 @@ class DataSource:
         Returns an integer value of the running time of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table
 
         RETURN:
             Integer value of running time of Best Picture winner.
@@ -195,7 +188,7 @@ class DataSource:
         Returns a string value of the genre of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table
 
         RETURN:
             String of genre of Best Picture winner.
@@ -218,7 +211,7 @@ class DataSource:
         Returns a string value of the subgenre of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table
 
         RETURN:
             String value of subgenre of Best Picture winner.
@@ -241,7 +234,7 @@ class DataSource:
         Returns month of release of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            Stirng picture, obtained from picture column of SQL table
 
         RETURN:
             String value of release month of Best Picture winner.
@@ -264,7 +257,7 @@ class DataSource:
         Returns integer value of the Metacritic rating of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table.
 
         RETURN:
             Integer value of Metacritic rating of Best Picture winner.
@@ -287,7 +280,7 @@ class DataSource:
         Returns a string value of the synopsis of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table
 
         RETURN:
             String value of synopsis of Best Picture winner.
@@ -310,7 +303,7 @@ class DataSource:
         Returns a string value of the Best Actor winning film in given year.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of name of film that won Best Actor in the given year.
@@ -336,7 +329,7 @@ class DataSource:
         Returns a string value of the Best Actor in given year.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of name of actor who won Best Actor in the given year.
@@ -362,7 +355,7 @@ class DataSource:
         Returns a float value of the IMDb rating of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             Float value of IMDb rating.
@@ -385,7 +378,7 @@ class DataSource:
         Returns an int value of the duration of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             Int value of duration.
@@ -408,7 +401,7 @@ class DataSource:
         Returns a string value of the genre of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             String value of genre.
@@ -431,7 +424,7 @@ class DataSource:
         Returns a string value of the subgenre of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             String value of subgenre.
@@ -454,7 +447,7 @@ class DataSource:
         Returns a string value of the release month of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             String value of release month.
@@ -477,7 +470,7 @@ class DataSource:
         Returns an int value of the Metacritic score of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             Int value of Metacritic score.
@@ -500,7 +493,7 @@ class DataSource:
         Returns a string value of the synopsis of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             String value of synposis.
@@ -523,7 +516,7 @@ class DataSource:
         Returns a string value of the Best Actress winning film.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of Best Actress winning film for the specified year.
@@ -549,7 +542,7 @@ class DataSource:
         Returns a string value of the name of the Best Actress winning actress.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of name of Best Actress winning actress.
@@ -575,7 +568,7 @@ class DataSource:
         Returns a float value of the IMDb rating of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             Float value of Best Actress winning film.
@@ -598,7 +591,7 @@ class DataSource:
         Returns a int value of the duration of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             Int value of duration of Best Actress winning film.
@@ -621,7 +614,7 @@ class DataSource:
         Returns a string value of the genre of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             String value of genre of the Best Actress winning film.
@@ -644,7 +637,7 @@ class DataSource:
         Returns a string value of the subgenre of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             String value of subgenre of Best Actress winning film.
@@ -667,7 +660,7 @@ class DataSource:
         Returns a string value of the month of release of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             String value of month of release.
@@ -690,7 +683,7 @@ class DataSource:
         Returns a int value of the Metacritic score of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             Int value of Metacritic score.
@@ -713,7 +706,7 @@ class DataSource:
         Returns a string value of the synopsis of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             String value of synposis.
@@ -736,7 +729,7 @@ class DataSource:
         Returns a string value of the Best Director winning film for a specified year.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of Best Director winning film for specific year.
@@ -762,7 +755,7 @@ class DataSource:
         Returns a string value of the name of the Best Director for a specific year.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of Best Director for a specific year.
@@ -788,7 +781,7 @@ class DataSource:
         Returns a float value of the IMDb rating of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             Float value of IMDb rating of Best Director winning film.
@@ -811,7 +804,7 @@ class DataSource:
         Returns a int value of the duration of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             Int value of duration of Best Director winning film.
@@ -834,7 +827,7 @@ class DataSource:
         Returns a string value of the genre of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             String value of genre.
@@ -857,7 +850,7 @@ class DataSource:
         Returns a string value of the subgenre of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             String value of subgenre.
@@ -880,7 +873,7 @@ class DataSource:
         Returns a string value of the month of release of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             String value of month of release.
@@ -903,7 +896,7 @@ class DataSource:
         Returns a int value of the Metacritic score of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             Int value of Metacritic score.
@@ -926,7 +919,7 @@ class DataSource:
         Returns a string value of the synopsis of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             String value of synposis.
@@ -994,12 +987,6 @@ def main():
     results.append(['best director subgenre', ds.getBestDirectorPicSubgenre(connection, 'Gladiator')])
     results.append(['best director critic score', ds.getBestDirectorPicCriticScore(connection, 'Gladiator')])
     results.append(['best director synopsis', ds.getBestPicDirectorSynopsis(connection, 'Gladiator')])
-
-
-    # picture = ds.getBestPicture(connection, 2000)
-    # avgRating = ds.getBestPicAvgRating(connection, 2000, 2010)
-    # avgScore = ds.getBestPicAvgScore(connection, 2000, 2010)
-    # nominations = ds.getBestPicNoms(connection, 'Gladiator')
 
     for result in results:
         if result[1] is not None:
