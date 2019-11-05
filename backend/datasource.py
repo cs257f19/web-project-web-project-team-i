@@ -963,30 +963,30 @@ def main():
     results.append(['best actor name', ds.getBestActorName(connection, 2000)])
     results.append(['best actor rating', ds.getBestActorPicRating(connection, 'Gladiator')])
     results.append(['best actor duration', ds.getBestActorPicDuration(connection, 'Gladiator')])
-    results.append(['best actor genre', ds.getBestPicActorGenre(connection, 'Gladiator')])
+    results.append(['best actor genre', ds.getBestActorGenre(connection, 'Gladiator')])
     results.append(['best actor subgenre', ds.getBestActorPicSubgenre(connection, 'Gladiator')])
     results.append(['best actor critic score', ds.getBestActorPicCriticScore(connection, 'Gladiator')])
-    results.append(['best actor synopsis', ds.getBestPicActorSynopsis(connection, 'Gladiator')])
+    results.append(['best actor synopsis', ds.getBestActorSynopsis(connection, 'Gladiator')])
 
 
     results.append(['best actress picture', ds.getBestActressPic(connection, 2000)])
     results.append(['best actress name', ds.getBestActressName(connection, 2000)])
     results.append(['best actress rating', ds.getBestActressPicRating(connection, 'Gladiator')])
     results.append(['best actress duration', ds.getBestActressPicDuration(connection, 'Gladiator')])
-    results.append(['best actress genre', ds.getBestPicActressGenre(connection, 'Gladiator')])
+    results.append(['best actress genre', ds.getBestActressGenre(connection, 'Gladiator')])
     results.append(['best actress subgenre', ds.getBestActressPicSubgenre(connection, 'Gladiator')])
     results.append(['best actress critic score', ds.getBestActressPicCriticScore(connection, 'Gladiator')])
-    results.append(['best actress synopsis', ds.getBestPicActressSynopsis(connection, 'Gladiator')])
+    results.append(['best actress synopsis', ds.getBestActressSynopsis(connection, 'Gladiator')])
 
 
     results.append(['best director picture', ds.getBestDirectorPic(connection, 2000)])
     results.append(['best director name', ds.getBestDirectorName(connection, 2000)])
     results.append(['best director rating', ds.getBestDirectorPicRating(connection, 'Gladiator')])
     results.append(['best director duration', ds.getBestDirectorPicDuration(connection, 'Gladiator')])
-    results.append(['best director genre', ds.getBestPicDirectorGenre(connection, 'Gladiator')])
+    results.append(['best director genre', ds.getBestDirectorGenre(connection, 'Gladiator')])
     results.append(['best director subgenre', ds.getBestDirectorPicSubgenre(connection, 'Gladiator')])
     results.append(['best director critic score', ds.getBestDirectorPicCriticScore(connection, 'Gladiator')])
-    results.append(['best director synopsis', ds.getBestPicDirectorSynopsis(connection, 'Gladiator')])
+    results.append(['best director synopsis', ds.getBestDirectorSynopsis(connection, 'Gladiator')])
 
     for result in results:
         if result[1] is not None:
