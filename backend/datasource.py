@@ -989,7 +989,7 @@ def main():
     results.append(['best actress critic score', ds.getBestActressCriticScore(connection, actressPicture)])
     results.append(['best actress synopsis', ds.getBestActressPicSynopsis(connection, actressPicture)])
 
-    dirPicture = 'American Beauty'
+    dirPicture = ' American Beauty'
 
     results.append(['best director picture', ds.getBestDirectorPic(connection, year)])
     results.append(['best director name', ds.getBestDirectorName(connection, year)])
