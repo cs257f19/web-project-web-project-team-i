@@ -575,7 +575,7 @@ class DataSource:
         Returns a float value of the IMDb rating of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             Float value of Best Actress winning film.
@@ -598,7 +598,7 @@ class DataSource:
         Returns a int value of the duration of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             Int value of duration of Best Actress winning film.
@@ -621,7 +621,7 @@ class DataSource:
         Returns a string value of the genre of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             String value of genre of the Best Actress winning film.
@@ -644,7 +644,7 @@ class DataSource:
         Returns a string value of the subgenre of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             String value of subgenre of Best Actress winning film.
@@ -667,7 +667,7 @@ class DataSource:
         Returns a string value of the month of release of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             String value of month of release.
@@ -690,7 +690,7 @@ class DataSource:
         Returns a int value of the Metacritic score of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             Int value of Metacritic score.
@@ -713,7 +713,7 @@ class DataSource:
         Returns a string value of the synopsis of the Best Actress winning film.
 
         PARAMETERS:
-            actressFilm
+            String actressFilm, obtained from actressFilm column of SQL table
 
         RETURN:
             String value of synposis.
@@ -788,7 +788,7 @@ class DataSource:
         Returns a float value of the IMDb rating of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             Float value of IMDb rating of Best Director winning film.
@@ -811,7 +811,7 @@ class DataSource:
         Returns a int value of the duration of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             Int value of duration of Best Director winning film.
@@ -834,7 +834,7 @@ class DataSource:
         Returns a string value of the genre of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             String value of genre.
@@ -857,7 +857,7 @@ class DataSource:
         Returns a string value of the subgenre of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             String value of subgenre.
@@ -880,7 +880,7 @@ class DataSource:
         Returns a string value of the month of release of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             String value of month of release.
@@ -903,7 +903,7 @@ class DataSource:
         Returns a int value of the Metacritic score of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             Int value of Metacritic score.
@@ -926,7 +926,7 @@ class DataSource:
         Returns a string value of the synopsis of the Best Director winning film.
 
         PARAMETERS:
-            directorFilm
+            String directorFilm, obtained from directorFilm column of SQL table
 
         RETURN:
             String value of synposis.
