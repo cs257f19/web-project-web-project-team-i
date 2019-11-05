@@ -90,15 +90,15 @@ class DataSource:
 
     def getBestPicAvgScore(self, connection, start=0, end=0):
         '''
-                Returns a float of the average Metacritic score of Best Picture Winners from the specified starting year until the specified ending year
+        Returns a float of the average Metacritic score of Best Picture Winners from the specified starting year until the specified ending year
 
-                PARAMETERS:
-                    start = starting year, obtained from yearOfRelease column of SQL table
-                    end = ending year, obtained from yearOfRelease column of SQL table
+        PARAMETERS:
+            start = starting year, obtained from yearOfRelease column of SQL table
+            end = ending year, obtained from yearOfRelease column of SQL table
 
-                RETURN:
-                    float value of the average Metacritic score of Best Picture winner for the specified year range
-                '''
+        RETURN:
+            float value of the average Metacritic score of Best Picture winner for the specified year range
+        '''
         try:
             cursor = connection.cursor()
             query = "SELECT	criticScore FROM movies WHERE yearOfRelease BETWEEN " + str(start) + " AND " + str(end)
@@ -172,7 +172,7 @@ class DataSource:
         Returns an integer value of the running time of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table
 
         RETURN:
             Integer value of running time of Best Picture winner.
@@ -195,7 +195,7 @@ class DataSource:
         Returns a string value of the genre of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table
 
         RETURN:
             String of genre of Best Picture winner.
@@ -218,7 +218,7 @@ class DataSource:
         Returns a string value of the subgenre of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table
 
         RETURN:
             String value of subgenre of Best Picture winner.
@@ -241,7 +241,7 @@ class DataSource:
         Returns month of release of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            Stirng picture, obtained from picture column of SQL table
 
         RETURN:
             String value of release month of Best Picture winner.
@@ -264,7 +264,7 @@ class DataSource:
         Returns integer value of the Metacritic rating of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table.
 
         RETURN:
             Integer value of Metacritic rating of Best Picture winner.
@@ -287,7 +287,7 @@ class DataSource:
         Returns a string value of the synopsis of the Best Picture winner.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table
 
         RETURN:
             String value of synopsis of Best Picture winner.
@@ -310,7 +310,7 @@ class DataSource:
         Returns a string value of the Best Actor winning film in given year.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of name of film that won Best Actor in the given year.
@@ -336,7 +336,7 @@ class DataSource:
         Returns a string value of the Best Actor in given year.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of name of actor who won Best Actor in the given year.
@@ -362,7 +362,7 @@ class DataSource:
         Returns a float value of the IMDb rating of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             Float value of IMDb rating.
@@ -385,7 +385,7 @@ class DataSource:
         Returns an int value of the duration of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             Int value of duration.
@@ -408,7 +408,7 @@ class DataSource:
         Returns a string value of the genre of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             String value of genre.
@@ -431,7 +431,7 @@ class DataSource:
         Returns a string value of the subgenre of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             String value of subgenre.
@@ -454,7 +454,7 @@ class DataSource:
         Returns a string value of the release month of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             String value of release month.
@@ -477,7 +477,7 @@ class DataSource:
         Returns an int value of the Metacritic score of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             Int value of Metacritic score.
@@ -500,7 +500,7 @@ class DataSource:
         Returns a string value of the synopsis of the Best Actor winning film.
 
         PARAMETERS:
-            actorFilm
+            String actorFilm, obtained from actorFilm column of SQL table
 
         RETURN:
             String value of synposis.
@@ -523,7 +523,7 @@ class DataSource:
         Returns a string value of the Best Actress winning film.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of Best Actress winning film for the specified year.
@@ -549,7 +549,7 @@ class DataSource:
         Returns a string value of the name of the Best Actress winning actress.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of name of Best Actress winning actress.
@@ -736,7 +736,7 @@ class DataSource:
         Returns a string value of the Best Director winning film for a specified year.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of Best Director winning film for specific year.
@@ -762,7 +762,7 @@ class DataSource:
         Returns a string value of the name of the Best Director for a specific year.
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             String value of Best Director for a specific year.
