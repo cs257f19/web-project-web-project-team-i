@@ -149,11 +149,8 @@ class DataSource:
         try:
             cursor = connection.cursor()
             query = "SELECT rating FROM movies WHERE picture = '" + picture + "'"
-            print(query)
             cursor.execute(query)
-            print('query done')
             result = cursor.fetchall()
-            print(result)
             rating = result[0]
 
         except:
@@ -954,7 +951,7 @@ def main():
     results = []
 
     year = 2000
-    picture = ' Gladiator'
+    picture = 'Gladiator'
 
     start = 2000
     end = 2010
