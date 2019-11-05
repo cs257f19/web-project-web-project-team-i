@@ -37,10 +37,10 @@ class DataSource:
 
     def getBestPicture(self, connection, year):
         '''
-        Returns a list of all of the Best Picture winners from the specified starting year until the specified ending year.
+        Returns a list of all of the Best Picture winners from the specified starting year until the specified ending year
 
         PARAMETERS:
-            year
+            int year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             a string value of the Best Picture winner for the specified year
@@ -66,11 +66,11 @@ class DataSource:
 
     def getBestPicAvgRating(self, connection, start=0, end=0):
         '''
-        Returns a float of the average IMDB rating of Best Picture Winners from the specified starting year until the specified ending year.
+        Returns a float of the average IMDB rating of Best Picture Winners from the specified starting year until the specified ending year
 
         PARAMETERS:
-            start = starting year
-			end = ending year
+            int start = starting year, obtained from yearOfRelease column of SQL table
+			int end = ending year, obtained from yearOfRelease column of SQL table
 
         RETURN:
             float value of the average IMDB Rating of Best Picture winner for the specified year range
@@ -95,11 +95,11 @@ class DataSource:
 
     def getBestPicAvgScore(self, connection, start=0, end=0):
         '''
-                Returns a float of the average Metacritic score of Best Picture Winners from the specified starting year until the specified ending year.
+                Returns a float of the average Metacritic score of Best Picture Winners from the specified starting year until the specified ending year
 
                 PARAMETERS:
-                    start = starting year
-                    end = ending year
+                    start = starting year, obtained from yearOfRelease column of SQL table
+                    end = ending year, obtained from yearOfRelease column of SQL table
 
                 RETURN:
                     float value of the average Metacritic score of Best Picture winner for the specified year range
@@ -130,7 +130,7 @@ class DataSource:
         Returns an integer value of the number of nominations that the Best Picture winner earned.
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column in SQL table
 
         RETURN:
             Integer value for number of nominations earned
@@ -150,10 +150,10 @@ class DataSource:
 
     def getBestPicRating(self, picture):
         '''
-        Returns an integer value of the IMDb rating of the Best Picture winner.
+        Returns an integer value of the IMDb rating of the Best Picture winner
 
         PARAMETERS:
-            picture
+            String picture, obtained from picture column of SQL table
 
         RETURN:
             Integer value of IMDb rating of Best Picture winner.
