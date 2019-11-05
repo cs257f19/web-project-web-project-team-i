@@ -17,18 +17,11 @@ class DataSource:
 		'''
         try:
             connection = psycopg2.connect(host = "localhost",database='kuritar', user=user, password=password)
-            # cur = connection.cursor()
 
         except Exception as e:
             print("Connection error: ", e)
             exit()
         return connection
-        # finally:
-        #     if connection is not None:
-        #         connection.close()
-        #         print("Database connection closed.")
-        # return connection
-        #Make connection an instance variable
 
     def getBestPicture(self, connection, year):
         '''
@@ -994,12 +987,6 @@ def main():
     results.append(['best director subgenre', ds.getBestDirectorPicSubgenre(connection, 'Gladiator')])
     results.append(['best director critic score', ds.getBestDirectorPicCriticScore(connection, 'Gladiator')])
     results.append(['best director synopsis', ds.getBestPicDirectorSynopsis(connection, 'Gladiator')])
-
-
-    # picture = ds.getBestPicture(connection, 2000)
-    # avgRating = ds.getBestPicAvgRating(connection, 2000, 2010)
-    # avgScore = ds.getBestPicAvgScore(connection, 2000, 2010)
-    # nominations = ds.getBestPicNoms(connection, 'Gladiator')
 
     for result in results:
         if result[1] is not None:
