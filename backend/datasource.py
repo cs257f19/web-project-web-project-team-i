@@ -951,7 +951,7 @@ def main():
     results = []
 
     year = 2000
-    picture = ' Gladiator'
+    picture = 'Gladiator'
 
     start = 2000
     end = 2010
