@@ -39,11 +39,8 @@ class DataSource:
         try:
             cursor = connection.cursor()
             query = "SELECT picture FROM movies WHERE yearOfRelease = "  + str(yearOfRelease)
-            print(query)
             cursor.execute(query)
-            print('query done')
             result = cursor.fetchall()
-            print(result)
             picture = str(result[0])
 
 
@@ -129,8 +126,10 @@ class DataSource:
         try:
             cursor = connection.cursor()
             query = "SELECT nominations FROM movies WHERE picture = '" + picture + "'"
+            print(query)
             cursor.execute(query)
             result = cursor.fetchall()
+            print(result)
             nominations = result[0]
 
         except:
