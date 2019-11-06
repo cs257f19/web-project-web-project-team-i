@@ -38,9 +38,12 @@ class DataSource:
 
         try:
             cursor = connection.cursor()
-            query = "SELECT	picture FROM movies WHERE yearOfRelease = "  + str(yearOfRelease)
+            query = "SELECT picture FROM movies WHERE yearOfRelease = "  + str(yearOfRelease)
+            print(query)
             cursor.execute(query)
+            print('query done')
             result = cursor.fetchall()
+            print(result)
             picture = str(result[0])
 
 
@@ -65,7 +68,7 @@ class DataSource:
         '''
         try:
             cursor = connection.cursor()
-            query = "SELECT	rating FROM movies WHERE yearOfRelease BETWEEN "  + str(start) + " AND " + str(end)
+            query = "SELECT rating FROM movies WHERE yearOfRelease BETWEEN "  + str(start) + " AND " + str(end)
             cursor.execute(query)
             ratings = cursor.fetchall()
 
@@ -951,7 +954,7 @@ def main():
     results = []
 
     year = 2000
-    picture = 'Gladiator'
+    picture = ' Gladiator'
 
     start = 2000
     end = 2010
