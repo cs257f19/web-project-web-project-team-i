@@ -25,7 +25,7 @@ class DataSource:
 
     def getBestPicture(self, connection, year):
         '''
-        Returns a list of all of the Best Picture winners from the specified starting year until the specified ending year
+        Returns a list of all of the Best Picture winners from the specified year
 
         PARAMETERS:
             int year, obtained from yearOfRelease column of SQL table
@@ -951,21 +951,21 @@ def main():
     results = []
 
     year = 2000
-    # picture = ' Gladiator'
+    picture = ' Gladiator'
 
-    # start = 2000
-    # end = 2010
+    start = 2000
+    end = 2010
 
-    # results.append(['picture', ds.getBestPicture(connection, year)])
-    # results.append(['avgRating', ds.getBestPicAvgRating(connection, start, end)])
-    # results.append(['avgScore', ds.getBestPicAvgScore(connection, start, end)])
-    # results.append(['nominations', ds.getBestPicNoms(connection, picture)])
-    # results.append(['rating', ds.getBestPicRating(connection, picture)])
-    # results.append(['duration', ds.getBestPicDuration(connection, picture)])
-    # results.append(['genre', ds.getBestPicGenre(connection, picture)])
-    # results.append(['subgenre', ds.getBestPicSubgenre(connection, picture)])
-    # results.append(['critic score', ds.getBestPicCriticScore(connection, picture)])
-    # results.append(['synopsis', ds.getBestPicSynopsis(connection, picture)])
+    results.append(['picture', ds.getBestPicture(connection, year)])
+    results.append(['avgRating', ds.getBestPicAvgRating(connection, start, end)])
+    results.append(['avgScore', ds.getBestPicAvgScore(connection, start, end)])
+    results.append(['nominations', ds.getBestPicNoms(connection, picture)])
+    results.append(['rating', ds.getBestPicRating(connection, picture)])
+    results.append(['duration', ds.getBestPicDuration(connection, picture)])
+    results.append(['genre', ds.getBestPicGenre(connection, picture)])
+    results.append(['subgenre', ds.getBestPicSubgenre(connection, picture)])
+    results.append(['critic score', ds.getBestPicCriticScore(connection, picture)])
+    results.append(['synopsis', ds.getBestPicSynopsis(connection, picture)])
 
     # actorPicture = ' American Beauty'
 
@@ -978,27 +978,27 @@ def main():
     # results.append(['best actor critic score', ds.getBestActorPicCriticScore(connection, actorPicture)])
     # results.append(['best actor synopsis', ds.getBestActorPicSynopsis(connection, actorPicture)])
 
-    actressPicture = " Boys Don't Cry"
+    # actressPicture = " Boys Don't Cry"
 
-    results.append(['best actress picture', ds.getBestActressPic(connection, year)])
-    results.append(['best actress name', ds.getBestActressName(connection, year)])
-    results.append(['best actress rating', ds.getBestActressRating(connection, actressPicture)])
-    results.append(['best actress duration', ds.getBestActressPicDuration(connection, actressPicture)])
-    results.append(['best actress genre', ds.getBestActressPicGenre(connection, actressPicture)])
-    results.append(['best actress subgenre', ds.getBestActressPicSubgenre(connection, actressPicture)])
-    results.append(['best actress critic score', ds.getBestActressCriticScore(connection, actressPicture)])
-    results.append(['best actress synopsis', ds.getBestActressPicSynopsis(connection, actressPicture)])
+    # results.append(['best actress picture', ds.getBestActressPic(connection, year)])
+    # results.append(['best actress name', ds.getBestActressName(connection, year)])
+    # results.append(['best actress rating', ds.getBestActressRating(connection, actressPicture)])
+    # results.append(['best actress duration', ds.getBestActressPicDuration(connection, actressPicture)])
+    # results.append(['best actress genre', ds.getBestActressPicGenre(connection, actressPicture)])
+    # results.append(['best actress subgenre', ds.getBestActressPicSubgenre(connection, actressPicture)])
+    # results.append(['best actress critic score', ds.getBestActressCriticScore(connection, actressPicture)])
+    # results.append(['best actress synopsis', ds.getBestActressPicSynopsis(connection, actressPicture)])
 
-    dirPicture = ' American Beauty'
+    # dirPicture = ' American Beauty'
 
-    results.append(['best director picture', ds.getBestDirectorPic(connection, year)])
-    results.append(['best director name', ds.getBestDirectorName(connection, year)])
-    results.append(['best director rating', ds.getBestDirectorPicRating(connection, dirPicture)])
-    results.append(['best director duration', ds.getBestDirectorPicDuration(connection, dirPicture)])
-    results.append(['best director genre', ds.getBestDirectorPicGenre(connection, dirPicture)])
-    results.append(['best director subgenre', ds.getBestDirectorPicSubgenre(connection, dirPicture)])
-    results.append(['best director critic score', ds.getBestDirectorPicCriticScore(connection, dirPicture)])
-    results.append(['best director synopsis', ds.getBestDirectorPicSynopsis(connection, dirPicture)])
+    # results.append(['best director picture', ds.getBestDirectorPic(connection, year)])
+    # results.append(['best director name', ds.getBestDirectorName(connection, year)])
+    # results.append(['best director rating', ds.getBestDirectorPicRating(connection, dirPicture)])
+    # results.append(['best director duration', ds.getBestDirectorPicDuration(connection, dirPicture)])
+    # results.append(['best director genre', ds.getBestDirectorPicGenre(connection, dirPicture)])
+    # results.append(['best director subgenre', ds.getBestDirectorPicSubgenre(connection, dirPicture)])
+    # results.append(['best director critic score', ds.getBestDirectorPicCriticScore(connection, dirPicture)])
+    # results.append(['best director synopsis', ds.getBestDirectorPicSynopsis(connection, dirPicture)])
 
     for result in results:
         if result[1] is not None:
@@ -1007,6 +1007,9 @@ def main():
             print("The result was None.")
 
     connection.close()
+
+# imdb and critic score naming
+# exeption return None or exit()
 
 
 if __name__ == "__main__":
