@@ -969,7 +969,7 @@ def main():
     results.append(['critic score', ds.getBestPicCriticScore(connection, picture)])
     results.append(['synopsis', ds.getBestPicSynopsis(connection, picture)])
 
-    actorPicture = ' American Beauty'
+    actorPicture = 'American Beauty'
 
     results.append(['best actor picture', ds.getBestActorPic(connection, year)])
     results.append(['best actor name', ds.getBestActorName(connection, year)])
@@ -980,7 +980,7 @@ def main():
     results.append(['best actor critic score', ds.getBestActorPicCriticScore(connection, actorPicture)])
     results.append(['best actor synopsis', ds.getBestActorPicSynopsis(connection, actorPicture)])
 
-    actressPicture = " Boys Don't Cry"
+    actressPicture = "Boys Don't Cry"
 
     results.append(['best actress picture', ds.getBestActressPic(connection, year)])
     results.append(['best actress name', ds.getBestActressName(connection, year)])
@@ -991,7 +991,7 @@ def main():
     results.append(['best actress critic score', ds.getBestActressCriticScore(connection, actressPicture)])
     results.append(['best actress synopsis', ds.getBestActressPicSynopsis(connection, actressPicture)])
 
-    dirPicture = ' American Beauty'
+    dirPicture = 'American Beauty'
 
     results.append(['best director picture', ds.getBestDirectorPic(connection, year)])
     results.append(['best director name', ds.getBestDirectorName(connection, year)])
