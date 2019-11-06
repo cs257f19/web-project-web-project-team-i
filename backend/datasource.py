@@ -927,11 +927,8 @@ class DataSource:
         try:
             cursor = connection.cursor()
             query = "SELECT directorSynopsis FROM movies WHERE directorFilm='" + directorFilm + "'"
-            print(query)
             cursor.execute(query)
-            print('query done')
             result = cursor.fetchall()
-            print(result)
             synopsis = result[0]
 
         except:
