@@ -15,7 +15,7 @@ def homepage():
 
 @app.route('/about')
 def about():
-    return render_template('pages/about-data.html')
+    return render_template('about-data.html')
 
 @app.route('/actor/<year>')
 def actor():
