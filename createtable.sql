@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS movies;
-CREATE TABLE movies (
+DROP TABLE IF EXISTS films;
+CREATE TABLE films (
   picture text,
   yearOfRelease int,
   nominations int,
@@ -10,33 +10,16 @@ CREATE TABLE movies (
   releaseMonth text,
   criticScore int,
   synopsis text,
-  actorFilm text,
-  actorName text,
-  actorRating float(8),
-  actorDuration int,
-  actorGenre text,
-  actorSubgenre text,
-  actorReleaseMonth text,
-  actorCriticScore int,
-  actorSynopsis text,
-  actressFilm text,
-  actressName text,
-  actressNominations int,
-  actressRating float(8),
-  actressDuration int,
-  actressGenre text,
-  actressSubgenre text,
-  actressReleaseMonth text,
-  actressCriticScore int,
-  actressSynopsis text,
-  directorFilm text,
-  directorName text,
-  directorNominations int,
-  directorRating float(8),
-  directorDuration int,
-  directorGenre text,
-  directorSubgenre text,
-  directorReleaseMonth text,
-  directorCriticScore int,
-  directorSynopsis text
+);
+
+DROP TABLE IF EXISTS winners;
+CREATE TABLE winners (
+  yearOfRelease int,
+  bestPicture text,
+  bestActor text,
+  bestActress text,
+  bestDirector text,
+  actor text,
+  actress text,
+  director text
 );
