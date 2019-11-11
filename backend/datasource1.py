@@ -82,7 +82,7 @@ class DataSource:
             picture = self.execute_query(connection, query)
 
             item = "all_items"
-            print(picture[0])
+            print(picture[0][1:-2])
             result = self.get_by_picture(connection, item, picture)
         
         except Exception as e:
