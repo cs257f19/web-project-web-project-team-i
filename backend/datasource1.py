@@ -89,10 +89,10 @@ def main():
     category = "picture"
     item = "synopsis"
 
-    result_year = ds.get_year(connection, film, category)
+    result_year = ds.get_by_year(connection, year, category)
     results.append(["result_year", result_year])
-    result_film = ds.get_picture_name(connection, year, category)
-    results.append(["result_film", result_film])    
+    # result_film = ds.get_picture_name(connection, year, category)
+    # results.append(["result_film", result_film])    
     result_item = ds.get_by_picture(connection, item, film)
     results.append(["result_item", result_item])
 
