@@ -40,16 +40,12 @@ def greet(person):
     return render_template('greet.html',
                            person=person)
 
-@app.route('/fruit')
-def fruit():
-    myFruit = [
-        {'name': 'apple', 'rating': 7},
-        {'name': 'banana', 'rating': 5},
-        {'name': 'pear', 'rating': 4}
-    ]
+@app.route('/result')
+def picture():
+    bestPic = ds.get_by_year(category, year)
 
-    return render_template('fruit.html',
-                           fruits=myFruit)
+    return render_template('result.html',
+                           bestPic=bestPic)
 
 @app.route('/fruitImg/')
 def fruitImg():
