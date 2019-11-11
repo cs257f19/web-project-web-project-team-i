@@ -9,7 +9,7 @@ CREATE TABLE films (
   releaseMonth text,
   score int,
   synopsis text,
-),
+);
 
 DROP TABLE IF EXISTS winners;
 CREATE TABLE winners (
