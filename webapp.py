@@ -32,7 +32,7 @@ def picture():
     user = 'kuritar'
     password = 'lamp977python'
     connection = ds.connect(user, password)
-
+    print("here!")
     category = "picture"
     year = 2000
     bestPic = ds.get_by_year(connection, year, category)
