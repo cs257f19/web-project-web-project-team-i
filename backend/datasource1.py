@@ -89,7 +89,7 @@ class DataSource:
         RETURN:
             String xxxxxxxxxxxxxxx.
         '''
-        query = "SELECT	" + item + " FROM films WHERE picture = "  + picture
+        query = "SELECT	" + item + " FROM films WHERE picture = '"  + picture + "'"
         result = self.execute_query(connection, query)
 
         return result
