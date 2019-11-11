@@ -38,46 +38,26 @@ class DataSource:
             
 
 
-    def get_year(self, connection, film, category):
+    def get_by_year(self, connection, year, category):
         if category == "picture":
-            column = "picture"
+            award = "bestPicture"
+            person = ""
         elif category == "actor":
-            column = "actor"
+            award = "bestActor"
+            person = " AND actor"
         elif category == "actress":
-            column = "actress"
+            award = "bestActress"
+            person = " AND actress"
         elif category == "director":
-            column = "director"
+            award = "bestDirector"
+            person = " AND director"
 
-        query = "SELECT yearOfRelease FROM winners WHERE picture = '"  + film + "' AND " + column + " = " + category
-        year = self.execute_query(connection, query)
+        query = "SELECT " + award + person + " FROM winners WHERE yearOfRelease = " + year
+        result = self.execute_query(connection, query)
 
-        return year
+        return result
 
-    def get_picture_name(self, connection, year, category):
-        '''
-        Returns a xxxxxxxxxxx.
 
-        PARAMETERS:
-            int xxxxxxxxxxxx
-
-        RETURN:
-            String xxxxxxxxxxxxxxx.
-        '''
-        yearOfRelease = year - 1
-
-        if category == "picture":
-            column = "picture"
-        elif category == "actor":
-            column = "actor"
-        elif category == "actress":
-            column = "actress"
-        elif category == "director":
-            column = "director"
-
-        query = "SELECT picture FROM winners WHERE yearOfRelease = "  + str(yearOfRelease) + " AND " + column + " = " + category
-        picture = self.execute_query(connection, query)
-
-        return picture
 
     def get_by_picture(self, connection, item, picture):
         '''
@@ -89,7 +69,7 @@ class DataSource:
         RETURN:
             String xxxxxxxxxxxxxxx.
         '''
-        query = "SELECT	" + item + " FROM films WHERE picture = '"  + picture + "'"
+        query = "SELECT " + item + " FROM films WHERE picture = '"  + picture + "'"
         result = self.execute_query(connection, query)
 
         return result
@@ -104,7 +84,7 @@ def main():
 
     results = []
 
-    film = " The Moon Light"
+    film = "The Moon Light"
     year = 2000
     category = "picture"
     item = "synopsis"
