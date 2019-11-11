@@ -82,7 +82,7 @@ class DataSource:
             picture = self.execute_query(connection, query)
 
             item = "all_items"
-            result = self.get_by_picture(connection, item, picture)
+            result = self.get_by_picture(connection, item, picture[0][0])
         
         except Exception as e:
             print("Connection error: ", e)
