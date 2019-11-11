@@ -38,7 +38,7 @@ class DataSource:
             
 
 
-    def get_by_year(self, connection, year, category):
+    def get_winner(self, connection, year, category):
         try:
             if category == "picture":
                 award = "bestPicture"
@@ -60,9 +60,36 @@ class DataSource:
             print("Connection error: ", e)
             return None
 
-
         return result
 
+
+
+    def get_by_year(self, connection, year, category):
+        try:
+            if category == "picture":
+                award = "bestPicture"
+            elif category == "actor":
+                award = "bestActor"
+                person = ", actor"
+            elif category == "actress":
+                award = "bestActress"
+                person = ", actress"
+            elif category == "director":
+                award = "bestDirector"
+                person = ", director"
+
+            query = "SELECT " + award + " FROM winners WHERE yearOfRelease = " + str(year)
+            picture = self.execute_query(connection, query)
+
+            item = "all_items"
+
+            result = self.get_by_picture(connection, item, picture)
+        
+        except Exception as e:
+            print("Connection error: ", e)
+            return None
+
+        return result
 
 
 
@@ -78,6 +105,8 @@ class DataSource:
             String xxxxxxxxxxxxxxx.
         '''
         try:
+            if item == "all_items":
+                item = "*"
             query = "SELECT " + item + " FROM films WHERE picture = '"  + picture + "'"
             result = self.execute_query(connection, query)
 
@@ -103,17 +132,17 @@ def main():
     category = "actor"
     item = "synopsis"
 
-    result_year = ds.get_by_year(connection, year, category)
-    results.append(["result_year", result_year])
-    # result_film = ds.get_picture_name(connection, year, category)
-    # results.append(["result_film", result_film])    
+    result_winner = ds.get_winner(connection, year, category)
+    results.append(["result_winner", result_winner])
+    result_film = ds.get_by_year(connection, year, category)
+    results.append(["result_film", result_film])    
     result_item = ds.get_by_picture(connection, item, film)
     results.append(["result_item", result_item])
 
 
     for result in results:
         if result is not None:
-            print("Query results: " +  str(result[1]))
+            print("Query results: " + str(result[0]) +  str(result[1]))
         else:
             print("The result was None.")
 
