@@ -39,24 +39,31 @@ class DataSource:
 
 
     def get_by_year(self, connection, year, category):
-        if category == "picture":
-            award = "bestPicture"
-            person = ""
-        elif category == "actor":
-            award = "bestActor"
-            person = " AND actor"
-        elif category == "actress":
-            award = "bestActress"
-            person = " AND actress"
-        elif category == "director":
-            award = "bestDirector"
-            person = " AND director"
+        try:
+            if category == "picture":
+                award = "bestPicture"
+                person = ""
+            elif category == "actor":
+                award = "bestActor"
+                person = " AND actor"
+            elif category == "actress":
+                award = "bestActress"
+                person = " AND actress"
+            elif category == "director":
+                award = "bestDirector"
+                person = " AND director"
 
-        query = "SELECT " + award + person + " FROM winners WHERE yearOfRelease = " + str(year)
-        print(query)
-        result = self.execute_query(connection, query)
+            query = "SELECT " + award + person + " FROM winners WHERE yearOfRelease = " + str(year)
+            result = self.execute_query(connection, query)
+        
+        except Exception as e:
+            print("Connection error: ", e)
+            return None
+
 
         return result
+
+
 
 
 
@@ -70,9 +77,14 @@ class DataSource:
         RETURN:
             String xxxxxxxxxxxxxxx.
         '''
-        query = "SELECT " + item + " FROM films WHERE picture = '"  + picture + "'"
-        print(query)
-        result = self.execute_query(connection, query)
+        try:
+            query = "SELECT " + item + " FROM films WHERE picture = '"  + picture + "'"
+            result = self.execute_query(connection, query)
+
+
+        except Exception as e:
+            print("Connection error: ", e)
+            return None
 
         return result
 
@@ -86,9 +98,9 @@ def main():
 
     results = []
 
-    film = "The Moon Light"
+    film = "Moonlight"
     year = 2000
-    category = "picture"
+    category = "actor"
     item = "synopsis"
 
     result_year = ds.get_by_year(connection, year, category)
