@@ -9,7 +9,7 @@ import json
 import sys
 
 
-
+app = flask.Flask(__name__)
 
 @app.route('/')
 def homepage():
@@ -27,7 +27,6 @@ def homepage():
 @app.route('/result')
 def picture():
 
-    app = flask.Flask(__name__)
     ds = backend.datasource.DataSource()
 
     user = 'kuritar'
