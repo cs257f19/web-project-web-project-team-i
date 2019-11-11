@@ -52,7 +52,7 @@ class DataSource:
             award = "bestDirector"
             person = " AND director"
 
-        query = "SELECT " + award + person + " FROM winners WHERE yearOfRelease = " + year
+        query = "SELECT " + award + person + " FROM winners WHERE yearOfRelease = " + str(year)
         result = self.execute_query(connection, query)
 
         return result
