@@ -45,13 +45,13 @@ class DataSource:
                 person = ""
             elif category == "actor":
                 award = "bestActor"
-                person = " AND actor"
+                person = ", actor"
             elif category == "actress":
                 award = "bestActress"
-                person = " AND actress"
+                person = ", actress"
             elif category == "director":
                 award = "bestDirector"
-                person = " AND director"
+                person = ", director"
 
             query = "SELECT " + award + person + " FROM winners WHERE yearOfRelease = " + str(year)
             result = self.execute_query(connection, query)
