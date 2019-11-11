@@ -26,7 +26,15 @@ class DataSource:
         return connection
 
     def execute_query(self, connection, query):
-        try:
+        '''
+        Returns a xxxxxxxxxxx.
+
+        PARAMETERS:
+            int xxxxxxxxxxxx
+
+        RETURN:
+            String xxxxxxxxxxxxxxx.
+        '''        try:
             cursor = connection.cursor()
             cursor.execute(query)
             result = cursor.fetchall()
@@ -39,7 +47,15 @@ class DataSource:
 
 
     def get_winner(self, connection, year, category):
-        try:
+        '''
+        Returns a xxxxxxxxxxx.
+
+        PARAMETERS:
+            int xxxxxxxxxxxx
+
+        RETURN:
+            String xxxxxxxxxxxxxxx.
+        '''        try:
             if category == "picture":
                 award = "bestPicture"
                 person = ""
@@ -65,6 +81,15 @@ class DataSource:
 
 
     def get_by_year(self, connection, year, category):
+        '''
+        Returns a xxxxxxxxxxx.
+
+        PARAMETERS:
+            int xxxxxxxxxxxx
+
+        RETURN:
+            String xxxxxxxxxxxxxxx.
+        '''
         try:
             if category == "picture":
                 award = "bestPicture"
@@ -107,7 +132,6 @@ class DataSource:
             if item == "all_items":
                 item = "*"
             query = "SELECT " + item + " FROM films WHERE picture = '"  + picture + "'"
-            print(query)
             result = self.execute_query(connection, query)
 
 
