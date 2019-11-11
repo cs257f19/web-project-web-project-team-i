@@ -53,6 +53,7 @@ class DataSource:
             person = " AND director"
 
         query = "SELECT " + award + person + " FROM winners WHERE yearOfRelease = " + str(year)
+        print(query)
         result = self.execute_query(connection, query)
 
         return result
@@ -70,6 +71,7 @@ class DataSource:
             String xxxxxxxxxxxxxxx.
         '''
         query = "SELECT " + item + " FROM films WHERE picture = '"  + picture + "'"
+        print(query)
         result = self.execute_query(connection, query)
 
         return result
