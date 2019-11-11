@@ -8,7 +8,7 @@ CREATE TABLE films (
   subgenre text,
   releaseMonth text,
   score int,
-  synopsis text,
+  synopsis text
 );
 
 DROP TABLE IF EXISTS winners;
