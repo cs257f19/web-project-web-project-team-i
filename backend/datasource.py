@@ -134,6 +134,7 @@ class DataSource:
             if item == "all_items":
                 item = "*"
             query = "SELECT " + item + " FROM films WHERE picture = '"  + picture + "'"
+            print(query)
             result = self.execute_query(connection, query)
 
 
