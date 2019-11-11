@@ -34,7 +34,8 @@ class DataSource:
 
         RETURN:
             String xxxxxxxxxxxxxxx.
-        '''        try:
+        '''        
+        try:
             cursor = connection.cursor()
             cursor.execute(query)
             result = cursor.fetchall()
@@ -55,7 +56,8 @@ class DataSource:
 
         RETURN:
             String xxxxxxxxxxxxxxx.
-        '''        try:
+        '''        
+        try:
             if category == "picture":
                 award = "bestPicture"
                 person = ""
