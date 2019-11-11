@@ -74,7 +74,7 @@ class DataSource:
         elif category == "director":
             column = "director"
 
-        query = "SELECT picture FROM winners WHERE yearOfRelease = "  + yearOfRelease + " AND " + str(column) + " = " + str(category)
+        query = "SELECT picture FROM winners WHERE yearOfRelease = "  + str(yearOfRelease) + " AND " + column + " = " + category
         picture = self.execute_query(connection, query)
 
         return picture
