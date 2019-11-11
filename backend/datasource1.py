@@ -82,7 +82,6 @@ class DataSource:
             picture = self.execute_query(connection, query)
 
             item = "all_items"
-            print(picture[0][0])
             result = self.get_by_picture(connection, item, picture)
         
         except Exception as e:
@@ -108,6 +107,7 @@ class DataSource:
             if item == "all_items":
                 item = "*"
             query = "SELECT " + item + " FROM films WHERE picture = '"  + picture + "'"
+            print(query)
             result = self.execute_query(connection, query)
 
 
