@@ -109,13 +109,17 @@ def main():
     category = "picture"
     item = "synopsis"
 
-    reslut_year = ds.get_year(connection, film, category)
+    result_year = ds.get_year(connection, film, category)
+    results.append(["result_year", result_year])
     result_film = ds.get_picture_name(connection, year, category)
+    results.append(["result_film", result_film])    
     result_item = ds.get_by_picture(connection, item, film)
+    results.append(["result_item", result_item])
+
 
     for result in results:
-        if result[1] is not None:
-            print("Query results of " + result[0] + ": " +  str(result[1]))
+        if result is not None:
+            print("Query results: " +  str(result[1]))
         else:
             print("The result was None.")
 
