@@ -13,9 +13,9 @@ class DataSource:
             user - username, which is also the name of the database
             password - the password for this database on perlman
 
-        Returns: a database connection.
-        
-        Note: exits if a connection cannot be established.
+        Returns: a database connection
+
+        Note: exits if a connection cannot be established
         '''
         try:
             connection = psycopg2.connect(host = "localhost",database=user, user=user, password=password)
@@ -27,14 +27,14 @@ class DataSource:
 
     def execute_query(self, connection, query):
         '''
-        Returns a xxxxxxxxxxx.
+        Returns a string containing the result of the query
 
         PARAMETERS:
-            int xxxxxxxxxxxx
+            String query entered by user
 
         RETURN:
-            String xxxxxxxxxxxxxxx.
-        '''        
+            String of query result
+        '''
         try:
             cursor = connection.cursor()
             cursor.execute(query)
@@ -44,19 +44,20 @@ class DataSource:
             print("Connection error: ", e)
             return None
         return result
-            
+
 
 
     def get_winner(self, connection, year, category):
         '''
-        Returns a xxxxxxxxxxx.
+        Returns a string containing winners of the specified year and category
 
         PARAMETERS:
-            int xxxxxxxxxxxx
+            int year for the year of release to be examined
+            String category for the Oscar awards cateogry to be examined
 
         RETURN:
-            String xxxxxxxxxxxxxxx.
-        '''        
+            String containing name of picture and person that won the specified category in the specified year
+        '''
         try:
             if category == "picture":
                 award = "bestPicture"
@@ -73,7 +74,7 @@ class DataSource:
 
             query = "SELECT " + award + person + " FROM winners WHERE yearOfRelease = " + str(year)
             result = self.execute_query(connection, query)
-        
+
         except Exception as e:
             print("Connection error: ", e)
             return None
@@ -84,13 +85,14 @@ class DataSource:
 
     def get_by_year(self, connection, year, category):
         '''
-        Returns a xxxxxxxxxxx.
+        Returns a string containing winning pictures for the specified year and category
 
         PARAMETERS:
-            int xxxxxxxxxxxx
+            int year for the year of release to be examined
+            String category for the Oscar awards cateogry to be examined
 
         RETURN:
-            String xxxxxxxxxxxxxxx.
+            String containing names of pictures that won the specified category in the specified year
         '''
         try:
             if category == "picture":
@@ -110,7 +112,7 @@ class DataSource:
 
             item = "all_items"
             result = self.get_by_picture(connection, item, picture[0][0])
-        
+
         except Exception as e:
             print("Connection error: ", e)
             return None
@@ -122,13 +124,14 @@ class DataSource:
 
     def get_by_picture(self, connection, item, picture):
         '''
-        Returns a xxxxxxxxxxx.
+        Returns a string containing awards won by the specified picture.
 
         PARAMETERS:
-            int xxxxxxxxxxxx
+            String item
+            String picture for the picture to examine
 
         RETURN:
-            String xxxxxxxxxxxxxxx.
+            String containing all the awards won by the specified picture
         '''
         try:
             if item == "all_items":
@@ -162,7 +165,7 @@ def main():
     result_winner = ds.get_winner(connection, year, category)
     results.append(["result_winner", result_winner])
     result_film = ds.get_by_year(connection, year, category)
-    results.append(["result_film", result_film])    
+    results.append(["result_film", result_film])
     result_item = ds.get_by_picture(connection, item, film)
     results.append(["result_item", result_item])
 
