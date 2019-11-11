@@ -133,7 +133,7 @@ class DataSource:
         try:
             if item == "all_items":
                 item = "*"
-            query = "SELECT " + item + " FROM films WHERE picture = '"  + picture + "'"
+            query = "SELECT DISTINCT " + item + " FROM films WHERE picture = '"  + picture + "'"
             print(query)
             result = self.execute_query(connection, query)
 
