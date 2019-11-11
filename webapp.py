@@ -8,15 +8,7 @@ import backend.datasource
 import json
 import sys
 
-app = flask.Flask(__name__)
-ds = backend.datasource.DataSource()
 
-user = 'kuritar'
-password = 'lamp977python'
-connection = ds.connect(user, password)
-
-category = "picture"
-year = 2000
 
 
 @app.route('/')
@@ -34,6 +26,16 @@ def homepage():
 
 @app.route('/result')
 def picture():
+
+    app = flask.Flask(__name__)
+    ds = backend.datasource.DataSource()
+
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+    category = "picture"
+    year = 2000
     bestPic = ds.get_by_year(connection, year, category)
 
     return render_template('result.html',
