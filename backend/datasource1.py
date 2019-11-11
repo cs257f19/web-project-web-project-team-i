@@ -79,10 +79,11 @@ class DataSource:
                 person = ", director"
 
             query = "SELECT " + award + " FROM winners WHERE yearOfRelease = " + str(year)
+            print(query)
             picture = self.execute_query(connection, query)
 
             item = "all_items"
-
+            print(picture, item)
             result = self.get_by_picture(connection, item, picture)
         
         except Exception as e:
