@@ -2,13 +2,12 @@ DROP TABLE IF EXISTS films;
 CREATE TABLE films (
   picture text,
   yearOfRelease int,
-  nominations int,
   rating float(8),
-  duration int,
+  runtime int,
   genre text,
   subgenre text,
   releaseMonth text,
-  criticScore int,
+  score int,
   synopsis text,
 );
 
@@ -17,9 +16,9 @@ CREATE TABLE winners (
   yearOfRelease int,
   bestPicture text,
   bestActor text,
-  bestActress text,
-  bestDirector text,
   actor text,
+  bestActress text,
   actress text,
+  bestDirector text,
   director text
 );
