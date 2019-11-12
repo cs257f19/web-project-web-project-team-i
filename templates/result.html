@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Result</title>
+    <title>{{ year }} Oscar Winners</title>
 </head>
 <body>
-    <h1> {{ bestPic }}</h1>
-</body>
+        <h1>{{ year }} Oscar Winners</h1>
+        {% block content %}
+        <table>
+            <tr><th>Award</th><th>Film</th></tr>
+            {% for winner in winners %}
+                <tr><td>{{ winner.award }}</td><td>{{ winner.film }}</td></tr>
+            {% endfor %}
+        </table>
+        {% endblock %}
+    </body>
+    </html>
 </html>
