@@ -8,7 +8,14 @@
   <link rel="icon" href="{{ url_for('static', filename='img/head.jpg') }}">
 </head>
 
+
+
 <body>
+
+<div id="header">
+        {% include "common/header.html" %}
+</div>
+
 
  <!-- web form for user query --> 
   <form class="main-form" align="center" id="myForm" method="POST" target="_blank"> 
@@ -47,24 +54,10 @@
     </div> <!-- featured -->
   </div> <!-- main -->
 
-  <footer>
-    <div class ="topnav">
-      <input type="text" placeholder="Search">
-    </div>
-    <div></div>
-    <div></div>
-
-    <div>About</div>
-
-    <div>Data</div>
-
-    <div>Terms of Use</div>
-
-    <div>Contact Us</div>
-
-    <div>&copy;Oscar Winners</div>
-
-  </footer>
+  <div id="footer">
+      <!-- <iframe src="../common/footer.html" width="100%" height="100%"></iframe> -->
+      {% include "common/footer.html" %}
+</div>
 
 </body>
 </html>

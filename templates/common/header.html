@@ -25,10 +25,10 @@
         <div class="w3-dropdown-hover">
           <button class="w3-button">Winners by Category</button>
           <div class="w3-dropdown-content w3-bar-block w3-border">
-            <a href="#" class="w3-bar-item w3-button">Director</a>
+            <a href="{{ url_for('pictures') }}" class="w3-bar-item w3-button">Picture</a>
             <a href="{{ url_for('actors') }}" class="w3-bar-item w3-button">Actor</a>
-            <a href="#" class="w3-bar-item w3-button">Actress</a>
-            <a href="#" class="w3-bar-item w3-button">Picture</a>
+            <a href="{{ url_for('actesses') }}" class="w3-bar-item w3-button">Actress</a>
+            <a href="{{ url_for('directors') }}" class="w3-bar-item w3-button">Director</a>
             <!-- <a href="#" class="w3-bar-item w3-button">Cinematography</a> -->
           </div>
         </div>

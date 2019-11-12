@@ -40,10 +40,22 @@ def my_form_post():
                            year=year)
 
 
+@app.route('/pictures')
+def pictures():
+    return render_template('pictures.html')
 
 @app.route('/actors')
 def actors():
     return render_template('actors.html')
+
+@app.route('/actresses')
+def actresses():
+    return render_template('actresses.html')
+
+@app.route('/directors')
+def directors():
+    return render_template('directors.html')
+
 
 
 @app.route('/about_oscars')
