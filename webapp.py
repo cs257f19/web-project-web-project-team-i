@@ -46,7 +46,7 @@ def my_form_post():
                            winners=winners,
                            year=year)
 
-@app.route('/data')
+@app.route('/about_data')
 def about_data():
     return render_template('about-data.html')
 
