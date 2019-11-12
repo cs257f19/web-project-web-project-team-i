@@ -23,12 +23,9 @@ def my_form_post():
     password = 'lamp977python'
     connection = ds.connect(user, password)
     winners = []
-    # picCategory = "picture"
-    # actorCategory = "actor"
-    # actressCategory = "actress"
-    # directorCategory = "director"
     year = request.form['year']
     categories = ["picture","actor","actress","director"]
+
     for category in categories:
         result = ds.get_winner(connection, year, category)
         film = result[0][0]
@@ -37,14 +34,29 @@ def my_form_post():
         else:
             person = ""
         winners.append({"award":category, "film":film, "person":person})
-    # bestPic = ds.get_by_year(connection, year, picCategory)
-    # bestActor = ds.get_by_year(connection, year, actorCategory)
-    # bestActress = ds.get_by_year(connection, year, actressCategory)
-    # bestDirector = ds.get_by_year(connection, year, directorCategory)
-
+        
     return render_template('result.html',
                            winners=winners,
                            year=year)
+
+
+
+@app.route('/actor')
+def about_oscars():
+    return render_template('actors.html')
+
+
+
+
+
+@app.route('/about_oscars')
+def about_oscars():
+    return render_template('about-oscars.html')
+
+@app.route('/winners2020')
+def winners2020():
+    return render_template('winners2020.html')
+
 
 @app.route('/about_data')
 def about_data():
