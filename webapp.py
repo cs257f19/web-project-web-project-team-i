@@ -27,7 +27,7 @@ def my_form_post():
     actressCategory = "actress"
     directorCategory = "director"
     year = request.form['year']
-    bestPic = ds.get_by_year(connection, year, category)
+    bestPic = ds.get_by_year(connection, year, picCategory)
     bestActor = ds.get_by_year(connection, year, actorCategory)
     bestActress = ds.get_by_year(connection, year, actressCategory)
     bestDirector = ds.get_by_year(connection, year, directorCategory)
