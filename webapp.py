@@ -15,6 +15,20 @@ app = flask.Flask(__name__)
 def homepage():
     return render_template('index.html')
 
+@app.route('/', methods=['POST'])
+def my_form_post():
+    ds = backend.datasource.DataSource()
+
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+    category = "picture"
+    year = request.form['year']
+    bestPic = ds.get_by_year(connection, year, category)
+
+    return render_template('result.html',
+                           bestPic=bestPic)
+
 # @app.route('/about-data')
 # def about():
 #     return render_template('pages/about-data.html')
