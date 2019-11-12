@@ -46,32 +46,11 @@ def my_form_post():
                            winners=winners,
                            year=year)
 
-# @app.route('/about-data')
-# def about():
-#     return render_template('pages/about-data.html')
-
-# @app.route('/actor/<year>')
-# def actor():
-#     return render_template('pages/actor.html', year=year)
-@app.route('/show_data', methods=['POST'])
-def show_data():
-    category = request.form['Query']
+@app.route('/data')
+def about():
+    return render_template('about-data.html')
 
 
-@app.route('/result')
-def picture():
-
-    ds = backend.datasource.DataSource()
-
-    user = 'kuritar'
-    password = 'lamp977python'
-    connection = ds.connect(user, password)
-    category = "picture"
-    year = 2000
-    bestPic = ds.get_by_year(connection, year, category)
-
-    return render_template('result.html',
-                           bestPic=bestPic)
 
 
 if __name__ == '__main__':
