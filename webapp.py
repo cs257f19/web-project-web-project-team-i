@@ -22,12 +22,22 @@ def my_form_post():
     user = 'kuritar'
     password = 'lamp977python'
     connection = ds.connect(user, password)
-    category = "picture"
+    picCategory = "picture"
+    actorCategory = "actor"
+    actressCategory = "actress"
+    directorCategory = "director"
     year = request.form['year']
     bestPic = ds.get_by_year(connection, year, category)
+    bestActor = ds.get_by_year(connection, year, actorCategory)
+    bestActress = ds.get_by_year(connection, year, actressCategory)
+    bestDirector = ds.get_by_year(connection, year, directorCategory)
 
     return render_template('result.html',
-                           bestPic=bestPic)
+                           bestPic=bestPic,
+                           bestActor=bestActor,
+                           bestActress=bestActress,
+                           bestDirector=bestDirector,
+                           year=year)
 
 # @app.route('/about-data')
 # def about():
