@@ -120,6 +120,11 @@ header .w3-button a {
   margin-right: 15px;
 }
 
+#actor .best-actor-bio {
+  position: absolute;
+  top: 380px;
+}
+
 .sidenav {
   background-color: rgba(218, 165, 32, 0.623);
   height: 100%;
