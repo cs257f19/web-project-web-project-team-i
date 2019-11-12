@@ -61,6 +61,7 @@ header .w3-button a {
   font-family: Georgia, 'Times New Roman', Times, serif;
   display: inline-block;
   padding: 50px;
+  top: 200px;
   width: 100%;
   position: relative;
 }
@@ -191,11 +192,11 @@ header .w3-button a {
 
 footer{
   background-color: goldenrod;
-  position: fixed;
-  bottom: 0px;
+  position: relative;
+  width: 100%;
+  top: 150px;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
-
 }
 
 /* footer #topnav{
