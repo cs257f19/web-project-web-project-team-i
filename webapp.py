@@ -47,7 +47,7 @@ def my_form_post():
                            year=year)
 
 @app.route('/data')
-def about():
+def about_data():
     return render_template('about-data.html')
 
 
