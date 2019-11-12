@@ -41,12 +41,9 @@ def my_form_post():
 
 
 
-@app.route('/actor')
-def about_oscars():
+@app.route('/actors')
+def actors():
     return render_template('actors.html')
-
-
-
 
 
 @app.route('/about_oscars')
@@ -56,7 +53,6 @@ def about_oscars():
 @app.route('/winners2020')
 def winners2020():
     return render_template('winners2020.html')
-
 
 @app.route('/about_data')
 def about_data():
