@@ -120,21 +120,22 @@ header .w3-button a {
 }
 
 .sidenav {
-  height: auto;
-  width: 190px;
+  background-color: rgba(218, 165, 32, 0.623);
+  height: 100%;
+  width: 285px;
   position: fixed;
-  z-index: 1;
-  top: 180px;
-  left: 10px;
-  background-color: goldenrod;
+  z-index: -1;
+  top: 161px;
+  left: -20px;
   overflow-x: auto;
   margin: 20px;
-  padding: 10px;
+  padding: 50px 20px;
+  text-align: right;
 }
 
 .sidenav .title{
   font-size: 16px;
-  color: darkslategray;
+  color: white;
   margin-bottom: 10px;
 }
 
@@ -142,7 +143,7 @@ header .w3-button a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 16px;
-  color: #818181;
+  color: #e0e0e0;
   display: block;
 }
 
