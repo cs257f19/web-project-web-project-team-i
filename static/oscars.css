@@ -4,9 +4,11 @@ body {
 }
 
 header {
-  position: relative;
+  position: fixed;
   top: 0px;
   padding: 40px;
+  margin-bottom: 50px;
+  z-index: 10;
   background-color: goldenrod;
   width: 100%;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -16,12 +18,12 @@ header {
   text-decoration: none;
 }
 
-#header iframe{
+/* #header iframe{
   border: 0px solid white;
   position: relative;
   top: 0px;
   height: -webkit-fill-available;
-}
+} */
 
 
 #title{
@@ -55,10 +57,12 @@ header .w3-button a {
 }
 
 .main {
-  padding: 100px;
   vertical-align: middle;
   font-family: Georgia, 'Times New Roman', Times, serif;
-
+  display: inline-block;
+  padding: 50px;
+  width: 100%;
+  position: relative;
 }
 
 .homepage-graph {
@@ -144,12 +148,7 @@ header .w3-button a {
   color: #f1f1f1;
 }
 
-.main {
-  padding: 50px;
-  width: 100%;
-  position: relative;
-  /* height: 800px; */
-}
+
 
 .about-data {
   text-align: center;
