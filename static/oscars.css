@@ -14,7 +14,7 @@ header {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.header a {
+header a {
   text-decoration: none;
 }
 
@@ -191,37 +191,27 @@ header .w3-button a {
 
 footer{
   background-color: goldenrod;
-  position: relative;
-  top: 0px;
+  position: fixed;
+  bottom: 0px;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
 
-footer #topnav{
+/* footer #topnav{
   position: relative;
   right: 0px;
   bottom: 0px;
   display: contents;
   float: inherit;
-}
+} */
 
 footer div{
   padding: 10px;
 }
 
-#footer { 
-  position: relative;
-  top: 100px;
-}
 
-.footer a {
+footer a {
   text-decoration: none;
 }
 
-#footer iframe{
-  border: 0px solid white;
-  position: relative;
-  top: 100px;
-  height: -webkit-fill-available;
-}
