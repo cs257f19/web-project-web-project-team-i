@@ -35,7 +35,7 @@ def my_form_post():
         if category != "picture":
             person = result[0][1]
         else:
-            perosn = ""
+            person = ""
         winners.append({"award":category, "film":film, "person":person})
     # bestPic = ds.get_by_year(connection, year, picCategory)
     # bestActor = ds.get_by_year(connection, year, actorCategory)
