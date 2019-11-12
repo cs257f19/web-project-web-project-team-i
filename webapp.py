@@ -32,7 +32,7 @@ def my_form_post():
     for category in categories:
         result = ds.get_winner(connection, year, category)
         film = result[0][0]
-        if result[0][1] != None:
+        if category != "picture":
             person = result[0][1]
         else:
             perosn = ""
