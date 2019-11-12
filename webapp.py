@@ -7,6 +7,7 @@ from flask import render_template
 import backend.datasource
 import json
 import sys
+from wtforms import Form
 
 
 app = flask.Flask(__name__)
@@ -22,6 +23,9 @@ def homepage():
 # @app.route('/actor/<year>')
 # def actor():
 #     return render_template('pages/actor.html', year=year)
+@app.route('/show_data', methods=['POST'])
+def show_data():
+    category = request.form['Query']
 
 
 @app.route('/result')
