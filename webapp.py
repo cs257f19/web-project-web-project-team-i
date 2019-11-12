@@ -48,6 +48,9 @@ def my_form_post():
 # @app.route('/actor/<year>')
 # def actor():
 #     return render_template('pages/actor.html', year=year)
+@app.route('/show_data', methods=['POST'])
+def show_data():
+    category = request.form['Query']
 
 
 @app.route('/result')
