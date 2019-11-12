@@ -28,7 +28,7 @@
         <a href="pages/actors.html" class="w3-bar-item w3-button">Actor</a>
         <a href="#" class="w3-bar-item w3-button">Actress</a>
         <a href="#" class="w3-bar-item w3-button">Picture</a>
-        <a href="#" class="w3-bar-item w3-button">Cinematography</a>
+        <!-- <a href="#" class="w3-bar-item w3-button">Cinematography</a> -->
       </div>
     </div>
     
@@ -50,39 +50,18 @@
     
     <button class="w3-button">About the Oscars</button>
     <button class="w3-button">Potential 2020 Winners</button>
-    <button class="w3-button">Surveys</button>
+    <!-- <button class="w3-button">Surveys</button> -->
     <button class="w3-button"><a href="{{ url_for('about_data') }}">About the Data</a></button>
     
   </header>
 
  <!-- web form for user query --> 
-  <form align="center" 
-      id="myForm" 
-      method="POST" 
-      target="_blank"> 
-    Type in a year between 1927 to 2018 that you want to see the oscar winners: 
-    <br> 
-    <input type="text"
-        name="year" 
-        placeholder="Please type in a year"> 
-    <br> 
+  <form class="main-form" align="center" id="myForm" method="POST" target="_blank"> 
+    <div>Type in a year between 1927 to 2018 that you want to see the oscar winners: </div>
+    <input type="text" name="year" placeholder="Please type in a year"> 
     <input type = "submit">
   </form> 
-  
-  <!-- <p id="form" 
-       style="color:green;  
-              font-size:30px;"> 
-    </p>  -->
-  
-    <!-- <script> 
-        function accessForm() {
-            var txt = document.getElementById( 
-              "myForm").id; 
-            
-            document.getElementById( 
-              "form").innerHTML = txt; 
-        } 
-    </script>  -->
+
 
   <div class="main">
     <!-- featured data analysis -->

@@ -50,6 +50,10 @@ header .w3-button a {
   text-decoration: none;
 } */
 
+.main-form {
+  padding: 20px;
+}
+
 .main {
   padding: 100px;
   vertical-align: middle;
