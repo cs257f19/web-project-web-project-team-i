@@ -15,10 +15,10 @@
 <div id="header">
         {% include "common/header.html" %}
 </div>
-<div class="result">
+<div>
         <h1>{{ year }} Oscar Winners</h1>
         {% block content %}
-        <table>
+        <table class="result">
             <tr><th>Award</th><th>Film</th><th>Person</th></tr>
             {% for winner in winners %}
                 <tr><td>{{ winner.award }}</td><td>{{ winner.film }}</td><td>{{ winner.person }}</td></tr>
