@@ -179,6 +179,11 @@ header .w3-button a {
   margin: 25px;
 }
 
+table {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 
 /* .terms {
   position: relative;
