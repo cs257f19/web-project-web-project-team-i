@@ -143,7 +143,6 @@ class DataSource:
             if item == "all_items":
                 item = "*"
             query = "SELECT DISTINCT " + item + " FROM films WHERE picture = '"  + picture + "'"
-            print(query)
             result = self.execute_query(connection, query)
 
 
@@ -164,7 +163,7 @@ def main():
     results = []
 
     film = "Moonlight"
-    year = 2000
+    year = 0
     category = "actor"
     item = "synopsis"
 
