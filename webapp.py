@@ -53,7 +53,16 @@ def pictures():
 
 @app.route('/actors')
 def actors():
-    return render_template('actors.html')
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+    actors = []
+    # year = request.form['year']
+    categories = ["picture","actor","actress","director"]
+
+    return render_template('actors.html', actors=actors)
 
 @app.route('/actresses')
 def actresses():

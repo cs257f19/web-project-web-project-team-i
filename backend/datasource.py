@@ -106,8 +106,14 @@ class DataSource:
             elif category == "director":
                 award = "bestDirector"
                 person = ", director"
+            
+            if year < 2018 and year > 1927:
+                year_query = " WHERE yearOfRelease = " + str(year)
+            else:
+                year_query = ""
 
-            query = "SELECT " + award + " FROM winners WHERE yearOfRelease = " + str(year)
+
+            query = "SELECT " + award + " FROM winners" + year_query
             picture = self.execute_query(connection, query)
 
             item = "all_items"
