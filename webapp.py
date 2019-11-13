@@ -29,19 +29,19 @@ def my_form_post():
     if int(year) < 1927 or int(year) > 2018:
         flash('Your year is out of the range.')
         return redirect(url_for('homepage'))
-
-    for category in categories:
-        result = ds.get_winner(connection, year, category)
-        film = result[0][0]
-        if category != "picture":
-            person = result[0][1]
-        else:
-            person = ""
-        winners.append({"award":category, "film":film, "person":person})
-        
-    return render_template('result.html',
-                           winners=winners,
-                           year=year)
+    else:
+        for category in categories:
+            result = ds.get_winner(connection, year, category)
+            film = result[0][0]
+            if category != "picture":
+                person = result[0][1]
+            else:
+                person = ""
+            winners.append({"award":category, "film":film, "person":person})
+            
+        return render_template('result.html',
+                            winners=winners,
+                            year=year)
 
 
 @app.route('/pictures')
