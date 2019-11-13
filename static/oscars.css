@@ -192,12 +192,6 @@ header .w3-button a {
 }
 
 
-/* .terms {
-  position: relative;
-  bottom: 20px;
-} */
-
-
 footer{
   background-color: goldenrod;
   position: relative;
@@ -207,13 +201,6 @@ footer{
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* footer #topnav{
-  position: relative;
-  right: 0px;
-  bottom: 0px;
-  display: contents;
-  float: inherit;
-} */
 
 footer div{
   padding: 10px;
@@ -224,6 +211,7 @@ footer a {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 /* result page */
 .result {
   border:1px solid black;
@@ -231,3 +219,15 @@ footer a {
   margin-right:auto;
   margin-top:50px;
 }
+||||||| merged common ancestors
+=======
+
+
+/* result page */
+.result {
+  border:1px solid black;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:50px;
+}
+>>>>>>> f7aba9155bd07f2f190921fede48f189f99460a5

@@ -72,7 +72,14 @@ class DataSource:
                 award = "bestDirector"
                 person = ", director"
 
-            query = "SELECT " + award + person + " FROM winners WHERE yearOfRelease = " + str(year)
+            if year > 1927 and year < 2018:
+                get_year = ""
+                year_query =  " WHERE yearOfRelease = " + str(year)
+            else:
+                get_year = ", yearOfRelease"
+                year_query = ""
+
+            query = "SELECT " + award + person + get_year + " FROM winners" + year_query
             result = self.execute_query(connection, query)
 
         except Exception as e:
@@ -106,6 +113,7 @@ class DataSource:
             elif category == "director":
                 award = "bestDirector"
                 person = ", director"
+                
 
             query = "SELECT " + award + " FROM winners WHERE yearOfRelease = " + str(year)
             picture = self.execute_query(connection, query)
@@ -137,7 +145,6 @@ class DataSource:
             if item == "all_items":
                 item = "*"
             query = "SELECT DISTINCT " + item + " FROM films WHERE picture = '"  + picture + "'"
-            print(query)
             result = self.execute_query(connection, query)
 
 

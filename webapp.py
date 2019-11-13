@@ -3,7 +3,7 @@
     webapp.py
 '''
 import flask
-from flask import Flask, render_template, request
+from flask import Flask, flash, redirect, render_template, request, url_for
 import backend.datasource
 import json
 import sys
@@ -26,35 +26,80 @@ def my_form_post():
     year = request.form['year']
     categories = ["picture","actor","actress","director"]
 
-    for category in categories:
-        result = ds.get_winner(connection, year, category)
-        film = result[0][0]
-        if category != "picture":
-            person = result[0][1]
-        else:
-            person = ""
-        winners.append({"award":category, "film":film, "person":person})
-        
-    return render_template('result.html',
-                           winners=winners,
-                           year=year)
+    if int(year) < 1927 or int(year) > 2018:
+        title =  'The year ' + year + ' is out of range. Please go back and type in again.'
+        return render_template('result.html', winners=[], year=year, title=title)
+    else:
+        for category in categories:
+            result = ds.get_winner(connection, year, category)
+            film = result[0][0]
+            if category != "picture":
+                person = result[0][1]
+            else:
+                person = ""
+            winners.append({"award":category, "film":film, "person":person})
+            
+            title = year + ' Oscar Winners'
+
+        return render_template('result.html',
+                            winners=winners,
+                            year=year,
+                            title=title)
 
 
 @app.route('/pictures')
 def pictures():
-    return render_template('pictures.html')
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+
+    year = 0
+    category = "picture"
+    pictures = ds.get_winner(connection, year, category)
+    return render_template('pictures.html', pictures=pictures)
 
 @app.route('/actors')
 def actors():
-    return render_template('actors.html')
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+
+    year = 0
+    category = "actor"
+    actors = ds.get_winner(connection, year, category)
+
+    return render_template('actors.html', actors=actors)
 
 @app.route('/actresses')
 def actresses():
-    return render_template('actresses.html')
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+
+    year = 0
+    category = "actress"
+    actresses = ds.get_winner(connection, year, category)
+
+    return render_template('actresses.html', actresses=actresses)
 
 @app.route('/directors')
 def directors():
-    return render_template('directors.html')
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+
+    year = 0
+    category = "director"
+    directors = ds.get_winner(connection, year, category)
+    return render_template('directors.html', directors=directors)
 
 
 
