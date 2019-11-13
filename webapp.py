@@ -26,6 +26,7 @@ def my_form_post():
     year = request.form['year']
     categories = ["picture"]
 
+    year = 2000
     if int(year) < 1927 or int(year) > 2018:
         title =  'The year ' + year + ' is out of range. Please go back and type in again.'
         return render_template('result.html', winners=[], year=year, title=title)
