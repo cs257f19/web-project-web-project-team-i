@@ -86,7 +86,7 @@ class DataSource:
             print("Connection error: ", e)
             return None
 
-        return result[0]
+        return result
 
 
 
