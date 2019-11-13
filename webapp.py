@@ -31,7 +31,7 @@ def my_form_post():
         return render_template('result.html', winners=[], year=year, title=title)
     else:
         for category in categories:
-            result = ds.get_winner(connection, year, category)
+            result = ds.get_winner(connection, int(year), category)
             film = result[0][0]
             if category != "picture":
                 person = result[0][1]
