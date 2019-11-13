@@ -6,7 +6,7 @@ body {
 header {
   position: relative;
   top: 0px;
-  padding: 40px;
+  padding: 20px;
   background-color: goldenrod;
   width: 100%;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -28,7 +28,7 @@ header {
   font-size: 30px;
 }
 
-#title a { 
+#title a {
   text-decoration: none;
 }
 
@@ -45,7 +45,7 @@ header {
   float: right;
   display: block;
 }
-/* 
+/*
 header .w3-button a {
   text-decoration: none;
 } */
@@ -207,7 +207,7 @@ footer div{
   padding: 10px;
 }
 
-#footer { 
+#footer {
   position: relative;
   top: 100px;
 }
