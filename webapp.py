@@ -3,7 +3,7 @@
     webapp.py
 '''
 import flask
-from flask import Flask, render_template, request
+from flask import Flask, flash, redirect, render_template, request, url_for
 import backend.datasource
 import json
 import sys
@@ -25,6 +25,10 @@ def my_form_post():
     winners = []
     year = request.form['year']
     categories = ["picture","actor","actress","director"]
+
+    if year < 1927 or year > 2018:
+        flash('Your year is out of the range.')
+        return redirect(url_for('homepage'))
 
     for category in categories:
         result = ds.get_winner(connection, year, category)
