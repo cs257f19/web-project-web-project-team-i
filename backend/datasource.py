@@ -72,7 +72,7 @@ class DataSource:
                 award = "bestDirector"
                 person = ", director"
 
-            if year > 1927 and year < 2018:
+            if year > 1926 and year < 2019:
                 get_year = ""
                 year_query =  " WHERE yearOfRelease = " + str(year)
             else:
@@ -113,7 +113,7 @@ class DataSource:
             elif category == "director":
                 award = "bestDirector"
                 person = ", director"
-                
+
 
             query = "SELECT " + award + " FROM winners WHERE yearOfRelease = " + str(year)
             picture = self.execute_query(connection, query)
