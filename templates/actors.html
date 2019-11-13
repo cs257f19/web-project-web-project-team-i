@@ -41,7 +41,18 @@
   </div>
 </div>
 
+<div class="main">
 
+    {% block content %}
+    <table class="result">
+        <!-- <tr><th>Award</th><th>Film</th><th>Person</th></tr> -->
+        {% for actor in actors %}
+        <div>{{ actor }}</div>
+            <!-- <tr><td>{{ winner.award }}</td><td>{{ winner.film }}</td><td>{{ winner.person }}</td></tr> -->
+        {% endfor %}
+    <!-- </table> -->
+    {% endblock %}
+</div>
 
 <div>
     {% include "common/footer.html" %}

@@ -58,9 +58,10 @@ def actors():
     password = 'lamp977python'
     connection = ds.connect(user, password)
 
-    actors = []
-    # year = request.form['year']
-    categories = ["picture","actor","actress","director"]
+
+    year = 0
+    category = "actor"
+    actors = ds.get_winner(connection, year, category)
 
     return render_template('actors.html', actors=actors)
 

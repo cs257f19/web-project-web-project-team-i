@@ -78,7 +78,6 @@ class DataSource:
                 year_query = ""
 
             query = "SELECT " + award + person + " FROM winners" + year_query
-            print(query)
             result = self.execute_query(connection, query)
 
         except Exception as e:
@@ -164,7 +163,7 @@ def main():
     results = []
 
     film = "Moonlight"
-    year = 0
+    year = 2000
     category = "actor"
     item = "synopsis"
 
