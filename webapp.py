@@ -24,7 +24,7 @@ def my_form_post():
     connection = ds.connect(user, password)
     winners = []
     year = request.form['year']
-    categories = ["actor"]
+    categories = ["picture"]
 
     if int(year) < 1927 or int(year) > 2018:
         title =  'The year ' + year + ' is out of range. Please go back and type in again.'
