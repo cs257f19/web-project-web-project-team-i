@@ -74,6 +74,7 @@ class DataSource:
 
             if year > 1927 and year < 2018:
                 year_query =  "WHERE yearOfRelease = " + str(year)
+                print(year_query)
             else:
                 year_query = ""
 
