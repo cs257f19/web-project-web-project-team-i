@@ -43,7 +43,7 @@ class DataSource:
         except Exception as e:
             print("Connection error: ", e)
             return None
-        return result[0][0]
+        return result
 
 
 
@@ -86,7 +86,7 @@ class DataSource:
             print("Connection error: ", e)
             return None
 
-        return result
+        return result[0]
 
 
 
