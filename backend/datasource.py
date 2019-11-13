@@ -43,7 +43,7 @@ class DataSource:
         except Exception as e:
             print("Connection error: ", e)
             return None
-        return result
+        return result[0][0]
 
 
 
@@ -74,7 +74,7 @@ class DataSource:
 
             if year > 1926 and year < 2019:
                 get_year = ""
-                year_query =  " WHERE yearOfRelease = " + year
+                year_query =  " WHERE yearOfRelease = " + str(year)
             else:
                 get_year = ", yearOfRelease"
                 year_query = ""
