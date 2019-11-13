@@ -77,7 +77,7 @@ class DataSource:
             else:
                 year_query = ""
 
-            query = "SELECT " + award + person + " FROM winners"
+            query = "SELECT " + award + person + " FROM winners" + year_query
             print(query)
             result = self.execute_query(connection, query)
 
