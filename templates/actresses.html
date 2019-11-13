@@ -16,6 +16,17 @@
             {% include "common/header.html" %}
     </div>
 
+    <div class="main">
+            {% block content %}
+            <table class="result">
+                <tr><th>Year</th><th>Film</th><th>Person</th></tr>
+                {% for actresse in actresses %}
+                    <tr><td>{{ actresse[2] }}</td><td>{{ actresse[0] }}</td><td>{{ actresse[1] }}</td></tr>
+                {% endfor %}
+            </table>
+            <!-- </table> -->
+            {% endblock %}
+        </div>
     <div id="footer">
             {% include "common/footer.html" %}
     </div>

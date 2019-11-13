@@ -49,7 +49,16 @@ def my_form_post():
 
 @app.route('/pictures')
 def pictures():
-    return render_template('pictures.html')
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+
+    year = 0
+    category = "picture"
+    pictures = ds.get_winner(connection, year, category)
+    return render_template('pictures.html', pictures=pictures)
 
 @app.route('/actors')
 def actors():
@@ -67,11 +76,30 @@ def actors():
 
 @app.route('/actresses')
 def actresses():
-    return render_template('actresses.html')
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+
+    year = 0
+    category = "actress"
+    actresses = ds.get_winner(connection, year, category)
+
+    return render_template('actresses.html', actresses=actresses)
 
 @app.route('/directors')
 def directors():
-    return render_template('directors.html')
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+
+    year = 0
+    category = "director"
+    directors = ds.get_winner(connection, year, category)
+    return render_template('directors.html', directors=directors)
 
 
 

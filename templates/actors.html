@@ -42,14 +42,13 @@
 </div>
 
 <div class="main">
-
     {% block content %}
     <table class="result">
         <tr><th>Year</th><th>Film</th><th>Person</th></tr>
         {% for actor in actors %}
-                    <tr><td>{{ actor[2] }}</td><td>{{ actor[0] }}</td><td>{{ actor[1] }}</td></tr>
-                {% endfor %}
-            </table>
+            <tr><td>{{ actor[2] }}</td><td>{{ actor[0] }}</td><td>{{ actor[1] }}</td></tr>
+        {% endfor %}
+    </table>
     <!-- </table> -->
     {% endblock %}
 </div>

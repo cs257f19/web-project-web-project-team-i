@@ -16,6 +16,18 @@
             {% include "common/header.html" %}
     </div>
 
+    <div class="main">
+            {% block content %}
+            <table class="result">
+                <tr><th>Year</th><th>Film</th><th>Person</th></tr>
+                {% for director in directors %}
+                    <tr><td>{{ director[2] }}</td><td>{{ director[0] }}</td><td>{{ director[1] }}</td></tr>
+                {% endfor %}
+            </table>
+            <!-- </table> -->
+            {% endblock %}
+        </div>
+
     <div id="footer">
             {% include "common/footer.html" %}
     </div>
