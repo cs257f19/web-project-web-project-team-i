@@ -12,10 +12,33 @@
 
 <body>
 
-    <div id="header">
-            {% include "common/header.html" %}
-    </div>
+<div>
+        {% include "common/header.html" %}
+</div>
 
+<div class="main">
+    <div class="sidenav">
+        <div class="title">FILTER BY</div>
+        <a href="#">Decade</a>
+        <a href="#">Genre</a>
+        <a href="#">Most Wins</a>
+        <a href="#">Most Nominations</a>
+      </div>
+  <div id="picture">
+    <div class="title">
+      Best Picture Winners
+    </div>
+    <div class="picture-content">
+      <div class="caption">
+        Best Picture 2019: <strong> Green Book </strong>
+      </div>
+      <img class="best-picture-photo" src="{{ url_for('static', filename='img/BestPicture2019.jpg') }}" alt="Green Book Best Picture 2019"></img>
+      <div class="best-picture-bio">
+        In 2019, <em>Green Book</em> won the Best Picture award.
+      </div>
+    </div>
+  </div>
+</div>
 
     <div class="main">
             {% block content %}
@@ -29,8 +52,8 @@
             {% endblock %}
         </div>
 
-    <div id="footer">
-            {% include "common/footer.html" %}
-    </div>
+<div>
+    {% include "common/footer.html" %}
+</div>
 </body>
 </html>
