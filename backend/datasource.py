@@ -73,11 +73,13 @@ class DataSource:
                 person = ", director"
 
             if year > 1927 and year < 2018:
+                get_year = ""
                 year_query =  " WHERE yearOfRelease = " + str(year)
             else:
+                get_year = ", yearOfRelease"
                 year_query = ""
 
-            query = "SELECT " + award + person + " FROM winners" + year_query
+            query = "SELECT " + award + person + year + " FROM winners" + year_query
             result = self.execute_query(connection, query)
 
         except Exception as e:
