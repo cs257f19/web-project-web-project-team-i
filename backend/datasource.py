@@ -79,7 +79,7 @@ class DataSource:
                 get_year = ", yearOfRelease"
                 year_query = ""
 
-            query = "SELECT " + award + person + year + " FROM winners" + year_query
+            query = "SELECT " + award + person + get_year + " FROM winners" + year_query
             result = self.execute_query(connection, query)
 
         except Exception as e:
