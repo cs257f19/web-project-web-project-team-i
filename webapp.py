@@ -103,6 +103,11 @@ def directors():
 
 
 
+@app.route('/trends')
+def trends():
+    return render_template('trends.html')
+
+
 @app.route('/about_oscars')
 def about_oscars():
     return render_template('about-oscars.html')
