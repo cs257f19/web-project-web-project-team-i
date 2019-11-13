@@ -81,9 +81,7 @@ class DataSource:
 
             
             query = "SELECT " + award + person + get_year + " FROM winners" + year_query
-            print(query)
             result = self.execute_query(connection, query)
-            print(result)
         except Exception as e:
             print("Connection error: ", e)
             return None
