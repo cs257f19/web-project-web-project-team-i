@@ -16,15 +16,15 @@
         {% include "common/header.html" %}
 </div>
 
-        <h1>{{ year }} Oscar Winners</h1>
-        {% block content %}
-        <table style="border:1px solid black;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;">
-            <tr><th>Award</th><th>Film</th><th>Person</th></tr>
-            {% for winner in winners %}
-                <tr><td>{{ winner.award }}</td><td>{{ winner.film }}</td><td>{{ winner.person }}</td></tr>
-            {% endfor %}
-        </table>
-        {% endblock %}
+<h1>{{ year }} Oscar Winners</h1>
+{% block content %}
+<table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+    <tr><th>Award</th><th>Film</th><th>Person</th></tr>
+    {% for winner in winners %}
+        <tr><td>{{ winner.award }}</td><td>{{ winner.film }}</td><td>{{ winner.person }}</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
 
 
 <div id="footer">
