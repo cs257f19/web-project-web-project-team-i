@@ -19,12 +19,12 @@
 
   <div class="main">
     <!-- featured data analysis -->
-     <!-- web form for user query --> 
+     <!-- web form for user query -->
   <form class="main-form" align="center" id="myForm" method="POST" target="_blank"> 
-      <div>Type in a year between 1927 to 2018 that you want to see the oscar winners: </div>
-      <input type="text" name="year" placeholder="Please type in a year"> 
+      <div>Enter a year from 1927 to 2018 for which you'd like to see the Oscar winners: </div>
+      <input type="text" name="year" placeholder="Please type in a year">
       <input type = "submit">
-    </form> 
+    </form>
     <div>
       <div class="title">The Predicted Best Picture Winner</div>
       <img class="homepage-graph" alt = "Graph visualizing box office info, critic reviews and awards won for 2017 Oscar Best Picture nominees" src="{{ url_for('static', filename='img/prediction-graph.png') }}" ></img>
