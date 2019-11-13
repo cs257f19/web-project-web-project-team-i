@@ -30,7 +30,7 @@ header a {
   font-size: 30px;
 }
 
-#title a { 
+#title a {
   text-decoration: none;
 }
 
@@ -47,7 +47,7 @@ header a {
   float: right;
   display: block;
 }
-/* 
+/*
 header .w3-button a {
   text-decoration: none;
 } */
@@ -224,3 +224,10 @@ footer a {
   text-decoration: none;
 }
 
+/* result page */
+.result {
+  border:1px solid black;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:50px;
+}
