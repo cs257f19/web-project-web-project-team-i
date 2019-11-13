@@ -26,7 +26,7 @@ def my_form_post():
     year = request.form['year']
     categories = ["picture","actor","actress","director"]
 
-    if year < 1927 or year > 2018:
+    if int(year) < 1927 or int(year) > 2018:
         flash('Your year is out of the range.')
         return redirect(url_for('homepage'))
 
