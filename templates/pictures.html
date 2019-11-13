@@ -12,10 +12,33 @@
 
 <body>
 
-    <div id="header">
-            {% include "common/header.html" %}
-    </div>
+<div>
+        {% include "common/header.html" %}
+</div>
 
+<div class="main">
+    <div class="sidenav">
+        <div class="title">FILTER BY</div>
+        <a href="#">Decade</a>
+        <a href="#">Genre</a>
+        <a href="#">Most Wins</a>
+        <a href="#">Most Nominations</a>
+      </div>
+  <div id="actress">
+    <div class="title">
+      Best Actress Winners
+    </div>
+    <div class="actress-content">
+      <div class="caption">
+        Best Actress 2019: <strong> Olivia Colman </strong>
+      </div>
+      <img class="best-actress-photo" src="{{ url_for('static', filename='img/BestActress2019.jpg') }}" alt="Olivia Colman Best Actress 2019"></img>
+      <div class="best-actress-bio">
+        In 2019, Olivia Colman won the Best Actress award for her starring role in <em>The Favourite.</em>
+      </div>
+    </div>
+  </div>
+</div>
 
     <div class="main">
             {% block content %}
@@ -29,8 +52,8 @@
             {% endblock %}
         </div>
 
-    <div id="footer">
-            {% include "common/footer.html" %}
-    </div>
+<div>
+    {% include "common/footer.html" %}
+</div>
 </body>
 </html>
