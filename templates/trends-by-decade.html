@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset ="utf-8">
+  <title>Directors</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='oscars.css') }}" >
+  <link rel="icon" href="{{ url_for('static', filename='img/head.jpg') }}">
+</head>
+
+
+
+<body>
+
+<div>
+        {% include "common/header.html" %}
+</div>
+
+<div class="main">
+    <div class="sidenav">
+        <div class="title">Decades</div>
+        <a href="#" class="w3-bar-item w3-button">2010-2019</a>
+        <a href="#" class="w3-bar-item w3-button">2000-2009</a>
+        <a href="#" class="w3-bar-item w3-button">1990-1999</a>
+        <a href="#" class="w3-bar-item w3-button">1980-1989</a>
+        <a href="#" class="w3-bar-item w3-button">1970-1979</a>
+        <a href="#" class="w3-bar-item w3-button">1960-1969</a>
+        <a href="#" class="w3-bar-item w3-button">1950-1959</a>
+        <a href="#" class="w3-bar-item w3-button">1940-1949</a>
+        <a href="#" class="w3-bar-item w3-button">1930-1939</a>
+        <a href="#" class="w3-bar-item w3-button">1927-1929</a>
+    </div>
+
+    <div id="trend-by-decade">
+        <div class="decade-title">
+            {{ decade }}
+        </div>
+        <div class="decade-content">
+            <div class="genre">The most popular genre: {{ genre }} </div>
+
+            {% block content %}
+            <table class="result">
+                <tr><th>Award</th><th>Film</th><th>Person</th></tr>
+                {% for winner in winners %}
+                    <tr><td>{{ winner.award }}</td><td>{{ winner.film }}</td><td>{{ winner.person }}</td></tr>
+                {% endfor %}
+            </table>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+<div>
+    {% include "common/footer.html" %}
+</div>
+</body>
+</html>

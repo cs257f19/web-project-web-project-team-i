@@ -47,7 +47,7 @@ class DataSource:
 
 
 
-    def get_winner(self, connection, year, category):
+    def get_winner(self, connection="", year=0, category=""):
         '''
         Returns a string containing winners of the specified year and category
 
@@ -130,7 +130,7 @@ class DataSource:
 
 
 
-    def get_by_picture(self, connection, item, picture):
+    def get_by_picture(self, connection="", item = "*", picture=""):
         '''
         Returns a string containing awards won by the specified picture.
 
@@ -142,8 +142,6 @@ class DataSource:
             String containing all the awards won by the specified picture
         '''
         try:
-            if item == "all_items":
-                item = "*"
             query = "SELECT DISTINCT " + item + " FROM films WHERE picture = '"  + picture + "'"
             result = self.execute_query(connection, query)
 
