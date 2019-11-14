@@ -220,7 +220,7 @@ class DataSource:
             counts.append({'sample':sample, "count":0})
         for genre in genres:
             for count in counts:
-                print(count)
+                print(count.count)
                 if genre == count.sample:
                     count.count += 1
         return counts
@@ -251,7 +251,7 @@ def main():
     result_genre = ds.get_genre(connection, pictures)
     # results.append(["result_genre", result_genre])
 
-    result_count =ds.count_genre(connection, result_genre)
+    result_count = ds.count_genre(connection, result_genre)
     results.append(["result_count", result_count])
 
     for result in results:
