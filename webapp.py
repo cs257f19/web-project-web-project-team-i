@@ -109,7 +109,7 @@ def trends_by_decade(decade):
     password = 'lamp977python'
     connection = ds.connect(user, password)
 
-    pictures = ds.get_pictures(connection, int(decade), int(decade)+9)
+    pictures = ds.get_pictures(connection, int(decade), int(decade)+8)
     genres = ds.get_genre(connection, pictures)
     counts = ds.count_genre(connection, genres)
 
