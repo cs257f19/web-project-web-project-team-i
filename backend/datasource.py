@@ -195,15 +195,18 @@ class DataSource:
             for pictureArray in pictures:
                 for picture in pictureArray:
                     print(picture)
-                    query = 'SELECT subgenre FROM films WHERE picture = "'  + picture + '"'
-                    print(query)
-                    subgenre = self.execute_query(connection, query)
-                    if subgenre == "Drama" or subgenre == "NA":
-                        query = 'SELECT genre FROM films WHERE picture = "'  + picture + '"'
-                        genre = self.execute_query(connection, query)
-                        genres.append(genre)
-                    else:
-                        genres.append(subgenre)
+                    if "'" in picture:
+                        continue
+                    else
+                        query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
+                        print(query)
+                        subgenre = self.execute_query(connection, query)
+                        if subgenre == "Drama" or subgenre == "NA":
+                            query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
+                            genre = self.execute_query(connection, query)
+                            genres.append(genre)
+                        else:
+                            genres.append(subgenre)
 
         except Exception as e:
             print("Connection error: ", e)
