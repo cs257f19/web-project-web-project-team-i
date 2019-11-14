@@ -38,7 +38,7 @@ def my_form_post():
             else:
                 person = ""
             winners.append({"award":category, "film":film, "person":person})
-            
+
             title = year + ' Oscar Winners'
 
         return render_template('result.html',
@@ -119,6 +119,10 @@ def winners2020():
 @app.route('/about_data')
 def about_data():
     return render_template('about-data.html')
+
+@app.route('/terms_of_use')
+def terms_of_use():
+    return render_template('terms.html')
 
 
 
