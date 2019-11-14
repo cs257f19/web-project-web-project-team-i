@@ -192,17 +192,18 @@ class DataSource:
 
         genres = []
         try:
-            for picture in pictures:
-                print(picture)
-                query = "SELECT COUNT subgenre FROM films WHERE picture = '"  + picture + "'"
-                print(query)
-                subgenre = self.execute_query(connection, query)
-                if subgenre == "Drama" or subgenre == "NA":
-                    query = "SELECT COUNT genre FROM films WHERE picture = '"  + picture + "'"
-                    genre = self.execute_query(connection, query)
-                    genres.append(genre)
-                else:
-                    genres.append(subgenre)
+            for pictureArray in pictures:
+                for picture in pictureArray:
+                    print(picture)
+                    query = "SELECT COUNT subgenre FROM films WHERE picture = '"  + picture + "'"
+                    print(query)
+                    subgenre = self.execute_query(connection, query)
+                    if subgenre == "Drama" or subgenre == "NA":
+                        query = "SELECT COUNT genre FROM films WHERE picture = '"  + picture + "'"
+                        genre = self.execute_query(connection, query)
+                        genres.append(genre)
+                    else:
+                        genres.append(subgenre)
 
         except Exception as e:
             print("Connection error: ", e)
@@ -238,7 +239,7 @@ def main():
     result_pictures = ds.get_pictures(connection, 2000, 2018)
     results.append(["result_pictures", result_pictures])
 
-    pictures = result_pictures[0]
+    pictures = result_pictures
     result_genre = ds.get_genre(connection, pictures)
     results.append(["result_genre", result_genre])
 
