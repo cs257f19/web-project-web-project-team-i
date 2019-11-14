@@ -215,8 +215,14 @@ class DataSource:
 
 
     def count_genre(self, connection, genres):
-        genres = ['Drama', 'Comedy', 'Biography', 'Crime', 'Adventure', 'Action', 'Western', 'Musical', 'Romance', 'Thriller', 'Mystery', 'Sci-Fi', 'Family']
+        samples = ['Drama', 'Sport', 'History', 'Comedy', 'Biography', 'Crime', 'Adventure', 'Action', 'Western', 'Musical', 'Romance', 'Thriller', 'Mystery', 'Sci-Fi', 'Family']
         counts = []
+        for sample in samples:
+            counts.append({'sample':sample, "count":0})
+        for genre in genres:
+            for count in counts:
+                if genre == count.sample:
+                    count.count += 1
         return counts
 
 def main():
@@ -244,6 +250,9 @@ def main():
     pictures = result_pictures
     result_genre = ds.get_genre(connection, pictures)
     results.append(["result_genre", result_genre])
+
+    # result_count =ds.count_genre(connection, result_genre)
+    results.append(["result_count", result_count])
 
     for result in results:
         if result is not None:
