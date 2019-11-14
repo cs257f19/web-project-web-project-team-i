@@ -113,7 +113,7 @@ def trends_by_decade():
     genres = ds.get_genre(connection, pictures)
     counts = ds.count_genre(connection, genres)
 
-    return render_template('trends_by_decade.html', counts=counts)
+    return render_template('trends-by-decade.html', counts=counts)
 
 
 @app.route('/trends')
