@@ -33,16 +33,16 @@
 
     <div id="trend-by-decade">
         <div class="decade-title">
-            {{ decade }}
+
         </div>
         <div class="decade-content">
-            <div class="genre">The most popular genre: {{ genre }} </div>
+            <div class="genre">The most popular genre:  </div>
 
             {% block content %}
             <table class="result">
-                <tr><th>Award</th><th>Film</th><th>Person</th></tr>
-                {% for winner in winners %}
-                    <tr><td>{{ winner.award }}</td><td>{{ winner.film }}</td><td>{{ winner.person }}</td></tr>
+                <tr><th>Genre</th><th>Count/th></tr>
+                {% for count in counts %}
+                    <tr><td>{{ count[0] }}</td><td>{{ count[1] }}</td></tr>
                 {% endfor %}
             </table>
             {% endblock %}

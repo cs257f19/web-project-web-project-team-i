@@ -102,6 +102,19 @@ def directors():
     return render_template('directors.html', directors=directors)
 
 
+@app.route('/trends_by_decade')
+def trends_by_decade():
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+    pictures = ds.get_pictures(connection, 2000, 2009)
+    genres = ds.get_genre(connection, pictures)
+    counts = ds.count_genre(connection, genres)
+
+    return render_template('trends.html', counts=counts)
+
 
 @app.route('/trends')
 def trends():

@@ -220,7 +220,6 @@ class DataSource:
             counts.append([sample, 0])
         for genre in genres:
             for count in counts:
-                print(count[0])
                 if genre == count[0]:
                     count[1] += 1
         return counts
