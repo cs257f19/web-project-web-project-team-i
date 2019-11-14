@@ -198,7 +198,7 @@ class DataSource:
                         continue
                     else:
                         query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
-                        subgenre = self.execute_query(connection, query)
+                        subgenre = self.execute_query(connection, query)[0]
                         if subgenre == "Drama" or subgenre == "NA":
                             print(subgenre)
                             query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
