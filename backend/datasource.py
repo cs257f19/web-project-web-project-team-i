@@ -178,7 +178,7 @@ class DataSource:
 
         return result
 
-    def get_genre(self, connection, start, end):
+    def get_genre(self, connection, pictures):
         '''
         Returns an array of sets which include genre name and corresponding number of films in that genre within a given year.
         
@@ -189,21 +189,32 @@ class DataSource:
         RETURN:
             Array of sets which have genre and count
         '''
-        try:
-            query = "SELECT COUNT picture FROM films WHERE picture = '"  + picture + "'"
-            result = self.execute_query(connection, query)
 
+        genres = []
+        try:
+            for picture in pictures:
+                print(picture)
+                query = "SELECT COUNT subgenre FROM films WHERE picture = '"  + picture + "'"
+                print(query)
+                subgenre = self.execute_query(connection, query)
+                if subgenre == "Drama" or subgenre == "NA":
+                    query = "SELECT COUNT genre FROM films WHERE picture = '"  + picture + "'"
+                    genre = self.execute_query(connection, query)
+                    genres.append(genre)
+                else:
+                    genres.append(subgenre)
 
         except Exception as e:
             print("Connection error: ", e)
             return None
 
-        return result        
+        return genres
 
 
     def count_genre(self, connection, genres):
         genres = ['Drama', 'Comedy', 'Biography', 'Crime', 'Adventure', 'Action', 'Western', 'Musical', 'Romance', 'Thriller', 'Mystery', 'Sci-Fi', 'Family']
-        return
+        counts = []
+        return counts
 
 def main():
     ds = DataSource()
@@ -227,6 +238,9 @@ def main():
     result_pictures = ds.get_pictures(connection, 2000, 2018)
     results.append(["result_pictures", result_pictures])
 
+    pictures = result_pictures[0]
+    result_genre = ds.get_genre(connection, pictures)
+    results.append(["result_genre", result_genre])
 
     for result in results:
         if result is not None:
