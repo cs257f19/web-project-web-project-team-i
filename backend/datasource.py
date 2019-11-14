@@ -153,6 +153,54 @@ class DataSource:
         return result
 
 
+    def get_pictures(self, connection, start, end):
+        '''
+        Returns a string containing awards won by the specified picture.
+
+        PARAMETERS:
+            String item
+            String picture for the picture to examine
+
+        RETURN:
+            String containing all the awards won by the specified picture
+        '''
+        start = start - 1
+        end = end - 1
+
+        try:
+            query = "SELECT DISTINCT picture FROM winners WHERE yearOfRelease BETWEEN " + start + " AND "  + end
+            result = self.execute_query(connection, query)
+
+
+        except Exception as e:
+            print("Connection error: ", e)
+            return None
+
+        return result
+
+    # def count_each_genre(self, connection, start, end):
+    #     '''
+    #     Returns an array of sets which include genre name and corresponding number of films in that genre within a given year.
+        
+    #     PARAMETERS:
+    #         Integer the beginning year of the range
+    #         Integer the ending year of the range
+
+    #     RETURN:
+    #         Array of sets which have genre and count
+    #     '''
+
+    #     try:
+    #         query = "SELECT COUNT picture FROM films WHERE picture = '"  + picture + "'"
+    #         result = self.execute_query(connection, query)
+
+
+    #     except Exception as e:
+    #         print("Connection error: ", e)
+    #         return None
+
+    #     return result        
+
 
 def main():
     ds = DataSource()
@@ -167,12 +215,14 @@ def main():
     category = "actor"
     item = "synopsis"
 
-    result_winner = ds.get_winner(connection, year, category)
-    results.append(["result_winner", result_winner])
-    result_film = ds.get_by_year(connection, year, category)
-    results.append(["result_film", result_film])
-    result_item = ds.get_by_picture(connection, item, film)
-    results.append(["result_item", result_item])
+    # result_winner = ds.get_winner(connection, year, category)
+    # results.append(["result_winner", result_winner])
+    # result_film = ds.get_by_year(connection, year, category)
+    # results.append(["result_film", result_film])
+    # result_item = ds.get_by_picture(connection, item, film)
+    # results.append(["result_item", result_item])
+    result_pictures = ds.get_winner(connection, 2000, 2018)
+    results.append(["result_pictures", result_pictures])
 
 
     for result in results:
