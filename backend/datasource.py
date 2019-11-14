@@ -58,6 +58,7 @@ class DataSource:
         RETURN:
             String containing name of picture and person that won the specified category in the specified year
         '''
+        
         try:
             if category == "picture":
                 award = "bestPicture"
@@ -113,12 +114,12 @@ class DataSource:
             elif category == "director":
                 award = "bestDirector"
                 person = ", director"
-
+            
 
             query = "SELECT " + award + " FROM winners WHERE yearOfRelease = " + str(year)
             picture = self.execute_query(connection, query)
 
-            item = "all_items"
+            item = "*"
             result = self.get_by_picture(connection, item, picture[0][0])
 
         except Exception as e:
