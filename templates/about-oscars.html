@@ -12,12 +12,31 @@
 
 <body>
 
-    <div id="header">
-            {% include "common/header.html" %}
+<div>
+        {% include "common/header.html" %}
+</div>
+<div class="main">
+    <div class="sidenav">
+        <div class="title">FILTER BY</div>
+        <a href="#">Decade</a>
+        <a href="#">Genre</a>
+        <a href="#">Most Wins</a>
+        <a href="#">Most Nominations</a>
+      </div>
+  <div id="oscar">
+    <div class="title">
+      About the Oscars
     </div>
-about oscars
-    <div id="footer">
-            {% include "common/footer.html" %}
+      <img class="oscar-photo" src="{{ url_for('static', filename='img/Oscar2019.jpg') }}" alt="The Oscars trophy"></img>
+      <!-- <div class="best-actor-bio"> -->
+        <p>Every year, hundreds of millions of viewers tune in to watch the Oscars telecast, a extravagant awards ceremony that celebrates the finest achievements in film.</p>
+        <p>From the first ceremony in 1927 to the latest ceremony in 2019, the Oscars have always been used as a benchmark to judge filmmaking excellence.</p>
+      <!-- </div> -->
     </div>
+  </div>
+</div>
+<div>
+    {% include "common/footer.html" %}
+</div>
 </body>
 </html>
