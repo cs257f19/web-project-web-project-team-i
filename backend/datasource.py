@@ -195,11 +195,11 @@ class DataSource:
             for pictureArray in pictures:
                 for picture in pictureArray:
                     print(picture)
-                    query = "SELECT COUNT subgenre FROM films WHERE picture = '"  + picture + "'"
+                    query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
                     print(query)
                     subgenre = self.execute_query(connection, query)
                     if subgenre == "Drama" or subgenre == "NA":
-                        query = "SELECT COUNT genre FROM films WHERE picture = '"  + picture + "'"
+                        query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
                         genre = self.execute_query(connection, query)
                         genres.append(genre)
                     else:
