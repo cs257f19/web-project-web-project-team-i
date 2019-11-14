@@ -131,7 +131,7 @@ header .w3-button a {
   height: 100%;
   width: 285px;
   position: fixed;
-  z-index: -1;
+  z-index: 0;
   top: 161px;
   left: -20px;
   overflow-x: auto;

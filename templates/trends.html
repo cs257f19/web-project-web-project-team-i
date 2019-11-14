@@ -20,7 +20,7 @@
 <div class="main">
         <div class="sidenav">
                 <div class="title">Decades</div>
-                <a href="{{ url_for('trends_by_decade', decade='2010') }}">2010-2019</a>
+                <a href="{{ url_for('trends_by_decade', decade='2010') }}" class="w3-bar-item w3-button">2010-2019</a>
                 <a href="#" class="w3-bar-item w3-button">2000-2009</a>
                 <a href="#" class="w3-bar-item w3-button">1990-1999</a>
                 <a href="#" class="w3-bar-item w3-button">1980-1989</a>
@@ -33,7 +33,7 @@
             </div>
 
         <div class="best-content">
-            <img> class="best-photo" src="{{ url_for('static', filename='img/GenreByDecade.png') }}" alt="Most popular genres by decade"></img>
+            <img class="best-photo" src="{{ url_for('static', filename='img/GenreByDecade.png') }}" alt="Most popular genres by decade"></img>
             </div>
         </div>
 
