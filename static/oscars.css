@@ -226,5 +226,13 @@ footer a {
 
 
 .trend-content img{
-  width: 100%;
+  width: 78%;
+  left: 285px;
+  position: absolute;
+}
+
+.decade-title {
+  text-align: center;
+  font-size: 36px;
+  color: goldenrod;
 }
