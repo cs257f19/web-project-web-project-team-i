@@ -192,6 +192,10 @@ header .w3-button a {
   margin: 25px;
 }
 
+#terms {
+  height: 700px
+}
+
 
 footer{
   background-color: goldenrod;
