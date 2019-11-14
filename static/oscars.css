@@ -125,47 +125,6 @@ header .w3-button a {
   top: 380px;
 }
 
-#director .caption{
-  font-size: 24px;
-}
-
-#director .director-content{
-  left: 100px;
-  position: relative;
-  padding: 10px 20px 10px 200px;
-}
-
-#director .best-director-photo{
-  float: left;
-  height: 300px;
-  margin-right: 15px;
-}
-
-#director .best-director-bio {
-  position: absolute;
-  top: 380px;
-}
-
-#actress .caption{
-  font-size: 24px;
-}
-
-#actress .actress-content{
-  left: 100px;
-  position: relative;
-  padding: 10px 20px 10px 200px;
-}
-
-#actress .best-actress-photo{
-  float: left;
-  height: 300px;
-  margin-right: 15px;
-}
-
-#actress .best-actress-bio {
-  position: absolute;
-  top: 380px;
-}
 
 .sidenav {
   background-color: rgba(218, 165, 32, 0.623);
