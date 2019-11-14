@@ -222,7 +222,7 @@ def main():
     results.append(["result_film", result_film])
     result_item = ds.get_by_picture(connection, item, film)
     results.append(["result_item", result_item])
-    result_pictures = ds.get_winner(connection, 2000, 2018)
+    result_pictures = ds.get_pictures(connection, 2000, 2018)
     results.append(["result_pictures", result_pictures])
 
 
