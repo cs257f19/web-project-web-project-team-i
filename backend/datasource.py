@@ -217,12 +217,12 @@ class DataSource:
         samples = ['Drama', 'Sport', 'History', 'Comedy', 'Biography', 'Crime', 'Adventure', 'Action', 'Western', 'Musical', 'Romance', 'Thriller', 'Mystery', 'Sci-Fi', 'Family']
         counts = []
         for sample in samples:
-            counts.append({'sample':sample, "count":0})
+            counts.append([sample, 0])
         for genre in genres:
             for count in counts:
-                print(count.get(count))
-                if genre == count.sample:
-                    count.count += 1
+                print(count[0])
+                if genre == count[0]:
+                    count[1] += 1
         return counts
 
 def main():
