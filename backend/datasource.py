@@ -156,14 +156,14 @@ class DataSource:
 
     def get_pictures(self, connection, start, end):
         '''
-        Returns a string containing awards won by the specified picture.
+        Returns an array containing all awarded pictures in the year range.
 
         PARAMETERS:
-            String item
-            String picture for the picture to examine
+            int the beginning year of the range
+            int the ending year of the range
 
         RETURN:
-            String containing all the awards won by the specified picture
+            Array containing all awarded pictures
         '''
         start = start - 1
         end = end - 1
@@ -172,36 +172,38 @@ class DataSource:
             query = "SELECT DISTINCT bestPicture, bestActor, bestActress, bestDirector FROM winners WHERE yearOfRelease BETWEEN " + str(start) + " AND "  + str(end)
             result = self.execute_query(connection, query)
 
-
         except Exception as e:
             print("Connection error: ", e)
             return None
 
         return result
 
-    # def count_each_genre(self, connection, start, end):
-    #     '''
-    #     Returns an array of sets which include genre name and corresponding number of films in that genre within a given year.
+    def get_genre(self, connection, start, end):
+        '''
+        Returns an array of sets which include genre name and corresponding number of films in that genre within a given year.
         
-    #     PARAMETERS:
-    #         Integer the beginning year of the range
-    #         Integer the ending year of the range
+        PARAMETERS:
+            Integer the beginning year of the range
+            Integer the ending year of the range
 
-    #     RETURN:
-    #         Array of sets which have genre and count
-    #     '''
+        RETURN:
+            Array of sets which have genre and count
+        '''
+        try:
+            query = "SELECT COUNT picture FROM films WHERE picture = '"  + picture + "'"
+            result = self.execute_query(connection, query)
 
-    #     try:
-    #         query = "SELECT COUNT picture FROM films WHERE picture = '"  + picture + "'"
-    #         result = self.execute_query(connection, query)
+
+        except Exception as e:
+            print("Connection error: ", e)
+            return None
+
+        return result        
 
 
-    #     except Exception as e:
-    #         print("Connection error: ", e)
-    #         return None
-
-    #     return result        
-
+    def count_genre(self, connection, genres):
+        genres = ['Drama', 'Comedy', 'Biography', 'Crime', 'Adventure', 'Action', 'Western', 'Musical', 'Romance', 'Thriller', 'Mystery', 'Sci-Fi', 'Family']
+        return
 
 def main():
     ds = DataSource()
