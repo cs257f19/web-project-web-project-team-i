@@ -169,7 +169,7 @@ class DataSource:
         end = end - 1
 
         try:
-            query = "SELECT DISTINCT picture FROM winners WHERE yearOfRelease BETWEEN " + str(start) + " AND "  + str(end)
+            query = "SELECT DISTINCT bestPicture AND bestActor AND bestActress AND bestDirector FROM winners WHERE yearOfRelease BETWEEN " + str(start) + " AND "  + str(end)
             result = self.execute_query(connection, query)
 
 
