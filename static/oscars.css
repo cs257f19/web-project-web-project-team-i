@@ -48,12 +48,13 @@ header a {
   display: flex;
 }
 
-.tooltip .tooltiptext {
-  /*
+.tooltip {
   position: absolute;
   right: 0px;
   top: 132px;
-  */
+}
+
+.tooltip text {
   width: 120px;
   top: 100%;
   left: 50%;
