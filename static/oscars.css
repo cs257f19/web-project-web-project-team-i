@@ -62,7 +62,7 @@ header a {
   visibility: hidden;
   width: 120px;
   top: 100%;
-  left: 50%
+  left: 50%;
   margin-left: -60px;
   background-color: black;
   color: #fff;
@@ -93,11 +93,12 @@ header .w3-button a {
   vertical-align: middle;
   font-family: Georgia, 'Times New Roman', Times, serif;
   display: inline-block;
-  padding: 50px;
+  padding: 50px 100px 300px 100px;
   top: 200px;
   width: 100%;
   position: relative;
   margin-bottom: 100px;
+  min-height: 700px;
 }
 
 .homepage-graph {
@@ -245,7 +246,6 @@ footer{
   background-color: goldenrod;
   position: relative;
   width: 100%;
-  top: 150px;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
