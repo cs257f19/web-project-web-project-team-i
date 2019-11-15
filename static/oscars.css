@@ -72,16 +72,15 @@ header a {
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 350px;
+  width: 300px;
   top: 100%;
   left: 50%;
   margin-left: -200px;
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: #fff;
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
-  border-color: black;
 
   /* Position the tooltip text - see examples below! */
   position: absolute;
@@ -216,13 +215,6 @@ header .w3-button a {
   height:100px;
 }
 
-.container .profile{
-  position: relative;
-  float: left;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 .about-data {
   text-align: center;
