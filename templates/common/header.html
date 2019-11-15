@@ -1,4 +1,8 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
+<body>
     <header>
         <div id="title">
           <a href="{{ url_for('homepage') }}">Oscar Winners</a>
@@ -10,6 +14,10 @@
         <div class ="topnav">
             <form class="main-form" align="center" id="myForm" method="POST" target="_blank"> 
                 <input type="text" name="year" placeholder="Search">
+                <!-- <input type="submit"><i class="fas fa-search"></i> -->
+                <button type="submit">
+                    <i class="icon-circle-arrow-right icon-large"></i>
+                </button>
               </form>
             <!-- dropdown message of instructions for search bar inputs -->
             <div class="tooltip">What can I type in the search bar?
@@ -61,3 +69,5 @@
         <button class="w3-button topnav-cell"><a href="{{ url_for('about_data') }}">About the Data</a></button>
         
       </header>
+
+    </body>
