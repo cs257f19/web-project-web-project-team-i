@@ -49,11 +49,14 @@ header a {
   display: flex;
 }
 
+.topnav-cell {
+  padding: 10px !important;
+}
 
 /* dropdown  */
 .topnav-cell :hover{
-  color: goldenrod;
-  background-color: white;
+  color: goldenrod !important;
+  background-color: white !important;
 }
 
 /* Tooltip container */
