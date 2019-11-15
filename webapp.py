@@ -151,6 +151,10 @@ def terms_of_use():
 def about():
     return render_template('about.html')
 
+@app.route('/contact_us')
+def contact_us():
+    return render_template('contact.html')
+
 
 
 
