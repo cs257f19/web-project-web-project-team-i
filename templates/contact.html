@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset ="utf-8">
+  <title>Actors</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='oscars.css') }}" >
+  <link rel="icon" href="{{ url_for('static', filename='img/head.jpg') }}">
+</head>
+
+
+<body>
+
+        {% include "common/header.html" %}
+
+<div class="main">
+    <div class="sidenav">
+        <div class="title">FILTER BY</div>
+        <a href="#">Decade</a>
+        <a href="#">Genre</a>
+        <a href="#">Most Wins</a>
+        <a href="#">Most Nominations</a>
+      </div>
+  <div id="contact">
+    <div class="title">
+      Contact Us
+    </div>
+    <!-- <div class="best-content">
+      <div class="caption">
+        Best Actor 2019: <strong> Rami Malek </strong>
+      </div> -->
+      <div class = row>
+        <div class = column>
+          <img class="best-photo" src="{{ url_for('static', filename='img/BestActor2019.jpg') }}" alt="Rie Kurita"></img>
+          <div class="best-bio">
+            kuritar@carleton.edu
+          </div>
+        </div>
+
+        <div class = column>
+          <img class="best-photo" src="{{ url_for('static', filename='img/BestActor2019.jpg') }}" alt="Rie Kurita"></img>
+          <div class="best-bio">
+            kuritar@carleton.edu
+          </div>
+        </div>
+
+        <div class = column>
+          <img class="best-photo" src="{{ url_for('static', filename='img/BestActor2019.jpg') }}" alt="Rie Kurita"></img>
+          <div class="best-bio">
+            kuritar@carleton.edu
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+</div>
