@@ -48,7 +48,7 @@ header a {
   display: flex;
 }
 
-.helper {
+.tooltip {
   position: absolute;
   right: 0px;
   top: 132px;
