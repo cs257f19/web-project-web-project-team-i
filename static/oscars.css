@@ -52,8 +52,9 @@ header a {
 
 /* dropdown  */
 .topnav-cell :hover{
-  color: goldenrod;
-  background-color: white;
+  color: goldenrod !important;
+  background-color: white !important;
+  padding: 10px !important;
 }
 
 /* Tooltip container */
