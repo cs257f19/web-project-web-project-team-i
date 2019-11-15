@@ -288,6 +288,7 @@ footer a {
 .trend-content img{
   width: 35%;
   left: 285px;
+  margin-top: 0px;
   position: absolute;
 }
 
