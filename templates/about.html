@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset ="utf-8">
+  <title>About the Oscars</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='oscars.css') }}" >
+  <link rel="icon" href="{{ url_for('static', filename='img/head.jpg') }}">
+</head>
+
+<body>
+
+<div>
+        {% include "common/header.html" %}
+</div>
+<div class="main">
+    <div class="sidenav">
+        <div class="title">FILTER BY</div>
+        <a href="#">Decade</a>
+        <a href="#">Genre</a>
+        <a href="#">Most Wins</a>
+        <a href="#">Most Nominations</a>
+      </div>
+  <div id="about">
+    <div class="title">
+      About Oscar Winners
+    </div>
+    <div class = "best-content">
+      <img class="best-photo" src="{{ url_for('static', filename='img/BestOscarWinners2019.jpeg') }}" alt="Oscar winners for 2019"></img>
+      <div class="best-bio">
+        <p>At Oscar Winners, we aim to provide the general moviegoing audience with the latest Oscar trends and predictions for who is going to win.
+           We also provide historical trends and data on the types of films that scored big and the types of films that didn't.
+           We are your one stop shop for everything Oscars.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+    {% include "common/footer.html" %}
+</div>
+</body>
+</html>
