@@ -20,7 +20,7 @@
               </div>
         </div>
         
-        <div class="w3-dropdown-hover">
+        <div class="w3-dropdown-hover topnav-cell">
           <button class="w3-button">Winners by Category</button>
           <div class="w3-dropdown-content w3-bar-block w3-border">
             <a href="{{ url_for('pictures') }}" class="w3-bar-item w3-button">Picture</a>
@@ -46,10 +46,10 @@
             <a href="#" class="w3-bar-item w3-button">1927-1929</a>
           </div>
         </div> -->
-        <button class="w3-button"><a href="{{ url_for('trends') }}">Trends by Decade</a></button>
-        <button class="w3-button"><a href="{{ url_for('about_oscars') }}">About the Oscars</a></button>
-        <button class="w3-button"><a href="{{ url_for('winners2020') }}">Potential 2020 Winners</a></button>
+        <button class="w3-button topnav-cell"><a href="{{ url_for('trends') }}">Trends by Decade</a></button>
+        <button class="w3-button topnav-cell"><a href="{{ url_for('about_oscars') }}">About the Oscars</a></button>
+        <button class="w3-button topnav-cell"><a href="{{ url_for('winners2020') }}">Potential 2020 Winners</a></button>
         <!-- <button class="w3-button">Surveys</button> -->
-        <button class="w3-button"><a href="{{ url_for('about_data') }}">About the Data</a></button>
+        <button class="w3-button topnav-cell"><a href="{{ url_for('about_data') }}">About the Data</a></button>
         
       </header>
