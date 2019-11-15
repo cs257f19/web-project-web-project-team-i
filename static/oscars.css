@@ -49,7 +49,7 @@ header a {
   display: flex;
 }
 
-.topnav-cell a{
+.topnav-cell a {
   height: 42px !important;
   /* padding: 0px; */
 }
@@ -277,14 +277,6 @@ footer a {
   text-decoration: none;
 }
 
-/* result page */
-.result {
-  border:1px solid black;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:50px;
-}
-
 .trend-content {
   height: 1978px;
 }
@@ -300,4 +292,28 @@ footer a {
   text-align: center;
   font-size: 36px;
   color: goldenrod;
+}
+
+
+/* result page */
+.result {
+  /* border:1px solid black; */
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:50px;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+.result-title {
+  font-size: 22px;
+}
+
+.picture-year{
+  font-size: 20px;
+}
+
+.picture-name {
+  font-style: italic;
 }

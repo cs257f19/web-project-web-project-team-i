@@ -43,9 +43,9 @@
     <div class="main">
             {% block content %}
             <table class="result">
-                <tr><th>Year</th><th>Film</th><th>Person</th></tr>
+                <tr class="result-title"><th>Year</th><th>Film</th></tr>
                 {% for picture in pictures %}
-                    <tr><td>{{ picture[2] }}</td><td>{{ picture[0] }}</td><td>{{ picture[1] }}</td></tr>
+                    <tr><td class="picture-year">{{ picture[1] }}</td><td class=picture-name>{{ picture[0] }}</td></tr>
                 {% endfor %}
             </table>
             <!-- </table> -->
