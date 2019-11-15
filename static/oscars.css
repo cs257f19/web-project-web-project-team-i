@@ -50,7 +50,8 @@ header a {
 }
 
 .topnav-cell {
-  padding: 10px !important;
+  height: 42px !important;
+  padding: 0px;
 }
 
 /* dropdown  */
