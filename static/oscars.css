@@ -72,15 +72,16 @@ header a {
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 300px;
+  width: 350px;
   top: 100%;
   left: 50%;
   margin-left: -200px;
-  background-color: black;
-  color: #fff;
+  background-color: white;
+  color: black;
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
+  border-color: black;
 
   /* Position the tooltip text - see examples below! */
   position: absolute;
@@ -97,7 +98,9 @@ header .w3-button a {
   text-decoration: none;
 } */
 
-
+.main-form {
+  padding: 20px;
+}
 
 .main {
   vertical-align: middle;
@@ -209,16 +212,16 @@ header .w3-button a {
 
 .container {
   display: inline-block;
+  width: 100px;
+  height:100px;
 }
 
 .container .profile{
   position: relative;
   float: left;
-  width:  100px;
-  height: 100px;
   background-position: 50% 50%;
-  background-repeat:   no-repeat;
-  background-size:     cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .about-data {
