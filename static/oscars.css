@@ -209,17 +209,10 @@ header .w3-button a {
   color: #f1f1f1;
 }
 
-
-.column{
-  float:left;
-  width:33.33%;
-  padding:5px;
-}
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+.container {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
 }
 
 .about-data {
