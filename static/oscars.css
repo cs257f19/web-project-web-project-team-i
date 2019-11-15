@@ -63,7 +63,7 @@ header a {
   width: 300px;
   top: 100%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -150px;
   background-color: black;
   color: #fff;
   text-align: center;
@@ -273,7 +273,7 @@ footer a {
 }
 
 .trend-content img{
-  width: 50%;
+  width: 35%;
   left: 285px;
   position: absolute;
 }
