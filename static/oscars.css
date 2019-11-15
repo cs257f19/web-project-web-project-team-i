@@ -39,6 +39,7 @@ header a {
 }
 
 
+
 #topnav {
   display: inline-block;
 }
@@ -46,6 +47,13 @@ header a {
 .topnav {
   float: right;
   display: flex;
+}
+
+
+/* dropdown  */
+.topnav-cell :hover{
+  color: goldenrod;
+  background-color: white;
 }
 
 /* Tooltip container */
@@ -172,6 +180,11 @@ header .w3-button a {
   margin: 20px;
   padding: 50px 20px;
   text-align: right;
+}
+
+.sidenav .w3-button{
+  text-align: right;
+  color: white;
 }
 
 .sidenav .title{
