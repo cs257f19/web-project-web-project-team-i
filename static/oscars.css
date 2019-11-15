@@ -49,8 +49,9 @@ header a {
   display: flex;
 }
 
-.topnav-cell {
-  padding: 10px !important;
+.topnav-cell a{
+  height: 42px !important;
+  /* padding: 0px; */
 }
 
 /* dropdown  */
