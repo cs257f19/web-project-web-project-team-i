@@ -72,7 +72,7 @@ header a {
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 300px;
+  width: 350px;
   top: 100%;
   left: 50%;
   margin-left: -200px;
