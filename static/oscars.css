@@ -48,10 +48,16 @@ header a {
   display: flex;
 }
 
-.tooltip {
+.tooltip .tooltiptext {
+  /*
   position: absolute;
   right: 0px;
   top: 132px;
+  */
+  width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
 }
 /*
 header .w3-button a {
