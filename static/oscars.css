@@ -58,9 +58,9 @@ header a {
 
 /* Tooltip container */
 .tooltip {
-  position: relative;
+  position: absolute;
   display: flex;
-  right: 0px;
+  right: 50px;
   top: 132px;
   border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
