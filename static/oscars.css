@@ -45,7 +45,13 @@ header a {
 
 .topnav {
   float: right;
-  display: block;
+  display: flex;
+}
+
+.helper {
+  position: absolute;
+  right: 0px;
+  top: 132px;
 }
 /*
 header .w3-button a {
