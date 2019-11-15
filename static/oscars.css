@@ -81,6 +81,7 @@ header a {
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
+  border-color: black;
 
   /* Position the tooltip text - see examples below! */
   position: absolute;
