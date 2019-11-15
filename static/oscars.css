@@ -50,7 +50,7 @@ header a {
 
 /* Tooltip container */
 .tooltip {
-  position: absolute;
+  position: relative;
   display: flex;
   right: 0px;
   top: 132px;
@@ -63,7 +63,7 @@ header a {
   width: 300px;
   top: 100%;
   left: 50%;
-  margin-left: -150px;
+  margin-left: -200px;
   background-color: black;
   color: #fff;
   text-align: center;
