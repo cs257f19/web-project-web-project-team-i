@@ -48,8 +48,8 @@ def my_form_post():
 
         return render_template('result.html', winners=winners, title=title)
     else:
-        year = key[:4]
-        category = key[9:]
+        year = int(key[:4])
+        category = str(key[9:])
         picture = ds.get_by_year(connection, year, category)
         item = "*"
         info = ds.get_by_picture(connection, item, picture)
