@@ -170,7 +170,8 @@ header .w3-button a {
 }
 
 .result{
-  position: relative;
+  position: absolute;
+  margin-left: 300px;
 }
 
 .sidenav {
