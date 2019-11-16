@@ -26,6 +26,8 @@ def my_form_post():
     winners = []
     key = request.form['key']
     length = len(key)
+
+    # when the input was year
     if length == 4:
         year = int(key)
         categories = ["picture","actor","actress","director"]
@@ -42,12 +44,14 @@ def my_form_post():
                 else:
                     person = ""
                 winners.append({"award":category, "film":film, "person":person})
-
                 title = str(year) + ' Oscar Winners'
 
-    return render_template('result.html',
-                                winners=winners,
-                                title=title)
+        return render_template('result.html', winners=winners, title=title)
+    else:
+        year = key[:4]
+        category = key[9:]
+        return render_template('result.html',year=year, category=category)
+
 
 
 @app.route('/pictures')
