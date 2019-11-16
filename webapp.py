@@ -21,7 +21,7 @@ def my_form_post():
     ds = backend.datasource.DataSource()
 
     user = 'kuritar'
-    password = 'lamp977pfython'
+    password = 'lamp977python'
     connection = ds.connect(user, password)
     winners = []
     key = request.form['key']
