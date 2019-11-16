@@ -290,11 +290,11 @@ footer a {
 /* result page */
 .result {
   /* border:1px solid black; */
-  margin-left:auto;
+  margin-left:400px;
   margin-right:auto;
   margin-top:50px;
   font-size: 20px;
-  text-align: left;
+  text-align: center;
 }
 
 
