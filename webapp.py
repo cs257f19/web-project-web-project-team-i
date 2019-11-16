@@ -25,6 +25,7 @@ def my_form_post():
     connection = ds.connect(user, password)
     winners = []
     key = request.form['key']
+    key = type(key)
     # if type(key[0]) == int:
     #     year = key[0]
     #     categories = ["picture","actor","actress","director"]
