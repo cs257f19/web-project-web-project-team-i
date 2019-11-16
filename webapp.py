@@ -25,28 +25,29 @@ def my_form_post():
     connection = ds.connect(user, password)
     winners = []
     key = request.form['key']
-    key = len(key)
-    # if type(key[0]) == int:
-    #     year = key[0]
-    #     categories = ["picture","actor","actress","director"]
+    length = len(key)
+    if length == 4:
+        year = int(key)
+        categories = ["picture","actor","actress","director"]
 
-    #     if int(year) < 1927 or int(year) > 2018:
-    #         title =  'The year ' + year + ' is out of range. Please go back and type in again.'
-    #         return render_template('result.html', winners=[], year=year, title=title)
-    #     else:
-    #         for category in categories:
-    #             result = ds.get_winner(connection, int(year), category)
-    #             film = result[0][0]
-    #             if category != "picture":
-    #                 person = result[0][1]
-    #             else:
-    #                 person = ""
-    #             winners.append({"award":category, "film":film, "person":person})
+        if year < 1927 or year > 2018:
+            title =  'The year ' + year + ' is out of range. Please go back and type in again.'
+            return render_template('result.html', winners=[], year=year, title=title)
+        else:
+            for category in categories:
+                result = ds.get_winner(connection, year, category)
+                film = result[0][0]
+                if category != "picture":
+                    person = result[0][1]
+                else:
+                    person = ""
+                winners.append({"award":category, "film":film, "person":person})
 
-    #             title = year + ' Oscar Winners'
+                title = year + ' Oscar Winners'
 
     return render_template('result.html',
-                                key=key)
+                                winners=winners,
+                                title=title)
 
 
 @app.route('/pictures')
