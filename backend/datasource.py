@@ -58,7 +58,7 @@ class DataSource:
         RETURN:
             String containing name of picture and person that won the specified category in the specified year
         '''
-        
+
         try:
             if category == "picture":
                 award = "bestPicture"
@@ -80,7 +80,7 @@ class DataSource:
                 get_year = ", yearOfRelease"
                 year_query = ""
 
-            
+
             query = "SELECT " + award + person + get_year + " FROM winners" + year_query
             result = self.execute_query(connection, query)
         except Exception as e:
@@ -114,7 +114,7 @@ class DataSource:
             elif category == "director":
                 award = "bestDirector"
                 person = ", director"
-            
+
 
             query = "SELECT " + award + " FROM winners WHERE yearOfRelease = " + str(year)
             picture = self.execute_query(connection, query)
@@ -178,10 +178,13 @@ class DataSource:
 
         return result
 
+    # def get_avgScore(self, connection, start, end):
+
+
     def get_genre(self, connection, pictures):
         '''
         Returns an array of sets which include genre name and corresponding number of films in that genre within a given year.
-        
+
         PARAMETERS:
             Integer the beginning year of the range
             Integer the ending year of the range
