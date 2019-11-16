@@ -149,13 +149,13 @@ header .w3-button a {
 
 
 .best-content{
-  left: 150px;
+  left: 100px;
   position: relative;
   padding: 10px 20px 10px 200px;
 }
 
 .best-content .caption{
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .best-content .best-photo{
