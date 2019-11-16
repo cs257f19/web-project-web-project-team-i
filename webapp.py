@@ -43,7 +43,7 @@ def my_form_post():
                     person = ""
                 winners.append({"award":category, "film":film, "person":person})
 
-                title = year + ' Oscar Winners'
+                title = str(year) + ' Oscar Winners'
 
     return render_template('result.html',
                                 winners=winners,
