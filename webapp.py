@@ -31,7 +31,7 @@ def my_form_post():
         categories = ["picture","actor","actress","director"]
 
         if year < 1927 or year > 2018:
-            title =  'The year ' + year + ' is out of range. Please go back and type in again.'
+            title =  'The year ' + str(year) + ' is out of range. Please go back and type in again.'
             return render_template('result.html', winners=[], year=year, title=title)
         else:
             for category in categories:
