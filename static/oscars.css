@@ -170,7 +170,7 @@ header .w3-button a {
 }
 
 .result{
-  position: absolute;
+  position: relative;
   margin-left: 600px;
 }
 
