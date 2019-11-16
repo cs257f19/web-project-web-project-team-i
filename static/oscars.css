@@ -149,7 +149,7 @@ header .w3-button a {
 
 
 .best-content{
-  left: 100px;
+  left: 150px;
   position: relative;
   padding: 10px 20px 10px 200px;
 }
@@ -172,6 +172,7 @@ header .w3-button a {
 
 .sidenav {
   background-color: rgba(218, 165, 32, 0.623);
+  color: black;
   height: 100%;
   width: 285px;
   position: fixed;
