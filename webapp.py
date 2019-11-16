@@ -44,7 +44,7 @@ def my_form_post():
 
                 title = year + ' Oscar Winners'
 
-        return render_template('result.html',
+    return render_template('result.html',
                                 winners=winners,
                                 year=year,
                                 title=title)
