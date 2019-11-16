@@ -164,11 +164,14 @@ header .w3-button a {
   margin-right: 15px;
 }
 
-.best-content .best-bio {
+.best-content .best-bio{
   position: absolute;
   top: 380px;
 }
 
+.result{
+  position: relative;
+}
 
 .sidenav {
   background-color: rgba(218, 165, 32, 0.623);
