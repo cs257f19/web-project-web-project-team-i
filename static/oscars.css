@@ -52,6 +52,7 @@ header a {
 .topnav-cell a {
   height: 42px !important;
   color: black;
+  background-color: white;
   /* padding: 0px; */
 }
 
