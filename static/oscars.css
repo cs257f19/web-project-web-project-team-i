@@ -149,7 +149,7 @@ header .w3-button a {
 
 
 .best-content{
-  left: 100px;
+  left: 150px;
   position: relative;
   padding: 10px 20px 10px 200px;
 }
@@ -165,7 +165,7 @@ header .w3-button a {
 }
 
 .best-content .best-bio {
-  position: relative;
+  position: absolute;
   top: 380px;
 }
 
