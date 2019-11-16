@@ -49,8 +49,16 @@ def my_form_post():
         return render_template('result.html', winners=winners, title=title)
     else:
         year = int(key[:4])
-        category = str(key[9:])
-        picture = ds.get_by_year(connection, year, category)
+        input_cat = str(key[9:])
+        if input_cat == "picture":
+            award = "bestPicture"
+        elif input_cat == "actor":
+            award = "bestActor"
+        elif input_cat == "actress":
+            award = "bestActress"
+        elif input_cat == "director":
+            award = "bestDirector"
+        picture = ds.get_by_year(connection, year, award)
         item = "*"
         info = ds.get_by_picture(connection, item, picture)
         return render_template('result.html',picture=picture, info=info)
