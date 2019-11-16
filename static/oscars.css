@@ -169,8 +169,8 @@ header .w3-button a {
   top: 380px;
 }
 
-.result{
-  position: relative;
+.results-table{
+  position: absolute;
   margin-left: 600px;
 }
 
