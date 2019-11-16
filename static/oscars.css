@@ -51,6 +51,7 @@ header a {
 
 .topnav-cell a {
   height: 42px !important;
+  color: black;
   /* padding: 0px; */
 }
 
@@ -72,7 +73,7 @@ header a {
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 300px;
+  width: 330px;
   top: 100%;
   left: 50%;
   margin-left: -200px;
