@@ -50,7 +50,10 @@ def my_form_post():
     else:
         year = key[:4]
         category = key[9:]
-        return render_template('result.html',year=year, category=category)
+        picture = ds.get_by_year(connection, year, category)
+        item = "*"
+        info = ds.get_by_picture(connection, item, picture)
+        return render_template('result.html',picture=picture, info=info)
 
 
 
