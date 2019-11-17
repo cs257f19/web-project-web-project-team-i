@@ -295,7 +295,7 @@ footer a {
   background-color: goldenrod !important;
 }
 
-.footer-cell .w3-button :hover > a {
+.footer-cell .w3-button :hover > .footer-cell a {
   color: white !important;
   background-color: goldenrod !important;
 }
