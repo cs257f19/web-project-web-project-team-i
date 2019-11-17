@@ -66,7 +66,7 @@ def my_form_post():
         picture = ds.get_by_year(connection, year, award)
         item = "*"
         info = ds.get_by_picture(connection, item, picture)
-        return render_template('result.html',picture=award, info=info)
+        return render_template('result.html', info=info)
 
 
 
