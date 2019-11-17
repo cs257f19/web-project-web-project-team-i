@@ -50,25 +50,19 @@ def my_form_post():
     else:
         year = int(key[:4])
         length = len(key)
-        input_cat = str(key[9:length])
+        input_cat = str(key[10:length])
         if input_cat == "picture":
             award = "bestPicture"
-            info = 0
         elif input_cat == "actor":
             award = "bestActor"
-            info = 1
         elif input_cat == "actress":
             award = "bestActress"
-            info = 2
         elif input_cat == "director":
             award = "bestDirector"
-            info = 3
-        # picture = ds.get_by_year(connection, year, award)
+        picture = ds.get_by_year(connection, year, award)
         item = "*"
-        # info = ds.get_by_picture(connection, item, picture)
-        return render_template('result.html', info=type(input_cat))
-
-
+        info = ds.get_by_picture(connection, item, picture)
+        return render_template('result.html',picture=award, info=info)
 
 @app.route('/pictures')
 def pictures():
