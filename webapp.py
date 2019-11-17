@@ -63,9 +63,9 @@ def my_form_post():
         elif input_cat == "director":
             award = "bestDirector"
             info = 3
-        picture = ds.get_by_year(connection, year, award)
+        # picture = ds.get_by_year(connection, year, award)
         item = "*"
-        info = ds.get_by_picture(connection, item, picture)
+        # info = ds.get_by_picture(connection, item, picture)
         return render_template('result.html', info=info)
 
 
