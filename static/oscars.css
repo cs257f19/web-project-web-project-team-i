@@ -107,7 +107,7 @@ header .w3-button a {
   top: 200px;
   width: 100%;
   position: relative;
-  margin-bottom: 100px;
+  /*margin-bottom: 100px;*/
   min-height: 700px;
 }
 
@@ -288,13 +288,14 @@ footer a {
 
 
 /* result page */
-.result {
+.table .result {
   /* border:1px solid black; */
   margin-left:300px;
   margin-right:auto;
-  margin-top:0px;
+  margin-top:10px;
   font-size: 20px;
   text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 
