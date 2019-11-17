@@ -36,6 +36,11 @@ def my_form_post():
             title =  'The year ' + str(year) + ' is out of range. Please go back and type in again.'
             return render_template('result.html', winners=[], year=year, title=title)
         else:
+            if category != "picture":
+                winners.append({"award":"Award", "film":"Film", "person":"Person"})
+            else:
+                winners.append({"award":"Award", "film":"Film"})
+
             for category in categories:
                 result = ds.get_winner(connection, year, category)
                 film = result[0][0]
@@ -53,7 +58,7 @@ def my_form_post():
         category = str(key[10:length])
         picture = ds.get_by_year(connection, year, category)
         item = "*"
-        return render_template('result.html',picture=picture[0][0])
+        return render_template('result.html',picture=picture[0])
 
 @app.route('/pictures')
 def pictures():
