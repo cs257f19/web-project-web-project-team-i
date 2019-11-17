@@ -295,14 +295,11 @@ footer a {
   background-color: goldenrod !important;
 }
 
-footer .w3-dropdown-hover:first-child, .w3-dropdown-click:hover{
+.footer-cell .w3-button :hover > a {
   color: white !important;
   background-color: goldenrod !important;
 }
 
-
-
-.w3-dropdown-hover:first-child, .w3-dropdown-click:hover
 
 .trend-content {
   height: 1000px;
