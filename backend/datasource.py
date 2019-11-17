@@ -247,10 +247,10 @@ def main():
     result_item = ds.get_by_picture(connection, item, film)
     results.append(["result_item", result_item])
     result_pictures = ds.get_pictures(connection, 1928, 1930)
-    # results.append(["result_pictures", result_pictures])
+    results.append(["result_pictures", result_pictures])
     
-    pictures = result_pictures
-    result_genre = ds.get_genre(connection, pictures)
+    # pictures = result_pictures
+    # result_genre = ds.get_genre(connection, pictures)
     # results.append(["result_genre", result_genre])
     
     # result_count = ds.count_genre(connection, result_genre)
