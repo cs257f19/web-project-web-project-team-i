@@ -246,22 +246,22 @@ def main():
     results.append(["result_film", result_film])
     result_item = ds.get_by_picture(connection, item, film)
     results.append(["result_item", result_item])
-    result_pictures = ds.get_pictures(connection, 2000, 2018)
-    results.append(["result_pictures", result_pictures])
-
+    result_pictures = ds.get_pictures(connection, 1927, 1929)
+    # results.append(["result_pictures", result_pictures])
+    
     pictures = result_pictures
     result_genre = ds.get_genre(connection, pictures)
     # results.append(["result_genre", result_genre])
-
+    
     result_count = ds.count_genre(connection, result_genre)
     results.append(["result_count", result_count])
-
+    
     for result in results:
         if result is not None:
             print("Query results: " + str(result[0]) +  str(result[1]))
         else:
             print("The result was None.")
-
+    
     connection.close()
 
 if __name__ == "__main__":
