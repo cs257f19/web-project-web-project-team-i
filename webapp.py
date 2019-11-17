@@ -17,6 +17,9 @@ def homepage():
     return render_template('index.html')
 
 @app.route('/', methods=['POST'])
+@app.route('/about_data', methods=['POST'])
+@app.route('/about_oscars', methods=['POST'])
+@app.route('/about', methods=['POST'])
 def my_form_post():
     ds = backend.datasource.DataSource()
 
