@@ -61,6 +61,11 @@ header a {
   background-color: white !important;
 }
 
+.topnav-cell .w3-button :hover{
+  color: goldenrod !important;
+  background-color: white !important;
+}
+
 /* Tooltip container */
 .tooltip {
   position: absolute;
