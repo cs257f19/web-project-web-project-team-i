@@ -258,7 +258,7 @@ footer{
   background-color: goldenrod;
   position: relative;
   width: 100%;
-  display: flex;
+  display: grid;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
