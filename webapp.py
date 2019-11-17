@@ -52,7 +52,7 @@ def my_form_post():
         year = int(key[:4])
         length = len(key)
         category = str(key[10:length])
-        title = str(key[5:10]) + "of" + str(year)
+        title = str(key[5:]) + " of " + str(year)
         picture = ds.get_by_year(connection, year, category)
         item = "*"
         return render_template('result.html', title= title, year=year, category=category, picture=picture[0])

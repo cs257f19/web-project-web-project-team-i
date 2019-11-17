@@ -19,6 +19,7 @@
 </div>
 <div class="main">
         <div class="title">{{ title }} </div>
+
         {% block content %}
         <table class="result">
             {% for winner in winners %}
@@ -29,7 +30,6 @@
 
 
         
-        <div class="title">{{ title }} </div>
         <div class="name">{{ picture[0] }}</div>
         <div class="runtime">{{ picture[3] }}</div>
 
@@ -40,7 +40,6 @@
 
     </div>
 
-    ('Gladiator', 2000, 8.5, 155, 'Action', 'Drama', 'May', 64, 'When a Roman general is betrayed and his family murdered by an emperors corrupt son he comes to Rome as a gladiator to seek revenge.')
 <div id="footer">
     {% include "common/footer.html" %}
 </div>
