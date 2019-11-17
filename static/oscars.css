@@ -182,16 +182,14 @@ header .w3-button a {
   margin: 20px;
   padding: 50px 20px;
   text-align: right;
-}
-
-.sidenav .w3-button{
-  text-align: right;
   color: white;
 }
+
 
 .sidenav .title{
   font-size: 16px;
   color: white;
+  text-align: center;
   margin-bottom: 10px;
 }
 
