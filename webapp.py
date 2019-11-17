@@ -20,6 +20,15 @@ def homepage():
 @app.route('/about_data', methods=['POST'])
 @app.route('/about_oscars', methods=['POST'])
 @app.route('/about', methods=['POST'])
+@app.route('/actors', methods=['POST'])
+@app.route('/actresses', methods=['POST'])
+@app.route('/contact_us', methods=['POST'])
+@app.route('/directors', methods=['POST'])
+@app.route('/pictures', methods=['POST'])
+@app.route('/terms', methods=['POST'])
+@app.route('/trends_by_decade/<year>', methods=['POST'])
+@app.route('/trends', methods=['POST'])
+@app.route('/winners2020', methods=['POST'])
 def my_form_post():
     ds = backend.datasource.DataSource()
 
