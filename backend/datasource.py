@@ -253,8 +253,8 @@ def main():
     result_genre = ds.get_genre(connection, pictures)
     # results.append(["result_genre", result_genre])
     
-    result_count = ds.count_genre(connection, result_genre)
-    results.append(["result_count", result_count])
+    # result_count = ds.count_genre(connection, result_genre)
+    # results.append(["result_count", result_count])
     
     for result in results:
         if result is not None:
