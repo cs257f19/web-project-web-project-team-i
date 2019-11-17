@@ -21,10 +21,10 @@
 <div class="main">
     <div class="sidenav">
         <div class="title">FILTER BY</div>
-        <a href="#">Decade</a>
-        <a href="#">Genre</a>
-        <a href="#">Most Wins</a>
-        <a href="#">Most Nominations</a>
+        <a href="{{ url_for('pictures', filter='awards') }}">Number of Awards</a>
+        <a href="{{ url_for('pictures', filter='nominations') }}">Number of Nominations</a>
+        <a href="{{ url_for('pictures', filter='genre') }}">Genre</a>
+        <a href="{{ url_for('pictures', filter='decade') }}">Decade</a>
       </div>
   <div id="picture">
     <div class="title">
