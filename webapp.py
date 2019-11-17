@@ -53,7 +53,7 @@ def my_form_post():
         category = str(key[10:length])
         picture = ds.get_by_year(connection, year, category)
         item = "*"
-        return render_template('result.html',picture=picture[0])
+        return render_template('result.html',picture=picture[0][0])
 
 @app.route('/pictures')
 def pictures():
