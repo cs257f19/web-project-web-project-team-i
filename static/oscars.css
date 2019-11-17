@@ -275,7 +275,7 @@ footer a {
 
 .footer-cell {
   position: relative;
-  background-color: goldenrod;
+  background-color: goldenrod !important;
 }
 
 .footer-cell a {
@@ -300,10 +300,7 @@ footer .w3-dropdown-hover:first-child, .w3-dropdown-click:hover{
   background-color: goldenrod !important;
 }
 
-footer .w3-dropdown-hover:first-child, .w3-dropdown-click{
-  color: black !important;
-  background-color: goldenrod !important;
-}
+
 
 .w3-dropdown-hover:first-child, .w3-dropdown-click:hover
 
