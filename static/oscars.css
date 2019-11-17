@@ -170,7 +170,7 @@ header .w3-button a {
 }
 
 .sidenav {
-  background-color: rgba(218, 165, 32, 0.623);
+  background-color: rgba(218, 165, 32, 0.76);
   color: black;
   height: 100%;
   width: 285px;
@@ -182,7 +182,7 @@ header .w3-button a {
   margin: 20px;
   padding: 50px 20px;
   text-align: right;
-  color: white;
+  color: white !important;
 }
 
 
@@ -197,7 +197,7 @@ header .w3-button a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 16px;
-  color: #e0e0e0;
+  color: white;
   display: block;
 }
 
