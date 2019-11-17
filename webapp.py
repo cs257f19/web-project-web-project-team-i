@@ -36,11 +36,7 @@ def my_form_post():
             title =  'The year ' + str(year) + ' is out of range. Please go back and type in again.'
             return render_template('result.html', winners=[], year=year, title=title)
         else:
-            if category != "picture":
-                winners.append({"award":"Award", "film":"Film", "person":"Person"})
-            else:
-                winners.append({"award":"Award", "film":"Film"})
-
+            winners.append({"award":"Award", "film":"Film", "person":"Person"})
             for category in categories:
                 result = ds.get_winner(connection, year, category)
                 film = result[0][0]

@@ -21,7 +21,6 @@
         <div class="title">{{ title }} </div>
         {% block content %}
         <table class="result">
-            <tr><th>Award</th><th>Film</th><th>Person</th></tr>
             {% for winner in winners %}
                 <tr><td>{{ winner.award }}</td><td>{{ winner.film }}</td><td>{{ winner.person }}</td></tr>
             {% endfor %}
