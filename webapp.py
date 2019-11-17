@@ -49,7 +49,7 @@ def my_form_post():
         return render_template('result.html', winners=winners, title=title)
     else:
         year = int(key[:4])
-        length = len(key)-1
+        length = len(key)
         input_cat = str(key[9:length])
         if input_cat == "picture":
             award = "bestPicture"
