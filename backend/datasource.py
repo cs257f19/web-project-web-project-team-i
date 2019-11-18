@@ -143,9 +143,19 @@ class DataSource:
             String containing all the awards won by the specified picture
         '''
         try:
-            query = "SELECT DISTINCT " + item + " FROM films WHERE picture = '"  + picture + "'"
-            result = self.execute_query(connection, query)
-
+            if item == "genre":
+                query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
+                if self.execute_query(connection, query) != []:
+                    subgenre = self.execute_query(connection, query)[0][0]
+                    if subgenre == "Drama" or subgenre == "NA":
+                        query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
+                        genre = self.execute_query(connection, query)[0][0]
+                        result = genre
+                    else:
+                        genre = subgenre
+            else:
+                query = "SELECT DISTINCT " + item + " FROM films WHERE picture = '"  + picture + "'"
+                result = self.execute_query(connection, query)
 
         except Exception as e:
             print("Connection error: ", e)
@@ -227,6 +237,20 @@ class DataSource:
                 if genre == count[0]:
                     count[1] += 1
         return counts
+
+    # def count_nominations(sef, connection, picture):
+    #     movies = []
+    #     try:
+    #         query = "SELECT COUNT(*) FROM winners WHERE picture = " + picture + " OR bestActor = " + picture + " OR bestActress = " + picture + " OR bestDirector = " + picture
+    #         result = self.execute_query(connection, query)
+
+
+    #     except Exception as e:
+    #         print("Connection error: ", e)
+    #         return None
+
+    #     return genres
+
 
 def main():
     ds = DataSource()
