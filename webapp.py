@@ -109,7 +109,7 @@ def pictures_by_genre(filter_type):
     for picture in pictures:
         if filter_type == 'genre':
             
-            genre = ds.get_by_picture(connection, 'genre', picture)
+            genre = ds.get_by_picture(connection, 'genre', picture[0])
             genres_with_pictures.append({"genre": genre, "picture":picture})
 
     results =  [{'genre': 'Drama', 'pictures': []},
@@ -138,7 +138,7 @@ def pictures_by_genre(filter_type):
             if result["genre"] == genre_with_pictures:
                 results["picture"].append(picture_name)
 
-    return render_template('filtered-pictures.html', results=pictures[0][0])
+    return render_template('filtered-pictures.html', results=results)
 
 
 @app.route('/actors')
