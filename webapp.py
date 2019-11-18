@@ -108,7 +108,7 @@ def pictures_by_genre(genre):
     genres_with_pictures = []
     for picture in pictures:
         quered_genre = ds.get_by_picture(connection, 'genre', picture[0])
-        results.append(quered_genre)
+        results.append(picture[0])
         if quered_genre == genre:
             results.append({"picture": picture[0], "year":picture[1]})
 
@@ -138,7 +138,7 @@ def pictures_by_genre(genre):
     #         if result["genre"] == genre_with_pictures:
     #             results["picture"].append(picture_name)
 
-    return render_template('filtered-pictures.html', genre=genre, results=pictures)
+    return render_template('filtered-pictures.html', genre=genre, results=resuts)
 
 
 @app.route('/actors')
