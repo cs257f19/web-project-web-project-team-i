@@ -138,7 +138,7 @@ def pictures_by_genre(filter_type):
             if result["genre"] == genre_with_pictures:
                 results["picture"].append(picture_name)
 
-    return render_template('filtered-pictures.html', results=genres_with_pictures)
+    return render_template('filtered-pictures.html', results=pictures)
 
 
 @app.route('/actors')
