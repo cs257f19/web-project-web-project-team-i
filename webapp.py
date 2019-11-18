@@ -83,6 +83,9 @@ def pictures_by_genre(genre):
             # results.append(quered_genre)
             if quered_genre == genre:
                 results.append({"picture": name, "year":picture[1]})
+        elif type(name) == str:
+            name.replace("'", "\'")
+            print(name)
 
     # results =  [{'genre': 'Drama', 'pictures': []},
     #             {'genre': 'Sport', 'pictures': []},
