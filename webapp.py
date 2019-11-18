@@ -71,17 +71,20 @@ def pictures_by_genre(genre):
 
     year = 0
     category = "picture"
-    pictures = ds.get_winner(connection, year, category)
+    picture_infos = ds.get_winner(connection, year, category)
 
     results = []
 
     genres_with_pictures = []
-    for picture in pictures:
-        if type(picture[0]) == str and "'" not in picture[0]:
-            quered_genre = ds.get_by_picture(connection, 'genre', picture[0])
+    for picture_info in picture_infoss:
+        picture = picture_infos[0]
+        if type(picture) == str:
+            if "'" in picture:
+                picture.replace("'", "\'")
+            quered_genre = ds.get_by_picture(connection, 'genre', picture)
             # results.append(quered_genre)
             if quered_genre == genre:
-                results.append({"picture": picture[0], "year":picture[1]})
+                results.append({"picture": picture_info[0], "year":picture_info[1]})
 
     # results =  [{'genre': 'Drama', 'pictures': []},
     #             {'genre': 'Sport', 'pictures': []},
