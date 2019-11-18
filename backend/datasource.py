@@ -215,15 +215,15 @@ class DataSource:
                 for picture in pictureArray:
                     # print(picture)
                     if "'" in picture:
-                        genres = genres
+                        genre = genre
                         # continue
                     else:
                         query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"                        
                         if self.execute_query(connection, query) != []:
-                            subgenre = self.execute_query(connection, query)
+                            subgenre = self.execute_query(connection, query)[0][0]
                             if subgenre == "Drama" or subgenre == "NA":
                                 query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
-                                genre = self.execute_query(connection, query)
+                                genre = self.execute_query(connection, query)[0][0]
                                 genres.append(genre)
                             else:
                                 genres.append(subgenre)
@@ -280,10 +280,10 @@ def main():
     result_item = ds.get_by_picture(connection, item, film)
     # results.append(["result_item", result_item])
     result_pictures = ds.get_pictures(connection, 1927, 2018)
-    # results.append(["result_pictures", result_pictures])
+    results.append(["result_pictures", result_pictures])
     
     pictures = result_pictures
-    result_genre = ds.get_genre(connection, pictures)
+    # result_genre = ds.get_genre(connection, pictures)
     # results.append(["result_genre", result_genre])
     
     # result_count = ds.count_genre(connection, result_genre)
