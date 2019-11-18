@@ -27,7 +27,8 @@ header a {
 
 
 #title{
-  font-size: 30px;
+  font-size: 40px;
+  color: rgb(255, 241, 185);
 }
 
 #title a {
@@ -35,7 +36,9 @@ header a {
 }
 
 #subtitle{
-  font-size: 12px;
+  font-size: 16px;
+  padding: 0px 10px 8px 10px;
+  color: cornsilk;
 }
 
 
@@ -71,7 +74,7 @@ header a {
   position: absolute;
   display: flex;
   right: 40px;
-  top: 132px;
+  top: 164px;
   border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
@@ -224,7 +227,7 @@ header .w3-button a {
   color: #f1f1f1;
 }
 
-.container {
+.container img{
   display: inline-block;
   width: 100px;
   height:100px;
