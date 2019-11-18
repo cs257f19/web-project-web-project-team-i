@@ -142,8 +142,10 @@ class DataSource:
         '''
         try:
             if item == "genre":
+                print('quered')
                 query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
                 if self.execute_query(connection, query) != []:
+                    print('not empty')
                     subgenre = self.execute_query(connection, query)[0][0]
                     if subgenre == "Drama" or subgenre == "NA":
                         print('subgenre is drama')
@@ -151,8 +153,10 @@ class DataSource:
                         genre = self.execute_query(connection, query)[0][0]
                         result = genre
                     else:
+                        print('subgenre is NOT drama')
                         result = subgenre
                 else:
+                    print('EMPTY')
                     query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
                     genre = self.execute_query(connection, query)[0][0]
                     result = genre
