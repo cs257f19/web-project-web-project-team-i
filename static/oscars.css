@@ -28,7 +28,7 @@ header a {
 
 #title{
   font-size: 40px;
-  color: rgb(255, 241, 185);
+  color: rgb(255, 247, 217);
 }
 
 #title a {
@@ -38,7 +38,7 @@ header a {
 #subtitle{
   font-size: 16px;
   padding: 0px 10px 8px 10px;
-  color: cornsilk;
+  color: rgb(73, 57, 12);
 }
 
 
@@ -54,7 +54,7 @@ header a {
 
 .topnav-cell a {
   height: 42px !important;
-  color: black;
+  color: rgb(134, 92, 0);
   /* padding: 0px; */
 }
 
@@ -62,6 +62,7 @@ header a {
 .topnav-cell :hover{
   color: goldenrod !important;
   background-color: white !important;
+  border: none;
 }
 
 .topnav-cell .w3-button :hover{
@@ -229,8 +230,8 @@ header .w3-button a {
 
 .container img{
   display: inline-block;
-  width: 100px;
-  height:100px;
+  width: 200px;
+  height:200px;
 }
 
 
