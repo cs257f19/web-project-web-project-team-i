@@ -274,15 +274,15 @@ def main():
     item = "genre"
 
     result_winner = ds.get_winner(connection, year, category)
-    # results.append(["result_winner", result_winner])
-    result_film = ds.get_by_year(connection, year, category)
+    results.append(["result_winner", result_winner])
+    # result_film = ds.get_by_year(connection, year, category)
     # results.append(["result_film", result_film])
-    result_item = ds.get_by_picture(connection, item, film)
+    # result_item = ds.get_by_picture(connection, item, film)
     # results.append(["result_item", result_item])
-    result_pictures = ds.get_pictures(connection, 1927, 2018)
-    results.append(["result_pictures", result_pictures])
+    # result_pictures = ds.get_pictures(connection, 1927, 2018)
+    # results.append(["result_pictures", result_pictures])
     
-    pictures = result_pictures
+    # pictures = result_pictures
     # result_genre = ds.get_genre(connection, pictures)
     # results.append(["result_genre", result_genre])
     
