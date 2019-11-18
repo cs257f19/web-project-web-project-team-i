@@ -107,10 +107,12 @@ def pictures_by_genre(genre):
 
     genres_with_pictures = []
     for picture in pictures:
-        quered_genre = ds.get_by_picture(connection, 'genre', picture[0])
-        results.append(picture[0])
-        if quered_genre == genre:
-            results.append({"picture": picture[0], "year":picture[1]})
+        if type(picture) == str:
+            quered_genre = ds.get_by_picture(connection, 'genre', picture[0])
+
+            results.append(picture[0])
+            if quered_genre == genre:
+                results.append({"picture": picture[0], "year":picture[1]})
 
     # results =  [{'genre': 'Drama', 'pictures': []},
     #             {'genre': 'Sport', 'pictures': []},
