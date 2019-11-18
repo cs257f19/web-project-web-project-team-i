@@ -134,7 +134,7 @@ def pictures_by_genre(filter_type):
             genre = genre_with_pictures["genre"]
             picture = genre_with_pictures["picture"]
             year = ds.get_by_picture(connection, 'yearOfRelease', picture)
-            picture_name = picture + '(' + year + ')'
+            picture_name = str(picture) + '(' + str(year) + ')'
             if result["genre"] == genre_with_pictures:
                 results["picture"].append(picture_name)
 
