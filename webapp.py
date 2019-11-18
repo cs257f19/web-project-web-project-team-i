@@ -82,9 +82,9 @@ def pictures_by_genre(genre):
             if "'" in picture:
                 picture.replace("'", "\'")
             quered_genre = ds.get_by_picture(connection, 'genre', picture)
-            # results.append(quered_genre)
-            if quered_genre == genre:
-                results.append({"picture": picture_info[0], "year":picture_info[1]})
+            results.append(quered_genre)
+            # if quered_genre == genre:
+                # results.append({"picture": picture_info[0], "year":picture_info[1]})
 
     # results =  [{'genre': 'Drama', 'pictures': []},
     #             {'genre': 'Sport', 'pictures': []},
