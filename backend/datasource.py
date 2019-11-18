@@ -153,6 +153,11 @@ class DataSource:
                         result = genre
                     else:
                         result = subgenre
+                else:
+                    query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
+                    genre = self.execute_query(connection, query)[0][0]
+                    result = genre
+
             else:
                 query = "SELECT DISTINCT " + item + " FROM films WHERE picture = '"  + picture + "'"
                 result = self.execute_query(connection, query)
