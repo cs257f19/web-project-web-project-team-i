@@ -38,7 +38,7 @@ header a {
 #subtitle{
   font-size: 16px;
   padding: 0px 10px 8px 10px;
-  color: rgb(73, 57, 12);
+  color: rgb(141, 103, 0);
 }
 
 
@@ -52,9 +52,10 @@ header a {
   display: flex;
 }
 
-.topnav-cell a {
+.w3-button, .topnav-cell a {
   height: 42px !important;
-  color: rgb(134, 92, 0);
+  color: rgb(85, 61, 8);
+  font-size: 20px;
   /* padding: 0px; */
 }
 
