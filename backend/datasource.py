@@ -211,8 +211,9 @@ class DataSource:
         genres = []
         try:
             for pictureArray in pictures:
+                print(pictureArray)
                 for picture in pictureArray:
-                    print(picture)
+                    # print(picture)
                     if "'" in picture:
                         genre = genre
                         # continue
