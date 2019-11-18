@@ -18,8 +18,15 @@
         {% include "common/header.html" %}
 </div>
 <div class="main">
-        <div class="title">{{ genre }} </div>
-        {{ results }}
+        <div class="title">{{ genre }} that Won Best Picture </div>
+
+        {% block content %}
+        <table class="result">
+            {% for result in results %}
+                <tr><td>{{ result.picture }}( {{result.year}} )</td></tr>
+            {% endfor %}
+        </table>
+        {% endblock %}
 
 
 
