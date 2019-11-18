@@ -215,7 +215,7 @@ class DataSource:
                 for picture in pictureArray:
                     # print(picture)
                     if "'" in picture:
-                        genre = genre
+                        genres = genres
                         # continue
                     else:
                         query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"                        
