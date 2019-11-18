@@ -77,7 +77,7 @@ def pictures_by_genre(genre):
 
     genres_with_pictures = []
     for picture_info in picture_infos:
-        picture = picture_infos[0]
+        picture = picture_info[0]
         if type(picture) == str:
             if "'" in picture:
                 picture.replace("'", "\'")
