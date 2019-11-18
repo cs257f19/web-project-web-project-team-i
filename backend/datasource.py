@@ -263,7 +263,7 @@ def main():
     film = "Moonlight"
     year = 2000
     category = "actor"
-    item = "synopsis"
+    item = "genre"
 
     result_winner = ds.get_winner(connection, year, category)
     results.append(["result_winner", result_winner])
