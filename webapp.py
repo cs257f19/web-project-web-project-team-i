@@ -61,8 +61,6 @@ def pictures():
     pictures = ds.get_winner(connection, year, category)
     return render_template('pictures.html', pictures=pictures)
 
-<<<<<<< HEAD
-||||||| merged common ancestors
 
 @app.route('/pictures/<genre>')
 def pictures_by_genre(genre):
@@ -74,60 +72,7 @@ def pictures_by_genre(genre):
     year = 0
     category = "picture"
     pictures = ds.get_winner(connection, year, category)
-    
-    results = []
 
-    genres_with_pictures = []
-    for picture in pictures:
-        if type(picture[0]) == str:
-            quered_genre = ds.get_by_picture(connection, 'genre', picture[0])
-            results.append("picture" + picture[0])
-            results.append(quered_genre)
-            # if quered_genre == genre:
-                # results.append({"picture": picture[0], "year":picture[1]})
-
-    # results =  [{'genre': 'Drama', 'pictures': []},
-    #             {'genre': 'Sport', 'pictures': []},
-    #             {'genre': 'History', 'pictures': []},
-    #             {'genre': 'Comedy', 'pictures': []},
-    #             {'genre': 'Biography', 'pictures': []},
-    #             {'genre': 'Crime', 'pictures': []},
-    #             {'genre': 'Adventure', 'pictures': []},
-    #             {'genre': 'Action', 'pictures': []},
-    #             {'genre': 'Western', 'pictures': []},
-    #             {'genre': 'Musical', 'pictures': []},
-    #             {'genre': 'Romance', 'pictures': []},
-    #             {'genre': 'Thriller', 'pictures': []},
-    #             {'genre': 'Mystery', 'pictures': []},
-    #             {'genre': 'Sci-Fi', 'pictures': []},
-    #             {'genre': 'Family', 'pictures': []}]
-
-
-    # for genre_with_pictures in genres_with_pictures:
-    #     for result in results:
-    #         genre = genre_with_pictures["genre"]
-    #         picture = genre_with_pictures["picture"]
-    #         year = ds.get_by_picture(connection, 'yearOfRelease', picture)
-    #         picture_name = str(picture) + '(' + str(year) + ')'
-    #         if result["genre"] == genre_with_pictures:
-    #             results["picture"].append(picture_name)
-
-    return render_template('filtered-pictures.html', genre=genre, results=results)
-
-
-=======
-
-@app.route('/pictures/<genre>')
-def pictures_by_genre(genre):
-    ds = backend.datasource.DataSource()
-    user = 'kuritar'
-    password = 'lamp977python'
-    connection = ds.connect(user, password)
-
-    year = 0
-    category = "picture"
-    pictures = ds.get_winner(connection, year, category)
-    
     results = []
 
     genres_with_pictures = []
@@ -167,8 +112,6 @@ def pictures_by_genre(genre):
 
     return render_template('filtered-pictures.html', genre=genre, results=results)
 
-
->>>>>>> 8ddef79de427950e3a1890efdfeb67629896e5b0
 @app.route('/actors')
 def actors():
     ds = backend.datasource.DataSource()
