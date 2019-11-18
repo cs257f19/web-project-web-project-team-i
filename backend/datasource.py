@@ -275,7 +275,7 @@ def main():
     category = "actor"
     item = "genre"
 
-    result_winner = ds.get_winner(connection, year, category)
+    # result_winner = ds.get_winner(connection, year, category)
     # results.append(["result_winner", result_winner])
     # result_film = ds.get_by_year(connection, year, category)
     # results.append(["result_film", result_film])
