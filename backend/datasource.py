@@ -270,7 +270,7 @@ def main():
 
     results = []
 
-    film = "Spotlight""
+    film = "Spotlight"
     year = 2000
     category = "actor"
     item = "genre"
