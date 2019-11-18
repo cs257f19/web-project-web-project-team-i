@@ -18,13 +18,43 @@
         {% include "common/header.html" %}
 </div>
 
+# results =  [{'genre': 'Drama', 'pictures': []},
+#            
+#             {'genre': 'Comedy', 'pictures': []},
+{'genre': 'Action', 'pictures': []},
+
+{'genre': 'Romance', 'pictures': []},
+#             {'genre': 'Thriller', 'pictures': []},
+#             {'genre': 'Mystery', 'pictures': []},
+#             {'genre': 'Sci-Fi', 'pictures': []},
+#             {'genre': 'Biography', 'pictures': []},
+#             {'genre': 'Adventure', 'pictures': []},
+#             
+#             {'genre': 'Western', 'pictures': []},
+#             {'genre': 'Musical', 'pictures': []},
+#             
+
+#             {'genre': 'Family', 'pictures': []}]
+{'genre': 'History', 'pictures': []},
+
 <div class="main">
     <div class="sidenav">
         <div class="title">FILTER BY</div>
-        <a href="{{ url_for('pictures', filter_type='awards') }}">Number of Awards</a>
-        <a href="{{ url_for('pictures', filter_type='nominations') }}">Number of Nominations</a>
-        <a href="{{ url_for('pictures_by_genre', genre='Comedy') }}">comedy</a>
-        <a href="{{ url_for('pictures', filter_type='decade') }}">Decade</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Drama') }}">Drama</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Comedy') }}">Comedy</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Action') }}">Action</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Romance') }}">Romance</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Thriller') }}">Thriller</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Mystery') }}">Mystery</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Sci-Fi') }}">Sci-Fi</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Biography') }}">Biography</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Adventure') }}">Adventure</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Western') }}">Western</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Musical') }}">Musical</a>
+        <a href="{{ url_for('pictures_by_genre', genre='Family') }}">Family</a>
+        <a href="{{ url_for('pictures_by_genre', genre='History') }}">History</a>
+
+
       </div>
   <div id="picture">
     <div class="title">
