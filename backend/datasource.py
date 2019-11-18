@@ -178,8 +178,57 @@ class DataSource:
 
         return result
 
-    # def get_avgScore(self, connection, start, end):
+    def get_Score(self, connection, start, end):
+        '''
+        Returns an array of integers which include Metacritic scores of Best Picture winners in the year range.
 
+        PARAMETERS:
+            int the beginning year of the range
+            int the ending year of the range
+
+        RETURN:
+            Array of integers of average scores of all Best Picture winners in the year range.
+        '''
+
+        start = start - 1
+        end = end - 1
+        scores = []
+        bestPics = []
+
+        try:
+            for year in range(start, end+1):
+                bestPic = get_winner(connection, year, "picture")
+                bestPics.append(bestPic)
+            for picture in bestPics:
+                query = "SELECT score FROM films WHERE picture = '"  + picture + "'"
+                score = self.execute_query(connection, query)[0][0]
+                scores.append(score)
+
+        except Exception as e:
+            print("Connection error: ", e)
+            return None
+
+        return scores
+
+    def get_avgScore(self, connection, scores):
+         '''
+         Returns an integer value of average Metacritic scores of Best Picture winners in the year range.
+
+         PARAMETERS:
+             scores - array of metacritic scores
+
+         RETURN:
+             Integer of average Metacritic score of specific year range.
+         '''
+
+         total = 0.0
+         avg = []
+         for score in scores:
+             fo
+             total += score
+             avgScore = total/len(scores)
+
+         return avg
 
     def get_genre(self, connection, pictures):
         '''
@@ -255,6 +304,7 @@ def main():
 
     result_count = ds.count_genre(connection, result_genre)
     results.append(["result_count", result_count])
+
 
     for result in results:
         if result is not None:
