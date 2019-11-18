@@ -74,11 +74,11 @@ def pictures_by_genre(genre):
     picture_infos = ds.get_winner(connection, year, category)
 
     results = []
-
+    print(picture_infos)
     genres_with_pictures = []
     for picture_info in picture_infos:
         picture = picture_info[0]
-        print(picture_info)
+        # print(picture_info)
         if type(picture) == str:
             if "'" in picture:
                 picture.replace("'", "\'")
