@@ -176,6 +176,7 @@ header .w3-button a {
 
 .about-photo {
   height: 300px;
+  position: absolute;
   left: 170px;
 }
 
@@ -183,7 +184,7 @@ header .w3-button a {
   position: absolute;
   top: 380px;
   left: inherit;
-  width: 750px;
+  width: 670px;
   text-align: center;
 }
 
