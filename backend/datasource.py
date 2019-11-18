@@ -143,9 +143,26 @@ class DataSource:
             String containing all the awards won by the specified picture
         '''
         try:
-            query = "SELECT DISTINCT " + item + " FROM films WHERE picture = '"  + picture + "'"
-            result = self.execute_query(connection, query)
+            if item == "genre":
+                query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
+                print(self.execute_query(connection, query), picture, query)
+                if self.execute_query(connection, query) != []:
+                    
+                    subgenre = self.execute_query(connection, query)[0][0]
+                    if subgenre == "Drama" or subgenre == "NA":
+                        query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
+                        genre = self.execute_query(connection, query)[0][0]
+                        result = genre
+                    else:
+                        result = subgenre
+                else:
+                    query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
+                    genre = self.execute_query(connection, query)[0][0]
+                    result = genre
 
+            else:
+                query = "SELECT DISTINCT " + item + " FROM films WHERE picture = '"  + picture + "'"
+                result = self.execute_query(connection, query)
 
         except Exception as e:
             print("Connection error: ", e)
@@ -245,18 +262,22 @@ class DataSource:
         genres = []
         try:
             for pictureArray in pictures:
+                # print(pictureArray)
                 for picture in pictureArray:
+                    # print(picture)
                     if "'" in picture:
-                        continue
+                        genres = genres
+                        # continue
                     else:
-                        query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
-                        subgenre = self.execute_query(connection, query)[0][0]
-                        if subgenre == "Drama" or subgenre == "NA":
-                            query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
-                            genre = self.execute_query(connection, query)[0][0]
-                            genres.append(genre)
-                        else:
-                            genres.append(subgenre)
+                        query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"                        
+                        if self.execute_query(connection, query) != []:
+                            subgenre = self.execute_query(connection, query)[0][0]
+                            if subgenre == "Drama" or subgenre == "NA":
+                                query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
+                                genre = self.execute_query(connection, query)[0][0]
+                                genres.append(genre)
+                            else:
+                                genres.append(subgenre)
 
         except Exception as e:
             print("Connection error: ", e)
@@ -276,6 +297,20 @@ class DataSource:
                     count[1] += 1
         return counts
 
+    # def count_nominations(sef, connection, picture):
+    #     movies = []
+    #     try:
+    #         query = "SELECT COUNT(*) FROM winners WHERE picture = " + picture + " OR bestActor = " + picture + " OR bestActress = " + picture + " OR bestDirector = " + picture
+    #         result = self.execute_query(connection, query)
+
+
+    #     except Exception as e:
+    #         print("Connection error: ", e)
+    #         return None
+
+    #     return genres
+
+
 def main():
     ds = DataSource()
     user = 'kuritar'
@@ -284,34 +319,48 @@ def main():
 
     results = []
 
-    film = "Moonlight"
+    film = "Green Book"
     year = 2000
     category = "actor"
-    item = "synopsis"
+    item = "genre"
 
-    result_winner = ds.get_winner(connection, year, category)
-    results.append(["result_winner", result_winner])
-    result_film = ds.get_by_year(connection, year, category)
-    results.append(["result_film", result_film])
-    result_item = ds.get_by_picture(connection, item, film)
-    results.append(["result_item", result_item])
-    result_pictures = ds.get_pictures(connection, 2000, 2018)
-    results.append(["result_pictures", result_pictures])
-
+    # result_winner = ds.get_winner(connection, year, category)
+    # results.append(["result_winner", result_winner])
+    # result_film = ds.get_by_year(connection, year, category)
+    # results.append(["result_film", result_film])
+    # result_item = ds.get_by_picture(connection, item, film)
+    # results.append(["result_item", result_item])
+    result_pictures = ds.get_pictures(connection, 1927, 2018)
+    # results.append(["result_pictures", result_pictures])
+    
     pictures = result_pictures
     result_genre = ds.get_genre(connection, pictures)
+<<<<<<< HEAD
     # results.append(["result_genre", result_genre])
 
     result_count = ds.count_genre(connection, result_genre)
     results.append(["result_count", result_count])
 
 
+||||||| merged common ancestors
+    # results.append(["result_genre", result_genre])
+
+    result_count = ds.count_genre(connection, result_genre)
+    results.append(["result_count", result_count])
+
+=======
+    results.append(["result_genre", result_genre])
+    
+    # result_count = ds.count_genre(connection, result_genre)
+    # results.append(["result_count", result_count])
+    
+>>>>>>> e0626cf64df01e7b5ba89e3a028266ee3c4bd2bf
     for result in results:
         if result is not None:
             print("Query results: " + str(result[0]) +  str(result[1]))
         else:
             print("The result was None.")
-
+    
     connection.close()
 
 if __name__ == "__main__":

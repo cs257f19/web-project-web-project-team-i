@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset ="utf-8">
-  <title>Results</title>
+  <title>{{ title }}</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='oscars.css') }}" >
   <link rel="icon" href="{{ url_for('static', filename='img/head.jpg') }}">
@@ -19,19 +19,19 @@
 </div>
 <div class="main">
         <div class="title">{{ title }} </div>
-        {% block content %}
-        <table class="result">
-            <tr><th>Award</th><th>Film</th><th>Person</th></tr>
-            {% for winner in winners %}
-                <tr><td>{{ winner.award }}</td><td>{{ winner.film }}</td><td>{{ winner.person }}</td></tr>
-            {% endfor %}
-        </table>
-        {% endblock %}
 
-        <div class="title">{{ year }} </div>
-        <div class="title">{{ category }} </div>
+        <div class="title">{{ person[1] }} </div>
+
+        
+        <div class="name">Film: {{ picture[0] }}</div>
+        <div class="runtime">({{ picture[3] }}min)</div>
+
+        <div class="rating"> Rating: {{ picture[2] }}</div>
+        <div class="genre">Genre: {{ picture[4] }}, {{ picture[5] }}</div>
+        <div class="score">Critic Score: {{ picture[7] }}</div>
+        <div class="synopsis">Synopsis: {{ picture[8] }}</div>
+
     </div>
-
 
 <div id="footer">
     {% include "common/footer.html" %}

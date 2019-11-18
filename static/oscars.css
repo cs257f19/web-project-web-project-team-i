@@ -27,7 +27,8 @@ header a {
 
 
 #title{
-  font-size: 30px;
+  font-size: 40px;
+  color: rgb(255, 247, 217);
 }
 
 #title a {
@@ -35,10 +36,21 @@ header a {
 }
 
 #subtitle{
-  font-size: 12px;
+  font-size: 16px;
+  padding: 0px 10px 8px 10px;
+  color: rgb(253, 231, 176);
 }
 
 
+form button {
+  background-color: rgb(255, 253, 240);
+  border: 0px;
+  border-radius: 4px;
+}
+
+.fa-search:before { 
+  color: darkgoldenrod;
+}
 
 #topnav {
   display: inline-block;
@@ -49,14 +61,24 @@ header a {
   display: flex;
 }
 
-.topnav-cell a {
+.w3-button, .topnav-cell a {
   height: 42px !important;
-  color: black;
+  color: rgb(85, 61, 8);
+  font-size: 18px;
   /* padding: 0px; */
 }
 
+.w3-dropdown-hover:hover { 
+  border: none;
+}
 /* dropdown  */
-.topnav-cell :hover{
+.topnav-cell :hover, .w3-button:hover{
+  color: goldenrod !important;
+  background-color: white !important;
+  border: none;
+}
+
+.topnav-cell .w3-button :hover{
   color: goldenrod !important;
   background-color: white !important;
 }
@@ -66,7 +88,7 @@ header a {
   position: absolute;
   display: flex;
   right: 40px;
-  top: 132px;
+  top: 164px;
   border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
@@ -107,7 +129,7 @@ header .w3-button a {
   top: 200px;
   width: 100%;
   position: relative;
-  /*margin-bottom: 100px;*/
+  margin-bottom: 100px;
   min-height: 700px;
 }
 
@@ -169,8 +191,22 @@ header .w3-button a {
   top: 380px;
 }
 
+.about-photo {
+  width: 533px;
+  position: absolute;
+  left: 170px;
+}
+
+.about-bio{
+  position: absolute;
+  top: 380px;
+  left: inherit;
+  width: 670px;
+  text-align: center;
+}
+
 .sidenav {
-  background-color: rgba(218, 165, 32, 0.623);
+  background-color: rgba(218, 165, 32, 0.76);
   color: black;
   height: 100%;
   width: 285px;
@@ -182,16 +218,14 @@ header .w3-button a {
   margin: 20px;
   padding: 50px 20px;
   text-align: right;
+  color: white !important;
 }
 
-.sidenav .w3-button{
-  text-align: right;
-  color: white;
-}
 
 .sidenav .title{
   font-size: 16px;
   color: white;
+  text-align: center;
   margin-bottom: 10px;
 }
 
@@ -199,7 +233,7 @@ header .w3-button a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 16px;
-  color: #e0e0e0;
+  color: white;
   display: block;
 }
 
@@ -207,10 +241,20 @@ header .w3-button a {
   color: #f1f1f1;
 }
 
-.container {
+#contact {
+  padding: 30px;
+  display: inline-flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: row;
+  text-align: center;
+  position: inherit;
+}
+
+.container img{
   display: inline-block;
-  width: 100px;
-  height:100px;
+  width: 200px;
+  height:200px;
 }
 
 
@@ -255,8 +299,10 @@ footer{
   background-color: goldenrod;
   position: relative;
   width: 100%;
+  display: grid;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 20px;
 }
 
 
@@ -269,13 +315,42 @@ footer a {
   text-decoration: none;
 }
 
+.footer-cell {
+  position: relative;
+  background-color: goldenrod !important;
+  padding: 0px;
+}
+
+.footer-cell a {
+  height: 42px !important;
+  color: black;
+  /* padding: 0px; */
+}
+
+/* dropdown  */
+/* .footer-cell :hover{
+  color: goldenrod !important;
+  background-color: white !important;
+} */
+
+.footer-cell .w3-button {
+  color: white !important;
+  background-color: goldenrod !important;
+}
+
+.footer-cell .w3-button:hover a {
+  color: white !important;
+  background-color: goldenrod !important;
+}
+
+
 .trend-content {
-  height: 1000px;
+  height: 760px;
 }
 
 .trend-content img{
   width: 35%;
-  left: 285px;
+  left: 500px;
   margin-top: 0px;
   position: absolute;
 }

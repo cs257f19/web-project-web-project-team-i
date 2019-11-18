@@ -17,6 +17,28 @@ def homepage():
     return render_template('index.html')
 
 @app.route('/', methods=['POST'])
+@app.route('/about_data', methods=['POST'])
+@app.route('/about_oscars', methods=['POST'])
+@app.route('/about', methods=['POST'])
+@app.route('/actors', methods=['POST'])
+@app.route('/actresses', methods=['POST'])
+@app.route('/contact_us', methods=['POST'])
+@app.route('/directors', methods=['POST'])
+@app.route('/pictures', methods=['POST'])
+@app.route('/terms', methods=['POST'])
+@app.route('/trends_by_decade/2010', methods=['POST'])
+@app.route('/trends_by_decade/2000', methods=['POST'])
+@app.route('/trends_by_decade/1990', methods=['POST'])
+@app.route('/trends_by_decade/1980', methods=['POST'])
+@app.route('/trends_by_decade/1970', methods=['POST'])
+@app.route('/trends_by_decade/1960', methods=['POST'])
+@app.route('/trends_by_decade/1950', methods=['POST'])
+@app.route('/trends_by_decade/1940', methods=['POST'])
+@app.route('/trends_by_decade/1930', methods=['POST'])
+@app.route('/trends_by_decade/1920', methods=['POST'])
+@app.route('/trends_by_decade/1910', methods=['POST'])
+@app.route('/trends', methods=['POST'])
+@app.route('/winners2020', methods=['POST'])
 def my_form_post():
     ds = backend.datasource.DataSource()
 
@@ -34,8 +56,9 @@ def my_form_post():
 
         if year < 1927 or year > 2018:
             title =  'The year ' + str(year) + ' is out of range. Please go back and type in again.'
-            return render_template('result.html', winners=[], year=year, title=title)
+            return render_template('result1.html', winners=[], year=year, title=title)
         else:
+            winners.append({"award":"Award", "film":"Film", "person":"Person"})
             for category in categories:
                 result = ds.get_winner(connection, year, category)
                 film = result[0][0]
@@ -45,25 +68,15 @@ def my_form_post():
                     person = ""
                 winners.append({"award":category, "film":film, "person":person})
                 title = str(year) + ' Oscar Winners'
-
-        return render_template('result.html', winners=winners, title=title)
+        return render_template('result1.html', winners=winners, title=title)
     else:
         year = int(key[:4])
-        input_cat = key[9:]
-        if input_cat == "picture":
-            award = "bestPicture"
-        elif input_cat == "actor":
-            award = "bestActor"
-        elif input_cat == "actress":
-            award = "bestActress"
-        elif input_cat == "director":
-            award = "bestDirector"
-        picture = ds.get_by_year(connection, year, award)
-        item = "*"
-        info = ds.get_by_picture(connection, item, picture)
-        return render_template('result.html',picture=picture, info=info)
-
-
+        length = len(key)
+        category = str(key[10:length])
+        title = str(key[5:]) + " of " + str(year)
+        picture = ds.get_by_year(connection, year, category)
+        person = ds.get_winner(connection, year, category)[0]
+        return render_template('result2.html', title= title, person=person, year=year, category=category, picture=picture[0])
 
 @app.route('/pictures')
 def pictures():
@@ -77,6 +90,58 @@ def pictures():
     category = "picture"
     pictures = ds.get_winner(connection, year, category)
     return render_template('pictures.html', pictures=pictures)
+
+
+@app.route('/pictures/<genre>')
+def pictures_by_genre(genre):
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+    year = 0
+    category = "picture"
+    pictures = ds.get_winner(connection, year, category)
+    
+    results = []
+
+    genres_with_pictures = []
+    for picture in pictures:
+        if type(picture[0]) == str:
+            quered_genre = ds.get_by_picture(connection, 'genre', picture[0])
+            results.append("picture" + picture[0])
+            results.append(quered_genre)
+            # if quered_genre == genre:
+                # results.append({"picture": picture[0], "year":picture[1]})
+
+    # results =  [{'genre': 'Drama', 'pictures': []},
+    #             {'genre': 'Sport', 'pictures': []},
+    #             {'genre': 'History', 'pictures': []},
+    #             {'genre': 'Comedy', 'pictures': []},
+    #             {'genre': 'Biography', 'pictures': []},
+    #             {'genre': 'Crime', 'pictures': []},
+    #             {'genre': 'Adventure', 'pictures': []},
+    #             {'genre': 'Action', 'pictures': []},
+    #             {'genre': 'Western', 'pictures': []},
+    #             {'genre': 'Musical', 'pictures': []},
+    #             {'genre': 'Romance', 'pictures': []},
+    #             {'genre': 'Thriller', 'pictures': []},
+    #             {'genre': 'Mystery', 'pictures': []},
+    #             {'genre': 'Sci-Fi', 'pictures': []},
+    #             {'genre': 'Family', 'pictures': []}]
+
+
+    # for genre_with_pictures in genres_with_pictures:
+    #     for result in results:
+    #         genre = genre_with_pictures["genre"]
+    #         picture = genre_with_pictures["picture"]
+    #         year = ds.get_by_picture(connection, 'yearOfRelease', picture)
+    #         picture_name = str(picture) + '(' + str(year) + ')'
+    #         if result["genre"] == genre_with_pictures:
+    #             results["picture"].append(picture_name)
+
+    return render_template('filtered-pictures.html', genre=genre, results=results)
+
 
 @app.route('/actors')
 def actors():

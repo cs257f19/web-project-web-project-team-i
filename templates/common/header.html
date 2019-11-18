@@ -10,8 +10,7 @@
         
         <div class ="topnav">
             <form class="main-form" align="center" id="myForm" method="POST" target="_blank"> 
-                <input type="text" name="year" placeholder="Search">
-                <!-- <input type="submit"><i class="fas fa-search"></i> -->
+                <input type="text" name="key" placeholder="Please type in a year">
                 <button type="submit">
                     <i class="fa fa-search"></i>
                 </button>
@@ -59,12 +58,22 @@
             <a href="#" class="w3-bar-item w3-button">1927-1929</a>
           </div>
         </div> -->
-        <button class="w3-button topnav-cell"><a href="{{ url_for('trends') }}">Trends by Decade</a></button>
-        <button class="w3-button topnav-cell"><a href="{{ url_for('about_oscars') }}">About the Oscars</a></button>
-        <button class="w3-button topnav-cell"><a href="{{ url_for('winners2020') }}">Potential 2020 Winners</a></button>
-        <!-- <button class="w3-button">Surveys</button> -->
-        <button class="w3-button topnav-cell"><a href="{{ url_for('about_data') }}">About the Data</a></button>
+        <div class="w3-dropdown-hover topnav-cell">
+          <button class="w3-button"><a href="{{ url_for('trends') }}">Trends by Decade</a></button>
+        </div>
+
+        <div class="w3-dropdown-hover topnav-cell">
+          <button class="w3-button"><a href="{{ url_for('about_oscars') }}">About the Oscars</a></button>
+        </div>
+
+        <div class="w3-dropdown-hover topnav-cell">
+          <button class="w3-button"><a href="{{ url_for('winners2020') }}">Potential 2020 Winners</a></button>
+        </div>
+          <!-- <button class="w3-button">Surveys</button> -->
         
+        <div class="w3-dropdown-hover topnav-cell">
+          <button class="w3-button"><a href="{{ url_for('about_data') }}">About the Data</a></button>
+        </div>
       </header>
 
     </body>

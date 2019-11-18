@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset ="utf-8">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='oscars.css') }}" >
+  <link rel="icon" href="{{ url_for('static', filename='img/head.jpg') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+
+
+<body>
+
+<div id="header">
+        {% include "common/header.html" %}
+</div>
+<div class="main">
+        <div class="title">{{ title }} </div>
+
+        {% block content %}
+        <table class="result">
+            {% for winner in winners %}
+                <tr><td>{{ winner.award }}</td><td>{{ winner.film }}</td><td>{{ winner.person }}</td></tr>
+            {% endfor %}
+        </table>
+        {% endblock %}
+
+
+        
+
+    </div>
+
+<div id="footer">
+    {% include "common/footer.html" %}
+</div>
+    </body>
+    </html>
+</html>
