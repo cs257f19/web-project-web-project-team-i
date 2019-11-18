@@ -59,6 +59,7 @@ def pictures():
     year = 0
     category = "picture"
     pictures = ds.get_winner(connection, year, category)
+    print(pictures)
     return render_template('pictures.html', pictures=pictures)
 
 
@@ -90,32 +91,6 @@ def pictures_by_genre(genre):
         #     print(quered_genre)
         #     if quered_genre == genre:
         #         results.append({"picture": name, "year":picture[1]})
-
-    # results =  [{'genre': 'Drama', 'pictures': []},
-    #             {'genre': 'Sport', 'pictures': []},
-    #             {'genre': 'History', 'pictures': []},
-    #             {'genre': 'Comedy', 'pictures': []},
-    #             {'genre': 'Biography', 'pictures': []},
-    #             {'genre': 'Crime', 'pictures': []},
-    #             {'genre': 'Adventure', 'pictures': []},
-    #             {'genre': 'Action', 'pictures': []},
-    #             {'genre': 'Western', 'pictures': []},
-    #             {'genre': 'Musical', 'pictures': []},
-    #             {'genre': 'Romance', 'pictures': []},
-    #             {'genre': 'Thriller', 'pictures': []},
-    #             {'genre': 'Mystery', 'pictures': []},
-    #             {'genre': 'Sci-Fi', 'pictures': []},
-    #             {'genre': 'Family', 'pictures': []}]
-
-
-    # for genre_with_pictures in genres_with_pictures:
-    #     for result in results:
-    #         genre = genre_with_pictures["genre"]
-    #         picture = genre_with_pictures["picture"]
-    #         year = ds.get_by_picture(connection, 'yearOfRelease', picture)
-    #         picture_name = str(picture) + '(' + str(year) + ')'
-    #         if result["genre"] == genre_with_pictures:
-    #             results["picture"].append(picture_name)
 
     return render_template('filtered-pictures.html', genre=genre, results=results)
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset ="utf-8">
-  <title>{{ genre }} - Best Pictures</title>
+  <title>{{ genre }} - Best Actors</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='oscars.css') }}" >
   <link rel="icon" href="{{ url_for('static', filename='img/head.jpg') }}">
@@ -18,7 +18,7 @@
         {% include "common/header.html" %}
 </div>
 <div class="main">
-        <div class="title">{{ genre }} that Won Best Picture </div>
+        <div class="title">{{ genre }} that Won Best Actor </div>
 
         {% block content %}
         <table class="result">
