@@ -304,12 +304,12 @@ footer a {
 
 
 .trend-content {
-  height: 1000px;
+  height: 760px;
 }
 
 .trend-content img{
   width: 35%;
-  left: 285px;
+  left: 500px;
   margin-top: 0px;
   position: absolute;
 }
