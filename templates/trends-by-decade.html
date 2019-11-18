@@ -46,6 +46,12 @@
                     <tr><td>{{ count[0] }}</td><td>{{ count[1] }}</td></tr>
                 {% endfor %}
             </table>
+
+            <table class="result">
+              <tr class="result-title"><th>Average Score</th></tr>
+                  <tr><td>{{ avgScores }}</td></tr>
+              {% endfor %}
+          </table>
             {% endblock %}
         </div>
     </div>
