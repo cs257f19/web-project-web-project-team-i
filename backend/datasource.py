@@ -213,10 +213,11 @@ class DataSource:
             for pictureArray in pictures:
                 for picture in pictureArray:
                     if "'" in picture:
+                        print(picture)
                         continue
                     else:
                         query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
-                        print(picture)
+                        
                         
                         if self.execute_query(connection, query) != []:
                             print('not out')
