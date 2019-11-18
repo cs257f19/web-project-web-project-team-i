@@ -78,11 +78,11 @@ def pictures_by_genre(genre):
     genres_with_pictures = []
     for picture_info in picture_infos:
         picture = picture_info[0]
-        print(picture)
+        print(picture_info)
         if type(picture) == str:
             if "'" in picture:
                 picture.replace("'", "\'")
-                print(picture)
+                # print(picture)
             quered_genre = ds.get_by_picture(connection, 'genre', picture)
             results.append(quered_genre)
             # if quered_genre == genre:
