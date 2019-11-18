@@ -131,12 +131,12 @@ def pictures_by_genre(filter_type):
 
     for genre_with_pictures in genres_with_pictures:
         for result in results:
-            genre = genre_with_pictures.genre
-            picture = genre_with_pictures.picture
+            genre = genre_with_pictures["genre"]
+            picture = genre_with_pictures["picture"]
             year = ds.get_by_picture(connection, 'yearOfRelease', picture)
             picture_name = picture + '(' + year + ')'
-            if result.genre == genre_with_pictures:
-                results.pictures.append(picture_name)
+            if result["genre"] == genre_with_pictures:
+                results["picture"].append(picture_name)
 
     return render_template('filtered-pictures.html', results=results)
 
