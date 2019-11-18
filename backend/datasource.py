@@ -220,13 +220,13 @@ class DataSource:
                     else:
                         query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"                        
                         if self.execute_query(connection, query) != []:
-                            subgenre = self.execute_query(connection, query)[0][0]
-                            # if subgenre == "Drama" or subgenre == "NA":
-                            #     query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
-                            #     genre = self.execute_query(connection, query)[0][0]
-                            #     genres.append(genre)
-                            # else:
-                            #     genres.append(subgenre)
+                            subgenre = self.execute_query(connection, query)[0]
+                            if subgenre == "Drama" or subgenre == "NA":
+                                query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
+                                genre = self.execute_query(connection, query)[0]
+                                genres.append(genre)
+                            else:
+                                genres.append(subgenre)
 
         except Exception as e:
             print("Connection error: ", e)
