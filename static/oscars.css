@@ -59,6 +59,9 @@ header a {
   /* padding: 0px; */
 }
 
+.w3-dropdown-hover:hover { 
+  border: none;
+}
 /* dropdown  */
 .topnav-cell :hover, .w3-button:hover{
   color: goldenrod !important;
