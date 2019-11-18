@@ -107,7 +107,7 @@ def pictures_by_genre(genre):
 
     genres_with_pictures = []
     for picture in pictures:
-        if type(picture[0]) == str:
+        if type(picture[0]) == str and "'" not in picture:
             quered_genre = ds.get_by_picture(connection, 'genre', picture[0])
             results.append("picture" + picture[0])
             results.append(quered_genre)
