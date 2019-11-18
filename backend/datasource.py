@@ -1,5 +1,3 @@
-# imdb and critic score naming
-# exeption return None or exit()
 import psycopg2
 import getpass
 
@@ -147,7 +145,7 @@ class DataSource:
                 query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
                 
                 if self.execute_query(connection, query) != []:
-                    
+
                     subgenre = self.execute_query(connection, query)[0][0]
                     if subgenre == "Drama" or subgenre == "NA":
                         query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
@@ -195,8 +193,57 @@ class DataSource:
 
         return result
 
-    # def get_avgScore(self, connection, start, end):
+    def get_Score(self, connection, start, end):
+        '''
+        Returns an array of integers which include Metacritic scores of Best Picture winners in the year range.
 
+        PARAMETERS:
+            int the beginning year of the range
+            int the ending year of the range
+
+        RETURN:
+            Array of integers of average scores of all Best Picture winners in the year range.
+        '''
+
+        start = start - 1
+        end = end - 1
+        scores = []
+        bestPics = []
+
+        try:
+            for year in range(start, end+1):
+                bestPic = get_winner(connection, year, "picture")
+                bestPics.append(bestPic)
+            for picture in bestPics:
+                query = "SELECT score FROM films WHERE picture = '"  + picture + "'"
+                score = self.execute_query(connection, query)[0][0]
+                scores.append(score)
+
+        except Exception as e:
+            print("Connection error: ", e)
+            return None
+
+        return scores
+
+    def get_avgScore(self, connection, scores):
+         '''
+         Returns an integer value of average Metacritic scores of Best Picture winners in the year range.
+
+         PARAMETERS:
+             scores - array of metacritic scores
+
+         RETURN:
+             Integer of average Metacritic score of specific year range.
+         '''
+
+         total = 0.0
+         avg = []
+         for score in scores:
+             fo
+             total += score
+             avgScore = total/len(scores)
+
+         return avg
 
     def get_genre(self, connection, pictures):
         '''
@@ -220,7 +267,7 @@ class DataSource:
                         genres = genres
                         # continue
                     else:
-                        query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"                        
+                        query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
                         if self.execute_query(connection, query) != []:
                             subgenre = self.execute_query(connection, query)[0][0]
                             if subgenre == "Drama" or subgenre == "NA":
@@ -283,20 +330,22 @@ def main():
     # results.append(["result_item", result_item])
     result_pictures = ds.get_pictures(connection, 1927, 2018)
     # results.append(["result_pictures", result_pictures])
-    
+
     pictures = result_pictures
     result_genre = ds.get_genre(connection, pictures)
     results.append(["result_genre", result_genre])
-    
+    result_score = ds.get_Score(connection, 2010, 2018)
+    results.append(["result_score", result_score])
+
     # result_count = ds.count_genre(connection, result_genre)
     # results.append(["result_count", result_count])
-    
+
     for result in results:
         if result is not None:
             print("Query results: " + str(result[0]) +  str(result[1]))
         else:
             print("The result was None.")
-    
+
     connection.close()
 
 if __name__ == "__main__":
