@@ -83,13 +83,13 @@ def pictures_by_genre(genre):
             # results.append(quered_genre)
             if quered_genre == genre:
                 results.append({"picture": name, "year":picture[1]})
-        elif type(name) == str:
-            name.replace("'", "\'")
-            quered_genre = ds.get_by_picture(connection, 'genre', name)
-            # results.append(quered_genre)
-            print(quered_genre)
-            if quered_genre == genre:
-                results.append({"picture": name, "year":picture[1]})
+        # elif type(name) == str:
+        #     name.replace("'", "\'")
+        #     quered_genre = ds.get_by_picture(connection, 'genre', name)
+        #     # results.append(quered_genre)
+        #     print(quered_genre)
+        #     if quered_genre == genre:
+        #         results.append({"picture": name, "year":picture[1]})
 
     # results =  [{'genre': 'Drama', 'pictures': []},
     #             {'genre': 'Sport', 'pictures': []},
