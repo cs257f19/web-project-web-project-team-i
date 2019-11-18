@@ -1,5 +1,3 @@
-# imdb and critic score naming
-# exeption return None or exit()
 import psycopg2
 import getpass
 
@@ -147,7 +145,7 @@ class DataSource:
                 query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
                 print(self.execute_query(connection, query), picture, query)
                 if self.execute_query(connection, query) != []:
-                    
+
                     subgenre = self.execute_query(connection, query)[0][0]
                     if subgenre == "Drama" or subgenre == "NA":
                         query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
@@ -269,7 +267,7 @@ class DataSource:
                         genres = genres
                         # continue
                     else:
-                        query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"                        
+                        query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
                         if self.execute_query(connection, query) != []:
                             subgenre = self.execute_query(connection, query)[0][0]
                             if subgenre == "Drama" or subgenre == "NA":
@@ -332,35 +330,22 @@ def main():
     # results.append(["result_item", result_item])
     result_pictures = ds.get_pictures(connection, 1927, 2018)
     # results.append(["result_pictures", result_pictures])
-    
+
     pictures = result_pictures
     result_genre = ds.get_genre(connection, pictures)
-<<<<<<< HEAD
-    # results.append(["result_genre", result_genre])
-
-    result_count = ds.count_genre(connection, result_genre)
-    results.append(["result_count", result_count])
-
-
-||||||| merged common ancestors
-    # results.append(["result_genre", result_genre])
-
-    result_count = ds.count_genre(connection, result_genre)
-    results.append(["result_count", result_count])
-
-=======
     results.append(["result_genre", result_genre])
-    
+    result_score = ds.get_Score(connection, 2010, 2018)
+    results.append(["result_score", result_score])
+
     # result_count = ds.count_genre(connection, result_genre)
     # results.append(["result_count", result_count])
-    
->>>>>>> e0626cf64df01e7b5ba89e3a028266ee3c4bd2bf
+
     for result in results:
         if result is not None:
             print("Query results: " + str(result[0]) +  str(result[1]))
         else:
             print("The result was None.")
-    
+
     connection.close()
 
 if __name__ == "__main__":
