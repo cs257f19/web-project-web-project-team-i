@@ -76,8 +76,7 @@ class DataSource:
                 year_query =  " WHERE yearOfRelease = " + str(year)
             else:
                 get_year = ", yearOfRelease"
-                year_query = ""
-
+                year_query = " WHERE yearOfRelease BETWEEN 1927 AND 2018"
 
             query = "SELECT " + award + person + get_year + " FROM winners" + year_query
             print(query)
