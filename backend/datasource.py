@@ -76,10 +76,10 @@ class DataSource:
                 year_query =  " WHERE yearOfRelease = " + str(year)
             else:
                 get_year = ", yearOfRelease"
-                year_query = " WHERE yearOfRelease BETWEEN 1927 AND 2018"
+                year_query = ""
+
 
             query = "SELECT " + award + person + get_year + " FROM winners" + year_query
-            print(query)
             result = self.execute_query(connection, query)
         except Exception as e:
             print("Connection error: ", e)
