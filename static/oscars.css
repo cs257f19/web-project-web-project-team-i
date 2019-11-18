@@ -42,6 +42,15 @@ header a {
 }
 
 
+form button {
+  background-color: azure;
+  border: 0px;
+  border-radius: 4px;
+}
+
+.fa-search:before { 
+  color: darkgoldenrod;
+}
 
 #topnav {
   display: inline-block;
