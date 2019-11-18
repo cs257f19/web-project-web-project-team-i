@@ -93,7 +93,7 @@ def pictures():
 
 
 @app.route('/pictures/<filter_type>')
-def trends_by_decade(filter_type):
+def picture_by_genre(filter_type):
     ds = backend.datasource.DataSource()
     user = 'kuritar'
     password = 'lamp977python'
