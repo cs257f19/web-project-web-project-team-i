@@ -59,7 +59,6 @@ def pictures():
     year = 0
     category = "picture"
     pictures = ds.get_winner(connection, year, category)
-    print(pictures)
     return render_template('pictures.html', pictures=pictures)
 
 
