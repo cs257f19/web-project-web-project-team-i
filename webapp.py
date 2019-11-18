@@ -79,9 +79,9 @@ def pictures_by_genre(genre):
     for picture in pictures:
         if type(picture[0]) == str and "'" not in picture[0]:
             quered_genre = ds.get_by_picture(connection, 'genre', picture[0])
-            results.append(quered_genre)
-            # if quered_genre == genre:
-                # results.append({"picture": picture[0], "year":picture[1]})
+            # results.append(quered_genre)
+            if quered_genre == genre:
+                results.append({"picture": picture[0], "year":picture[1]})
 
     # results =  [{'genre': 'Drama', 'pictures': []},
     #             {'genre': 'Sport', 'pictures': []},
