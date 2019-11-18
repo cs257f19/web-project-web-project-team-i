@@ -110,7 +110,7 @@ def pictures_by_genre(filter_type):
         if filter_type == 'genre':
             
             genre = ds.get_by_picture(connection, 'genre', picture[0])
-            genres_with_pictures.append({"genre": genre, "picture":picture})
+            genres_with_pictures.append({"genre": genre, "picture":picture[0]})
 
     results =  [{'genre': 'Drama', 'pictures': []},
                 {'genre': 'Sport', 'pictures': []},
