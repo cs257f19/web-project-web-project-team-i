@@ -151,6 +151,37 @@ def actresses():
 
     return render_template('actresses.html', actresses=actresses)
 
+@app.route('/actresses/<genre>')
+def actresses_by_genre(genre):
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+    year = 0
+    category = "actress"
+    pictures = ds.get_winner(connection, year, category)
+
+    results = []
+
+    genres_with_pictures = []
+    for picture in pictures:
+        name = picture[0]
+        if type(name) == str:
+            if "'" not in name:
+                quered_genre = ds.get_by_picture(connection, 'genre', name)
+                # results.append(quered_genre)
+                if quered_genre == genre:
+                    results.append({"picture": name, "year":picture[2], "person":picture[1]})
+            else:
+                name = name.replace("'", "''")
+                quered_genre = ds.get_by_picture(connection, 'genre', name)
+                if quered_genre == genre:
+                    results.append({"picture": name, "year":picture[2], "person":picture[1]})
+
+    return render_template('filtered-actresses.html', genre=genre, results=results)
+
+
 @app.route('/directors')
 def directors():
     ds = backend.datasource.DataSource()
@@ -164,6 +195,36 @@ def directors():
     directors = ds.get_winner(connection, year, category)
     return render_template('directors.html', directors=directors)
 
+
+@app.route('/directors/<genre>')
+def directors_by_genre(genre):
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+    year = 0
+    category = "director"
+    pictures = ds.get_winner(connection, year, category)
+
+    results = []
+
+    genres_with_pictures = []
+    for picture in pictures:
+        name = picture[0]
+        if type(name) == str:
+            if "'" not in name:
+                quered_genre = ds.get_by_picture(connection, 'genre', name)
+                # results.append(quered_genre)
+                if quered_genre == genre:
+                    results.append({"picture": name, "year":picture[2], "person":picture[1]})
+            else:
+                name = name.replace("'", "''")
+                quered_genre = ds.get_by_picture(connection, 'genre', name)
+                if quered_genre == genre:
+                    results.append({"picture": name, "year":picture[2], "person":picture[1]})
+
+    return render_template('filtered-directors.html', genre=genre, results=results)
 
 @app.route('/trends_by_decade/<decade>')
 def trends_by_decade(decade):
