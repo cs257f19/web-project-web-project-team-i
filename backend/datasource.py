@@ -210,7 +210,7 @@ class DataSource:
 
         try:
             for year in range(start, end+1):
-                bestPic = get_winner(connection, year, "picture")
+                bestPic = self.get_winner(connection, year, "picture")
                 bestPics.append(bestPic)
             for picture in bestPics:
                 query = "SELECT score FROM films WHERE picture = '"  + picture + "'"
