@@ -42,7 +42,7 @@
         {% block content %}
         <table class="result">
             {% for result in results %}
-                <tr><td>{{ result.picture }}( {{result.year}} )</td><td>{{result.person}}</td></tr>
+                <tr><td>{{ result.picture }}( {{result.year}} )</td><td>by {{result.person}}</td></tr>
             {% endfor %}
         </table>
         {% endblock %}
