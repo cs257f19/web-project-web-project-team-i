@@ -334,7 +334,7 @@ def trends_by_decade(decade):
                 person = ""
             winners.append({"award":category, "film":film, "person":person})
             title = str(year) + ' Oscar Winners'
-        infos.append(winners)
+        infos.append([year, winners])
 
     return render_template('trends-by-decade.html', start=start, end=end, counts=counts, avgScores=avgScores, infos=infos)
 
