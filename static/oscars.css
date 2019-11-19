@@ -231,6 +231,14 @@ form button {
   text-align: center;
 }
 
+.movie iframe{
+  border: 7.5px solid;
+  border-image-source: linear-gradient( to right, goldenrod, rgb(221, 180, 77), rgb(228, 195, 112), 
+  rgb(238, 211, 145), rgb(245, 231, 197), white, goldenrod, rgb(221, 180, 77), rgb(228, 195, 112), 
+  rgb(238, 211, 145), rgb(245, 231, 197) );
+  border-image-slice: 20;
+}
+
 .homepage-movies .title{
   text-align: left;
 }
