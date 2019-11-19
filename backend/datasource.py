@@ -212,6 +212,7 @@ class DataSource:
         try:
             for year in range(start, end+1):
                 bestPic = self.get_winner(connection, year, category)
+                print(bestPic)
                 print(bestPic[0])
                 bestPics.append(bestPic)
             for picture in bestPics:
