@@ -51,22 +51,22 @@ header a {
 }
 
 .home-top .title {
-  font-size: 60px;
-  top: 200px;
+  font-size: 68px;
+  top: 173px;
   color: darkgoldenrod;
   position: absolute;
 }
 
 .home-top .subtitle {
   font-size: 30px;
-  top: 300px;
+  top: 287px;
   color: cadetblue;
   position: absolute;
 }
 
 .home-top input {
   width: 400px;
-  top: 400px;
+  top: 384px;
   left: 430px;
   height: 35px;
   border-radius: 5px;
@@ -74,7 +74,7 @@ header a {
 }
 
 .home-top button {
-  top: 400px;
+  top: 384px;
   position: absolute;
   left: 839px;
   height: 32px;
