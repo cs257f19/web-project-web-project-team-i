@@ -135,7 +135,7 @@ def actors_by_genre(genre):
                 if quered_genre == genre:
                     results.append({"picture": name, "year":picture[2], "person":picture[1]})
 
-    return render_template('filtered-pictures.html', genre=genre, results=results)
+    return render_template('filtered-actors.html', genre=genre, results=results)
 
 @app.route('/actresses')
 def actresses():
