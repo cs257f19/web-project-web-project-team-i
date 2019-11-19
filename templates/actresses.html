@@ -21,11 +21,21 @@
 <div class="main">
     <div class="sidenav">
         <div class="title">FILTER BY</div>
-        <a href="#">Decade</a>
-        <a href="#">Genre</a>
-        <a href="#">Number of Win</a>
-        <a href="#">Number of Nominations</a>
+        <a href="{{ url_for('actresses_by_genre', genre='Drama') }}">Drama</a>
+        <a href="{{ url_for('actresses_by_genre', genre='Comedy') }}">Comedy</a>
+        <a href="{{ url_for('actresses_by_genre', genre='Action') }}">Action</a>
+        <a href="{{ url_for('actresses_by_genre', genre='Romance') }}">Romance</a>
+        <a href="{{ url_for('actresses_by_genre', genre='Thriller') }}">Thriller</a>
+        <a href="{{ url_for('actresses_by_genre', genre='Mystery') }}">Mystery</a>
+        <a href="{{ url_for('actresses_by_genre', genre='Biography') }}">Biography</a>
+        <a href="{{ url_for('actresses_by_genre', genre='Adventure') }}">Adventure</a>
+        <a href="{{ url_for('actresses_by_genre', genre='Western') }}">Western</a>
+        <a href="{{ url_for('actresses_by_genre', genre='Musical') }}">Musical</a>
+        <a href="{{ url_for('actresses_by_genre', genre='Family') }}">Family</a>
+        <a href="{{ url_for('actresses_by_genre', genre='History') }}">History</a>
+
       </div>
+
 
   <div id="actress">
     <div class="title">
