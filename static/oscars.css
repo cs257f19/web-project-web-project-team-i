@@ -87,6 +87,10 @@ header a {
   left: 95px;
 }
 
+.main .subtitle{
+  font-size: 24px;
+}
+
 #subtitle{
   font-style: italic;
   font-size: 17px;
