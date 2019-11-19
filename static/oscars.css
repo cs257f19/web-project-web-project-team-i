@@ -225,6 +225,12 @@ form button {
   text-align: center;
 }
 
+.movie{
+  margin: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
 .homepage-movies .title{
   text-align: left;
 }
@@ -239,6 +245,13 @@ form button {
 .main .title{
   text-align: center;
   font-size: 36px;
+  color: goldenrod;
+}
+
+.main .maintitle{
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
   color: goldenrod;
 }
 
