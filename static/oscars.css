@@ -130,6 +130,11 @@ form button {
 .w3-dropdown-hover:hover { 
   border: none;
 }
+
+.topnav-cell .dropdown-parent {
+  cursor: initial;
+}
+
 /* dropdown  */
 .topnav-cell :hover, .w3-button:hover{
   color: goldenrod !important;
