@@ -212,11 +212,12 @@ class DataSource:
         try:
             for year in range(start, end+1):
                 bestPic = self.get_winner(connection, year, category)
+                print(bestPic)
                 bestPics.append(bestPic)
             for picture in bestPics:
-                print(picture)
+                # print(picture)
                 query = "SELECT score FROM films WHERE picture = '"  + picture + "'"
-                print(query)
+                # print(query)
                 score = self.execute_query(connection, query)[0][0]
                 scores.append(score)
 
@@ -315,7 +316,7 @@ def main():
 
     pictures = result_pictures
     result_genre = ds.get_genre(connection, pictures)
-    results.append(["result_genre", result_genre])
+    # results.append(["result_genre", result_genre])
     result_score = ds.get_Score(connection, 1927, 2018)
     results.append(["result_score", result_score])
 
