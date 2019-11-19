@@ -306,7 +306,7 @@ def trends_by_decade(decade):
     if int(decade) == 2010:
         start = 2010
         end = 2018
-    elif int(decade) == 1910:
+    elif int(decade) == 1920:
         start = 1927
         end = 1929
     else:
