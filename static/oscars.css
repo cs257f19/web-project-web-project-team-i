@@ -33,13 +33,16 @@ header a {
 
 #title a {
   text-decoration: none;
+  display: flex;
 }
 
 #subtitle{
   font-style: italic;
   font-size: 17px;
   padding: 0px 10px 8px 60px;
+  position: absolute;
   color: rgb(255, 237, 190);
+  top: 87px;
 }
 
 
@@ -122,7 +125,7 @@ header .w3-button a {
 } */
 
 .header-icon{
-  width: 40px;
+  width: 60px;
 }
 
 .main {
