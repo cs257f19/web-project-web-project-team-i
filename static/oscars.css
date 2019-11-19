@@ -141,15 +141,16 @@ header .w3-button a {
 }
 
 .featured-contents{
-  /* display: inline; */
+  display: flex;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
 }
 
 .homepage-movies {
   padding: 50px 0px;
-  margin-top: 16px;
+  margin-top: 20px;
   display: inline-block;
   text-align: center;
 }
@@ -319,11 +320,12 @@ footer a {
   position: relative;
   background-color: goldenrod !important;
   padding: 0px;
+  height: 40px;
 }
 
 .footer-cell a {
   height: 42px !important;
-  color: black;
+  color: rgb(85, 61, 8);;
   /* padding: 0px; */
 }
 
@@ -336,6 +338,7 @@ footer a {
 .footer-cell .w3-button {
   color: white !important;
   background-color: goldenrod !important;
+  font-size: 16px;
 }
 
 .footer-cell .w3-button:hover a {
