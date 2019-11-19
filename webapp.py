@@ -110,11 +110,7 @@ def my_form_post():
                 winners.append({"award":category, "film":film, "person":person})
                 title = str(year) + ' Oscar Winners'
         return render_template('result1.html', winners=winners, title=title)
-<<<<<<< HEAD
-    # when the input is year+category
-=======
     #For search inputs involving year and award category
->>>>>>> 5057bf2856d990c100b94b85baf694572cff69a0
     else:
         year = int(key[:4])
         length = len(key)
