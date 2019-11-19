@@ -41,9 +41,9 @@
 
                 {% block content %}
                 <table class="result">
-                    <tr class="result-title"><th>Award</th><th>Film</th></tr>
+                    <tr class="result-title"><th>Best Picture</th><th>Best Actor</th><th>Best Actress</th><th>Best Director</th></tr>
                     {% for info in infos %}
-                        <tr><td>{{ info[1].award }}</td><td>{{ info[1].film }}</td></tr>
+                        <tr><td>{{ info[2].film }}</td><td>{{ info[3].film }} ({{ info[3].person }})</td><td>{{ info[4].film }} ({{ info[4].person }})</td><td>{{ info[3].film }} ({{ info[3].person }})</td></tr>
                     {% endfor %}
               </table>
                
