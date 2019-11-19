@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset ="utf-8">
-  <title>Directors</title>
+  <title>{{ genre }} - Best Director</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='oscars.css') }}" >
   <link rel="icon" href="{{ url_for('static', filename='img/head.jpg') }}">
@@ -14,12 +14,11 @@
 
 <body>
 
-<div>
+<div id="header">
         {% include "common/header.html" %}
 </div>
-
 <div class="main">
-    <div class="sidenav">
+        <div class="sidenav">
         <div class="title">FILTER BY</div>
         <a href="{{ url_for('directors_by_genre', genre='Drama') }}">Drama</a>
         <a href="{{ url_for('directors_by_genre', genre='Comedy') }}">Comedy</a>
@@ -33,36 +32,28 @@
         <a href="{{ url_for('directors_by_genre', genre='History') }}">History</a>
 
       </div>
-  <div id="director">
-    <div class="title">
-      Best Director Winners
-    </div>
-    <div class="best-content">
-      <div class="caption">
-        Best Director 2019: <strong> Alfonso Cuaron </strong>
-      </div>
-      <img class="best-photo" src="{{ url_for('static', filename='img/BestDirector2019.jpg') }}" alt="Alfonso Cuaron Best Director 2019"></img>
-      <div class="best-bio">
-        In 2019, Alfonso Cuaron won the Best Director award for his poignant direction of his deeply personal film <em>Roma.</em>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="table">
+
+
+        <div class="title">{{ genre }} that Won Best Director </div>
+
         {% block content %}
         <table class="result">
-            <tr><th>Year</th><th>Film</th><th>Person</th></tr>
-            {% for director in directors %}
-                <tr><td>{{ director[2] }}</td><td>{{ director[0] }}</td><td>{{ director[1] }}</td></tr>
+            {% for result in results %}
+                <tr><td>{{ result.picture }}( {{result.year}} )</td><td>{{result.person}}</td></tr>
             {% endfor %}
         </table>
-        <!-- </table> -->
         {% endblock %}
+
+
+
+        
+
     </div>
 
-<div>
+<div id="footer">
     {% include "common/footer.html" %}
 </div>
-</body>
+    </body>
+    </html>
 </html>

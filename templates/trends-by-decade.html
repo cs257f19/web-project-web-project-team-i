@@ -18,8 +18,7 @@
         {% include "common/header.html" %}
 </div>
 
-<div class="main">
-        <div class="sidenav">
+<div class="main">        <div class="sidenav">
                 <div class="title">DECADES</div>
                 <a href="{{ url_for('trends_by_decade', decade='2010') }}">2010-2018</a>
                 <a href="{{ url_for('trends_by_decade', decade='2000') }}" >2000-2009</a>
@@ -32,6 +31,7 @@
                 <a href="{{ url_for('trends_by_decade', decade='1920') }}" >1930-1939</a>
                 <a href="{{ url_for('trends_by_decade', decade='1910') }}" >1927-1929</a>
             </div>
+
 
     <div id="trend-by-decade">
         <div class="title">

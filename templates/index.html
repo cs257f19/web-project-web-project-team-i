@@ -18,6 +18,22 @@
 </div>
 
 
+<div class="home-top">
+    <img src="{{ url_for('static', filename='img/home-top.jpg') }}"></img>
+    <div class="overlay">
+      <div class="title">Oscar Winners Database</div>
+      <div class="subtitle">Interested in Movie Trends? Wondering Which Movie Wins Next Year?</div>
+      
+      <form class="main-form" align="center" id="myForm" method="POST" target="_blank"> 
+          <input type="text" name="key" placeholder='Type in "Year" or "Year + Category"'>
+          <button type="submit">
+              <i class="fa fa-search"></i>
+          </button>
+        </form>
+    </div>
+
+  </div>
+
   <div class="main">
     <!-- featured data analysis -->
      <!-- web form for user query -->
@@ -35,7 +51,7 @@
         <iframe title = "Trailer for Bohemian Rhapsody" width="500" height="315"
         src="https://www.youtube.com/embed/mP0VHJYFOAU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
-        <a href = "https://www.bohemianrhapsodymovie.co.uk/synopsis/">Plot synopsis</a>
+        <a href = "https://www.bohemianrhapsodymovie.co.uk/synopsis/">Bohemian Rhapsody's Synopsis</a>
       </div> <!-- featured -->
 
       <!-- potential winner trailer-->
@@ -44,7 +60,7 @@
         <iframe title = "Trailer for Once Upon A Time In Hollywood" width = "500" height = "315"
         src ="https://www.youtube.com/embed/ELeMaP8EPAA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"allowfullscreen>
         </iframe>
-        <a href = "https://www.sonypictures.com/movies/onceuponatimeinhollywood">Plot synopsis</a>
+        <a href = "https://www.sonypictures.com/movies/onceuponatimeinhollywood">Once Upon A Time In Hollywood's Synopsis</a>
       </div> <!-- potential -->
     </div> <!-- featured -->
   </div> <!-- main -->

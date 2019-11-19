@@ -44,7 +44,6 @@ class DataSource:
         return result
 
 
-
     def get_winner(self, connection="", year=0, category=""):
         '''
         Returns a string containing winners of the specified year and category
@@ -143,9 +142,7 @@ class DataSource:
         try:
             if item == "genre":
                 query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
-                
                 if self.execute_query(connection, query) != []:
-
                     subgenre = self.execute_query(connection, query)[0][0]
                     if subgenre == "Drama" or subgenre == "NA":
                         query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
@@ -209,10 +206,12 @@ class DataSource:
         end = end - 1
         scores = []
         bestPics = []
+        category = "picture"
+
 
         try:
             for year in range(start, end+1):
-                bestPic = get_winner(connection, year, "picture")
+                bestPic = self.get_winner(connection, year, category)
                 bestPics.append(bestPic)
             for picture in bestPics:
                 query = "SELECT score FROM films WHERE picture = '"  + picture + "'"
@@ -230,20 +229,19 @@ class DataSource:
          Returns an integer value of average Metacritic scores of Best Picture winners in the year range.
 
          PARAMETERS:
-             scores - array of metacritic scores
+             scores - array of int metacritic scores
 
          RETURN:
              Integer of average Metacritic score of specific year range.
          '''
 
          total = 0.0
-         avg = []
          for score in scores:
-             fo
              total += score
-             avgScore = total/len(scores)
 
-         return avg
+         avgScore = total/len(scores)
+
+         return avgScore
 
     def get_genre(self, connection, pictures):
         '''
@@ -260,22 +258,18 @@ class DataSource:
         genres = []
         try:
             for pictureArray in pictures:
-                # print(pictureArray)
                 for picture in pictureArray:
-                    # print(picture)
                     if "'" in picture:
-                        genres = genres
-                        # continue
-                    else:
-                        query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
-                        if self.execute_query(connection, query) != []:
-                            subgenre = self.execute_query(connection, query)[0][0]
-                            if subgenre == "Drama" or subgenre == "NA":
-                                query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
-                                genre = self.execute_query(connection, query)[0][0]
-                                genres.append(genre)
-                            else:
-                                genres.append(subgenre)
+                        picture = picture.replace("'", "''")
+                    query = "SELECT subgenre FROM films WHERE picture = '"  + picture + "'"
+                    if self.execute_query(connection, query) != []:
+                        subgenre = self.execute_query(connection, query)[0][0]
+                        if subgenre == "Drama" or subgenre == "NA":
+                            query = "SELECT genre FROM films WHERE picture = '"  + picture + "'"
+                            genre = self.execute_query(connection, query)[0][0]
+                            genres.append(genre)
+                        else:
+                            genres.append(subgenre)
 
         except Exception as e:
             print("Connection error: ", e)
@@ -328,13 +322,13 @@ def main():
     # results.append(["result_film", result_film])
     # result_item = ds.get_by_picture(connection, item, film)
     # results.append(["result_item", result_item])
-    result_pictures = ds.get_pictures(connection, 1927, 2018)
+    result_pictures = ds.get_pictures(connection, 1928, 2017)
     # results.append(["result_pictures", result_pictures])
 
     pictures = result_pictures
     result_genre = ds.get_genre(connection, pictures)
     results.append(["result_genre", result_genre])
-    result_score = ds.get_Score(connection, 2010, 2018)
+    result_score = ds.get_Score(connection, 1927, 2018)
     results.append(["result_score", result_score])
 
     # result_count = ds.count_genre(connection, result_genre)

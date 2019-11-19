@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset ="utf-8">
-  <title>Actresses</title>
+  <title>{{ genre }} - Best Actress</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='oscars.css') }}" >
   <link rel="icon" href="{{ url_for('static', filename='img/head.jpg') }}">
@@ -14,12 +14,11 @@
 
 <body>
 
-<div>
+<div id="header">
         {% include "common/header.html" %}
 </div>
-
 <div class="main">
-    <div class="sidenav">
+        <div class="sidenav">
         <div class="title">FILTER BY</div>
         <a href="{{ url_for('actresses_by_genre', genre='Drama') }}">Drama</a>
         <a href="{{ url_for('actresses_by_genre', genre='Comedy') }}">Comedy</a>
@@ -35,35 +34,26 @@
       </div>
 
 
-  <div id="actress">
-    <div class="title">
-      Best Actress Winners
-    </div>
-    <div class="best-content">
-      <div class="caption">
-        Best Actress 2019: <strong> Olivia Colman </strong>
-      </div>
-      <img class="best-photo" src="{{ url_for('static', filename='img/BestActress2019.jpg') }}" alt="Olivia Colman Best Actress 2019"></img>
-      <div class="best-bio">
-        In 2019, Olivia Colman won the Best Actress award for her starring role in <em>The Favourite.</em>
-      </div>
-    </div>
-  </div>
-</div>
 
-    <div class="table">
-            {% block content %}
-            <table class="result">
-                <tr><th>Year</th><th>Film</th><th>Person</th></tr>
-                {% for actresse in actresses %}
-                    <tr><td>{{ actresse[2] }}</td><td>{{ actresse[0] }}</td><td>{{ actresse[1] }}</td></tr>
-                {% endfor %}
-            </table>
-            <!-- </table> -->
-            {% endblock %}
-        </div>
-<div>
+        <div class="title">{{ genre }} that Won Best Actress </div>
+
+        {% block content %}
+        <table class="result">
+            {% for result in results %}
+                <tr><td>{{ result.picture }}( {{result.year}} )</td><td>{{result.person}}</td></tr>
+            {% endfor %}
+        </table>
+        {% endblock %}
+
+
+
+        
+
+    </div>
+
+<div id="footer">
     {% include "common/footer.html" %}
 </div>
-</body>
+    </body>
+    </html>
 </html>
