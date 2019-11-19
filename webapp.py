@@ -106,6 +106,37 @@ def actors():
 
     return render_template('actors.html', actors=actors)
 
+
+@app.route('/actors/<genre>')
+def actors_by_genre(genre):
+    ds = backend.datasource.DataSource()
+    user = 'kuritar'
+    password = 'lamp977python'
+    connection = ds.connect(user, password)
+
+    year = 0
+    category = "actor"
+    pictures = ds.get_winner(connection, year, category)
+
+    results = []
+
+    genres_with_pictures = []
+    for picture in pictures:
+        name = picture[0]
+        if type(name) == str:
+            if "'" not in name:
+                quered_genre = ds.get_by_picture(connection, 'genre', name)
+                # results.append(quered_genre)
+                if quered_genre == genre:
+                    results.append({"picture": name, "year":picture[1]})
+            else:
+                name = name.replace("'", "''")
+                quered_genre = ds.get_by_picture(connection, 'genre', name)
+                if quered_genre == genre:
+                    results.append({"picture": name, "year":picture[1]})
+
+    return render_template('filtered-pictures.html', genre=genre, results=results)
+
 @app.route('/actresses')
 def actresses():
     ds = backend.datasource.DataSource()
