@@ -2,7 +2,8 @@
 <body>
     <header>
         <div id="title">
-          <a href="{{ url_for('homepage') }}">Oscar Winners</a>
+            <img class="hearder-icon" src="{{ url_for('static', filename='img/head.jpg') }}"></img>
+            <a href="{{ url_for('homepage') }}">Oscar Winners</a>
         </div>
         <div id="subtitle">
           Casting future Oscar Winners
@@ -10,7 +11,7 @@
         
         <div class ="topnav">
             <form class="main-form" align="center" id="myForm" method="POST" target="_blank"> 
-                <input type="text" name="key" placeholder="Please type in a year">
+                <input type="text" name="key" placeholder="Search">
                 <button type="submit">
                     <i class="fa fa-search"></i>
                 </button>
@@ -42,22 +43,7 @@
             <!-- <a href="#" class="w3-bar-item w3-button">Cinematography</a> -->
           </div>
         </div>
-        
-        <!-- <div class="w3-dropdown-hover">
-          <button class="w3-button">Trends by Decade</button>
-          <div class="w3-dropdown-content w3-bar-block w3-border">
-            <a href="#" class="w3-bar-item w3-button">2010-2019</a>
-            <a href="#" class="w3-bar-item w3-button">2000-2009</a>
-            <a href="#" class="w3-bar-item w3-button">1990-1999</a>
-            <a href="#" class="w3-bar-item w3-button">1980-1989</a>
-            <a href="#" class="w3-bar-item w3-button">1970-1979</a>
-            <a href="#" class="w3-bar-item w3-button">1960-1969</a>
-            <a href="#" class="w3-bar-item w3-button">1950-1959</a>
-            <a href="#" class="w3-bar-item w3-button">1940-1949</a>
-            <a href="#" class="w3-bar-item w3-button">1930-1939</a>
-            <a href="#" class="w3-bar-item w3-button">1927-1929</a>
-          </div>
-        </div> -->
+
         <div class="w3-dropdown-hover topnav-cell">
           <button class="w3-button"><a href="{{ url_for('trends') }}">Trends by Decade</a></button>
         </div>
@@ -69,8 +55,7 @@
         <div class="w3-dropdown-hover topnav-cell">
           <button class="w3-button"><a href="{{ url_for('winners2020') }}">Potential 2020 Winners</a></button>
         </div>
-          <!-- <button class="w3-button">Surveys</button> -->
-        
+
         <div class="w3-dropdown-hover topnav-cell">
           <button class="w3-button"><a href="{{ url_for('about_data') }}">About the Data</a></button>
         </div>

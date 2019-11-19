@@ -28,7 +28,7 @@ header a {
 
 #title{
   font-size: 40px;
-  color: rgb(255, 247, 217);
+  color: rgb(255, 249, 230);
 }
 
 #title a {
@@ -36,9 +36,10 @@ header a {
 }
 
 #subtitle{
-  font-size: 16px;
+  font-style: italic;
+  font-size: 17px;
   padding: 0px 10px 8px 10px;
-  color: rgb(253, 231, 176);
+  color: rgb(255, 237, 190);
 }
 
 
@@ -120,6 +121,9 @@ header .w3-button a {
   text-decoration: none;
 } */
 
+.header-icon {
+  width: 20px;
+}
 
 .main {
   vertical-align: middle;
