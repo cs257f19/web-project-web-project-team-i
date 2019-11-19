@@ -318,7 +318,7 @@ def main():
     result_genre = ds.get_genre(connection, pictures)
     # results.append(["result_genre", result_genre])
     result_score = ds.get_Score(connection, 1927, 2018)
-    # results.append(["result_score", result_score])
+    results.append(["result_score", result_score])
     result_avgScore = ds.get_avgScore(connection, result_score)
     results.append(["result_avgScore", result_avgScore])
 
