@@ -214,7 +214,8 @@ class DataSource:
                 bestPic = self.get_winner(connection, year, category)
                 bestPics.append(bestPic)
             for picture in bestPics:
-                print(picture[0])
+                print(picture[0][0])
+                picture = picture[0][0]
                 query = "SELECT score FROM films WHERE picture = '"  + picture + "'"
                 # print(query)
                 score = self.execute_query(connection, query)[0][0]
