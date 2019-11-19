@@ -83,12 +83,12 @@ def pictures_by_genre(genre):
                 quered_genre = ds.get_by_picture(connection, 'genre', name)
                 # results.append(quered_genre)
                 if quered_genre == genre:
-                    results.append({"picture": name, "year":picture[2], "person":picture[1]})
+                    results.append({"picture": name, "year":picture[1]})
             else:
                 name = name.replace("'", "''")
                 quered_genre = ds.get_by_picture(connection, 'genre', name)
                 if quered_genre == genre:
-                    results.append({"picture": name, "year":picture[2], "person":picture[1]})
+                    results.append({"picture": name, "year":picture[1]})
 
     return render_template('filtered-pictures.html', genre=genre, results=results)
 
@@ -128,12 +128,12 @@ def actors_by_genre(genre):
                 quered_genre = ds.get_by_picture(connection, 'genre', name)
                 # results.append(quered_genre)
                 if quered_genre == genre:
-                    results.append({"picture": name, "year":picture[1]})
+                    results.append({"picture": name, "year":picture[2], "person":picture[1]})
             else:
                 name = name.replace("'", "''")
                 quered_genre = ds.get_by_picture(connection, 'genre', name)
                 if quered_genre == genre:
-                    results.append({"picture": name, "year":picture[1]})
+                    results.append({"picture": name, "year":picture[2], "person":picture[1]})
 
     return render_template('filtered-pictures.html', genre=genre, results=results)
 
