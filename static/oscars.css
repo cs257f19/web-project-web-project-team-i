@@ -373,6 +373,12 @@ footer a {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.result {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 
 .result-title {
   font-size: 22px;
