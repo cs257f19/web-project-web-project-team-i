@@ -228,7 +228,7 @@ class DataSource:
          Returns an integer value of average Metacritic scores of Best Picture winners in the year range.
 
          PARAMETERS:
-             scores - array of metacritic scores
+             scores - array of int metacritic scores
 
          RETURN:
              Integer of average Metacritic score of specific year range.
@@ -325,7 +325,7 @@ def main():
     # results.append(["result_film", result_film])
     # result_item = ds.get_by_picture(connection, item, film)
     # results.append(["result_item", result_item])
-    result_pictures = ds.get_pictures(connection, 1927, 2018)
+    result_pictures = ds.get_pictures(connection, 1928, 2017)
     # results.append(["result_pictures", result_pictures])
 
     pictures = result_pictures
