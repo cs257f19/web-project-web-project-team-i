@@ -108,6 +108,7 @@ def my_form_post():
                 winners.append({"award":category, "film":film, "person":person})
                 title = str(year) + ' Oscar Winners'
         return render_template('result1.html', winners=winners, title=title)
+    # when the input is year+category
     else:
         year = int(key[:4])
         length = len(key)
@@ -151,7 +152,6 @@ def pictures_by_genre(genre):
         if type(name) == str:
             if "'" not in name:
                 quered_genre = ds.get_by_picture(connection, 'genre', name)
-                # results.append(quered_genre)
                 if quered_genre == genre:
                     results.append({"picture": name, "year":picture[1]})
             else:
@@ -168,7 +168,6 @@ def actors():
     user = 'kuritar'
     password = 'lamp977python'
     connection = ds.connect(user, password)
-
 
     year = 0
     category = "actor"
@@ -214,7 +213,6 @@ def actresses():
     password = 'lamp977python'
     connection = ds.connect(user, password)
 
-
     year = 0
     category = "actress"
     actresses = ds.get_winner(connection, year, category)
@@ -258,7 +256,6 @@ def directors():
     user = 'kuritar'
     password = 'lamp977python'
     connection = ds.connect(user, password)
-
 
     year = 0
     category = "director"
@@ -325,7 +322,6 @@ def trends_by_decade(decade):
 def trends():
     return render_template('trends.html')
 
-
 @app.route('/about_oscars')
 def about_oscars():
     return render_template('about-oscars.html')
@@ -349,7 +345,6 @@ def about():
 @app.route('/contact_us')
 def contact_us():
     return render_template('contact.html')
-
 
 
 
