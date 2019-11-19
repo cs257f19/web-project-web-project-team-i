@@ -34,6 +34,9 @@ header a {
 #title a {
   text-decoration: none;
   display: flex;
+  position: absolute;
+  top: 34px;
+  left: 95px;
 }
 
 #subtitle{
@@ -92,7 +95,7 @@ form button {
   position: absolute;
   display: flex;
   right: 40px;
-  top: 164px;
+  top: 148px;
   border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
