@@ -235,13 +235,12 @@ class DataSource:
          '''
 
          total = 0.0
-         avg = []
          for score in scores:
-             fo
              total += score
-             avgScore = total/len(scores)
 
-         return avg
+         avgScore = total/len(scores)
+
+         return avgScore
 
     def get_genre(self, connection, pictures):
         '''
@@ -332,7 +331,7 @@ def main():
     pictures = result_pictures
     result_genre = ds.get_genre(connection, pictures)
     results.append(["result_genre", result_genre])
-    result_score = ds.get_Score(connection, 2010, 2018)
+    result_score = ds.get_Score(connection, 1927, 2018)
     results.append(["result_score", result_score])
 
     # result_count = ds.count_genre(connection, result_genre)
