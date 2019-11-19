@@ -84,15 +84,15 @@ def pictures_by_genre(genre):
                 # results.append(quered_genre)
                 if quered_genre == genre:
                     results.append({"picture": name, "year":picture[1]})
-            # else:
-            #     print("before", name)
-            #     name.replace("'", "''")
-            #     print("after", name)
-            #     quered_genre = ds.get_by_picture(connection, 'genre', name)
-            #     # results.append(quered_genre)
-            #     # print(quered_genre)
-            #     if quered_genre == genre:
-            #         results.append({"picture": name, "year":picture[1]})
+            else:
+                print("before", name)
+                name.replace("\'", "\''")
+                print("after", name)
+                quered_genre = ds.get_by_picture(connection, 'genre', name)
+                # results.append(quered_genre)
+                # print(quered_genre)
+                if quered_genre == genre:
+                    results.append({"picture": name, "year":picture[1]})
 
     return render_template('filtered-pictures.html', genre=genre, results=results)
 
