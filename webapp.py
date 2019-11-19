@@ -86,7 +86,7 @@ def pictures_by_genre(genre):
                     results.append({"picture": name, "year":picture[1]})
             else:
                 print("before", name)
-                name.replace('t', 'aaaaaa')
+                name = name.replace("'", "''")
                 print("after", name)
                 quered_genre = ds.get_by_picture(connection, 'genre', name)
                 # results.append(quered_genre)
