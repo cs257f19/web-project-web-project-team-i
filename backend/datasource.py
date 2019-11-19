@@ -217,7 +217,7 @@ class DataSource:
                 print(picture[0])
                 picture = picture[0]
                 if "'" in picture:
-                    picture.replace("'", "''")
+                    picture = picture.replace("'", "''")
                 query = "SELECT score FROM films WHERE picture = '"  + picture + "'"
                 # print(query)
                 score = self.execute_query(connection, query)[0][0]
