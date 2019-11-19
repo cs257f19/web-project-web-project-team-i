@@ -88,7 +88,7 @@ def pictures_by_genre(genre):
                 name = name.replace("'", "''")
                 quered_genre = ds.get_by_picture(connection, 'genre', name)
                 if quered_genre == genre:
-                    results.append({"picture": name, "year":picture[1]})
+                    results.append({"picture": name, "year":picture[2], "person":picture[1]})
 
     return render_template('filtered-pictures.html', genre=genre, results=results)
 
