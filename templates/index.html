@@ -10,34 +10,27 @@
 </head>
 
 
-
 <body>
-
-<div id="header">
-        {% include "common/header.html" %}
-</div>
-
-
-<div class="home-top">
-    <img src="{{ url_for('static', filename='img/home-top.jpg') }}"></img>
-    <div class="overlay">
-      <div class="title">Oscar Winners Database</div>
-      <div class="subtitle">Interested in Movie Trends? Wondering Which Movie Wins Next Year?</div>
-      
-      <form class="main-form" align="center" id="myForm" method="POST" target="_blank"> 
-          <input type="text" name="key" placeholder='Type in "Year" or "Year + Category"'>
-          <button type="submit">
-              <i class="fa fa-search"></i>
-          </button>
-        </form>
-    </div>
-
+  <div id="header">
+          {% include "common/header.html" %}
   </div>
+
+  <div class="home-top">
+      <img src="{{ url_for('static', filename='img/home-top.jpg') }}"></img>
+      <div class="overlay">
+        <div class="title">Oscar Winners Database</div>
+        <div class="subtitle">Interested in Movie Trends? Wondering Which Movie Wins Next Year?</div>
+        <form class="main-form" align="center" id="myForm" method="POST" target="_blank"> 
+            <input type="text" name="key" placeholder='Type in "Year" or "Year + Category"'>
+            <button type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+          </form>
+      </div>
+    </div>
 
   <div class="main">
     <!-- featured data analysis -->
-     <!-- web form for user query -->
-
     <div>
       <div class="title">The Predicted Best Picture Winner</div>
       <img class="homepage-graph" alt = "Graph visualizing box office info, critic reviews and awards won for 2017 Oscar Best Picture nominees" src="{{ url_for('static', filename='img/prediction-graph.png') }}" ></img>
@@ -68,7 +61,7 @@
   <div id="footer">
       <!-- <iframe src="../common/footer.html" width="100%" height="100%"></iframe> -->
       {% include "common/footer.html" %}
-</div>
+  </div>
 
 </body>
 </html>

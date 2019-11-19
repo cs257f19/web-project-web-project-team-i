@@ -214,7 +214,9 @@ class DataSource:
                 bestPic = self.get_winner(connection, year, category)
                 bestPics.append(bestPic)
             for picture in bestPics:
+                print(picture)
                 query = "SELECT score FROM films WHERE picture = '"  + picture + "'"
+                print(query)
                 score = self.execute_query(connection, query)[0][0]
                 scores.append(score)
 
@@ -254,7 +256,6 @@ class DataSource:
         RETURN:
             Array of sets which have genre and count
         '''
-
         genres = []
         try:
             for pictureArray in pictures:
@@ -288,19 +289,6 @@ class DataSource:
                 if genre == count[0]:
                     count[1] += 1
         return counts
-
-    # def count_nominations(sef, connection, picture):
-    #     movies = []
-    #     try:
-    #         query = "SELECT COUNT(*) FROM winners WHERE picture = " + picture + " OR bestActor = " + picture + " OR bestActress = " + picture + " OR bestDirector = " + picture
-    #         result = self.execute_query(connection, query)
-
-
-    #     except Exception as e:
-    #         print("Connection error: ", e)
-    #         return None
-
-    #     return genres
 
 
 def main():

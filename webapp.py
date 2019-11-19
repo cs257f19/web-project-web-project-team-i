@@ -110,7 +110,11 @@ def my_form_post():
                 winners.append({"award":category, "film":film, "person":person})
                 title = str(year) + ' Oscar Winners'
         return render_template('result1.html', winners=winners, title=title)
+<<<<<<< HEAD
+    # when the input is year+category
+=======
     #For search inputs involving year and award category
+>>>>>>> 5057bf2856d990c100b94b85baf694572cff69a0
     else:
         year = int(key[:4])
         length = len(key)
@@ -154,7 +158,6 @@ def pictures_by_genre(genre):
         if type(name) == str:
             if "'" not in name:
                 quered_genre = ds.get_by_picture(connection, 'genre', name)
-                # results.append(quered_genre)
                 if quered_genre == genre:
                     results.append({"picture": name, "year":picture[1]})
             else:
@@ -171,7 +174,6 @@ def actors():
     user = 'kuritar'
     password = 'lamp977python'
     connection = ds.connect(user, password)
-
 
     year = 0
     category = "actor"
@@ -217,7 +219,6 @@ def actresses():
     password = 'lamp977python'
     connection = ds.connect(user, password)
 
-
     year = 0
     category = "actress"
     actresses = ds.get_winner(connection, year, category)
@@ -262,7 +263,6 @@ def directors():
     user = 'kuritar'
     password = 'lamp977python'
     connection = ds.connect(user, password)
-
 
     year = 0
     category = "director"
@@ -319,6 +319,7 @@ def trends_by_decade(decade):
     pictures = ds.get_pictures(connection, start, end)
     genres = ds.get_genre(connection, pictures)
     counts = ds.count_genre(connection, genres)
+    
     scores = ds.get_Score(connection, start, end)
     avgScores = ds.get_avgScore(connection, scores)
 
@@ -328,7 +329,6 @@ def trends_by_decade(decade):
 @app.route('/trends')
 def trends():
     return render_template('trends.html')
-
 
 @app.route('/about_oscars')
 def about_oscars():
@@ -353,7 +353,6 @@ def about():
 @app.route('/contact_us')
 def contact_us():
     return render_template('contact.html')
-
 
 
 
