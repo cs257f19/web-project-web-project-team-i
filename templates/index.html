@@ -21,7 +21,15 @@
 <div class="home-top">
     <img src="{{ url_for('static', filename='img/home-top.jpg') }}"></img>
     <div class="overlay">
-
+      <div class="title">Oscar Winners Database</div>
+      <div class="subtitle">Interested in Movie Trends? Wondering Which Movie Wins Next Year?</div>
+      
+      <form class="main-form" align="center" id="myForm" method="POST" target="_blank"> 
+          <input type="text" name="key" placeholder='Type in "Year" or "Year + Category"'>
+          <button type="submit">
+              <i class="fa fa-search"></i>
+          </button>
+        </form>
     </div>
 
   </div>
