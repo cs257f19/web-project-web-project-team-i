@@ -85,28 +85,37 @@ def my_form_post():
     password = 'lamp977python'
     connection = ds.connect(user, password)
     winners = []
-    year = request.form['year']
-    categories = ["picture","actor","actress","director"]
+    key = request.form['key']
+    length = len(key)
 
-    if int(year) < 1927 or int(year) > 2018:
-        title =  'The year ' + year + ' is out of range. Please go back and type in again.'
-        return render_template('result.html', winners=[], year=year, title=title)
+    # when the input was year
+    if length == 4:
+        year = int(key)
+        categories = ["picture","actor","actress","director"]
+
+        if year < 1927 or year > 2018:
+            title =  'The year ' + str(year) + ' is out of range. Please go back and type in again.'
+            return render_template('result1.html', winners=[], year=year, title=title)
+        else:
+            winners.append({"award":"Award", "film":"Film", "person":"Person"})
+            for category in categories:
+                result = ds.get_winner(connection, year, category)
+                film = result[0][0]
+                if category != "picture":
+                    person = result[0][1]
+                else:
+                    person = ""
+                winners.append({"award":category, "film":film, "person":person})
+                title = str(year) + ' Oscar Winners'
+        return render_template('result1.html', winners=winners, title=title)
     else:
-        for category in categories:
-            result = ds.get_winner(connection, int(year), category)
-            film = result[0][0]
-            if category != "picture":
-                person = result[0][1]
-            else:
-                person = ""
-            winners.append({"award":category, "film":film, "person":person})
-
-            title = year + ' Oscar Winners'
-
-        return render_template('result.html',
-                            winners=winners,
-                            year=year,
-                            title=title)
+        year = int(key[:4])
+        length = len(key)
+        category = str(key[10:length])
+        title = str(key[5:]) + " of " + str(year)
+        picture = ds.get_by_year(connection, year, category)
+        person = ds.get_winner(connection, year, category)[0]
+        return render_template('result2.html', title= title, person=person, year=year, category=category, picture=picture[0])
 
 
 @app.route('/pictures')
