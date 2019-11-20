@@ -471,6 +471,11 @@ footer a {
 
 
 /* result page */
+.container .table{
+  display: inline-block;
+  
+}
+
 .table .result {
   margin-left:300px;
   margin-right:auto;
