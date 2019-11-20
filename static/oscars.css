@@ -472,8 +472,8 @@ footer a {
 
 /* result page */
 .table .result {
-  margin-left:300px;
-  margin-right:auto;
+  /* margin-left:300px; */
+  /* margin-right:auto; */
   margin-top:10px;
   font-size: 20px;
   text-align: center;
@@ -492,8 +492,8 @@ footer a {
 }
 
 .table .ratings {
-  margin-left:150px;
-  margin-right:auto;
+  /* margin-left:150px; */
+  /* margin-right:auto; */
   margin-top:10px;
   font-size: 20px;
   text-align: center;

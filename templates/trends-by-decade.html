@@ -51,10 +51,9 @@
               <table align="center"><tr><td>
                   <table class="result">
                       <tr class="result-title"><th>Genre</th><th>Count</th></tr>
-                        <tr><td>{{avgScores}}</td><td>{{avgRatings}}</td></tr>
-                      {% for count in counts %}
-                          <tr><td>{{ count[] }}</td><td>{{ count[1] }}</td></tr>
-                      {% endfor %}
+                        {% for count in counts %}
+                            <tr><td>{{ count[] }}</td><td>{{ count[1] }}</td></tr>
+                        {% endfor %}
                 </table>
                     {% endblock %}
               </td><td>
