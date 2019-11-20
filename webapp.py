@@ -127,11 +127,13 @@ def my_form_post():
             picture = [None, None, None, None, None, None, None]
             person = None
             category = None
+            none_display = 'style="display:none;"'
         else:
             title = str(key[5:]) + " of " + str(year)
             picture = ds.get_by_year(connection, year, category)
             person = ds.get_winner(connection, year, category)[0]
-        return render_template('result2.html', title= title, person=person, year=year, category=category, picture=picture[0])
+            none_display = ""
+        return render_template('result2.html', title= title, person=person, year=year, category=category, picture=picture[0], none_display=none_display)
 
 
 @app.route('/pictures')
