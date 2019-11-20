@@ -117,7 +117,14 @@ def my_form_post():
         return render_template('result1.html', winners=winners, title=title)
     #For search inputs involving year and award category
     else:
-        year = int(key[:4])
+        year = str(key[:4])
+        integers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        for ch in year:
+            if ch not in integers:
+                title =  'The year ' + str(year) + ' is invalid. Please type in four integers.'
+                return render_template('result1.html', winners=[], year=year, title=title)
+        year = int(year)
+
         length = len(key)
         category = str(key[10:length])
         if year < 1927 or year > 2018:
