@@ -472,8 +472,8 @@ footer a {
 
 /* result page */
 .table .result {
-  margin-left:300px;
-  margin-right:auto;
+  /* margin-left:300px; */
+  /* margin-right:auto; */
   margin-top:10px;
   font-size: 20px;
   text-align: center;
@@ -491,9 +491,9 @@ footer a {
   font-size: 22px;
 }
 
-/* .table .ratings {
-  margin-left:150px;
-  margin-right:auto;
+.table .ratings {
+  /* margin-left:150px; */
+  /* margin-right:auto; */
   margin-top:10px;
   font-size: 20px;
   text-align: center;
@@ -508,7 +508,7 @@ footer a {
 
 .ratings-title {
   font-size: 22px;
-} */
+}
 
 .picture-year{
   font-size: 20px;
