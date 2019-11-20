@@ -306,7 +306,7 @@ def trends_by_decade(decade):
     if int(decade) == 2010:
         start = 2010
         end = 2018
-    elif int(decade) == 1910:
+    elif int(decade) == 1920:
         start = 1927
         end = 1929
     else:
@@ -315,11 +315,28 @@ def trends_by_decade(decade):
     pictures = ds.get_pictures(connection, start, end)
     genres = ds.get_genre(connection, pictures)
     counts = ds.count_genre(connection, genres)
-    
+
     scores = ds.get_Score(connection, start, end)
     avgScores = ds.get_avgScore(connection, scores)
 
-    return render_template('trends-by-decade.html', start=start, end=end, counts=counts, avgScores=avgScores)
+    categories = ["picture","actor","actress","director"]
+    infos = []
+
+    for year in range(start, end+1):
+        winners = []
+        winners.append({"award":"Award", "film":"Film", "person":"Person"})
+        for category in categories:
+            result = ds.get_winner(connection, year, category)
+            film = result[0][0]
+            if category != "picture":
+                person = result[0][1]
+            else:
+                person = ""
+            winners.append({"award":category, "film":film, "person":person})
+            title = str(year) + ' Oscar Winners'
+        infos.append([year, winners])
+
+    return render_template('trends-by-decade.html', start=start, end=end, counts=counts, avgScores=avgScores, infos=infos)
 
 
 @app.route('/trends')

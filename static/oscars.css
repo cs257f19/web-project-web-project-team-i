@@ -347,6 +347,7 @@ form button {
   font-size: 16px;
   color: white;
   display: block;
+  width: 245px;
 }
 
 .sidenav a:hover{
@@ -496,4 +497,17 @@ footer a {
 
 .picture-name {
   font-style: italic;
+}
+
+
+#winners2020 {
+  display: table;
+}
+
+.winners2020-block-row {
+  display: table-row;
+}
+
+.winners2020-block {
+  display: table-cell;
 }

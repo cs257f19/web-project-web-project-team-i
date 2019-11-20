@@ -28,8 +28,8 @@
                 <a href="{{ url_for('trends_by_decade', decade='1960') }}" >1960-1969</a>
                 <a href="{{ url_for('trends_by_decade', decade='1950') }}" >1950-1959</a>
                 <a href="{{ url_for('trends_by_decade', decade='1940') }}">1940-1949</a>
-                <a href="{{ url_for('trends_by_decade', decade='1920') }}" >1930-1939</a>
-                <a href="{{ url_for('trends_by_decade', decade='1910') }}" >1927-1929</a>
+                <a href="{{ url_for('trends_by_decade', decade='1930') }}" >1930-1939</a>
+                <a href="{{ url_for('trends_by_decade', decade='1920') }}" >1927-1929</a>
             </div>
 
 
@@ -39,16 +39,26 @@
         </div>
         <div class="best-content">
 
-            {% block content %}
+                {% block content %}
+                <table class="result">
+                    <tr class="result-title"><th>Year</th><th>Best Picture</th><th>Best Actor</th><th>Best Actress</th><th>Best Director</th></tr>
+                    {% for info in infos %}
+                        <tr><td>{{info[0]}}</td><td>{{ info[1][1].film }}</td><td>{{ info[1][2].film }} ({{ info[1][2].person }})</td><td>{{ info[1][3].film }} ({{ info[1][3].person }})</td><td>{{ info[1][4].film }} ({{ info[1][4].person }})</td></tr>
+                    {% endfor %}
+              </table>
+               
+
+            
+         
             <table class="result">
                 <tr class="result-title"><th>Genre</th><th>Count</th></tr>
                 {% for count in counts %}
-                    <tr><td>{{ count[0] }}</td><td>{{ count[1] }}</td></tr>
+                    <tr><td>{{ count[] }}</td><td>{{ count[1] }}</td></tr>
                 {% endfor %}
           </table>
             {% endblock %}
 
-            <!-- {{avgScores}} -->
+            {{avgScores}}
 
         </div>
     </div>
