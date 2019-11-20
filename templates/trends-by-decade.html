@@ -48,19 +48,22 @@
               </table>
 
 
-
-              <table class="result">
-                  <tr class="result-title"><th>Avg Score</th><th>Avg Rating</th><th>Genre</th><th>Count</th></tr>
+              <table align="center"><tr><td>
+                  <table class="result">
+                      <tr class="result-title"><th>Avg Score</th><th>Avg Rating</th><th>Genre</th><th>Count</th></tr>
+                        <tr><td>{{avgScores}}</td><td>{{avgRatings}}</td></tr>
+                      {% for count in counts %}
+                          <tr><td>{{ count[] }}</td><td>{{ count[1] }}</td></tr>
+                      {% endfor %}
+                </table>
+                    {% endblock %}
+              </td><td>
+                <table class="ratings">
+                  <tr class="ratings-title"><th>Avg Score</th><th>Avg Rating</th></tr>
                     <tr><td>{{avgScores}}</td><td>{{avgRatings}}</td></tr>
-                  {% for count in counts %}
-                      <tr><td>{{ count[] }}</td><td>{{ count[1] }}</td></tr>
-                  {% endfor %}
+                </table>
+              </td></tr>
             </table>
-                {% endblock %}
-            <!-- <table class="ratings"> -->
-              <!-- <tr class="ratings-title"><th>Avg Score</th><th>Avg Rating</th></tr> -->
-                <!-- <tr><td>{{avgScores}}</td><td>{{avgRatings}}</td></tr> -->
-            <!-- </table> -->
         </div>
     </div>
 </div>
