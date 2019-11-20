@@ -117,10 +117,14 @@ def my_form_post():
         category = str(key[10:length])
         if year < 1927 or year > 2018:
             title =  'The year ' + str(year) + ' is out of range. Please go back and type in again.'
+            person = None
+            picture = None
             display = False
         elif category != 'picture' and category != 'actor' and category != 'actress' and category != 'director':
             input_cat = str(key[5:length])
-            title = input_cat + ' is not a valid category. Please type either "best picture", "best actor", "best actoress", "best director".'
+            person = None
+            picture = None
+            title = input_cat.tite() + ' is not a valid category. Please type either "best picture", "best actor", "best actoress", "best director".'
             display = False
         else:
             title = str(key[5:]) + " of " + str(year)
