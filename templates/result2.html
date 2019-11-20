@@ -17,9 +17,15 @@
 <div id="header">
         {% include "common/header.html" %}
 </div>
-<div class="main" {{none_display}}>
+<div class="main">
         <div class="title">{{ title }} </div>
 
+
+        {% block content %}
+
+            {% if display is 1 %}
+      
+        
         <div class="title">{{ person[1] }} </div>
 
         
@@ -30,7 +36,8 @@
         <div class="genre">Genre: {{ picture[4] }}, {{ picture[5] }}</div>
         <div class="score">Critic Score: {{ picture[7] }}</div>
         <div class="synopsis">Synopsis: {{ picture[8] }}</div>
-
+        {% endif %}
+        {% endblock %}
     </div>
 
 <div id="footer">
