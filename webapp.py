@@ -120,7 +120,7 @@ def my_form_post():
             display = False
         elif category != 'picture' and category != 'actor' and category != 'actress' and category != 'director':
             input_cat = str(key[5:length])
-            title = input_cat.title() + ' is not a valid category. Please type either "best picture", "best actor", "best actoress", "best director".'
+            title = input_cat + ' is not a valid category. Please type either "best picture", "best actor", "best actoress", "best director".'
             display = False
         else:
             title = str(key[5:]) + " of " + str(year)
