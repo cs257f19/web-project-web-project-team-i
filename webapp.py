@@ -320,7 +320,7 @@ def trends_by_decade(decade):
     avgScores = ds.get_avgScore(connection, scores)
 
     ratings = ds.get_Rating(connection, start, end)
-    avgRatings = ds.get_avgRating(connection, scores)
+    avgRatings = ds.get_avgRating(connection, ratings)
 
     categories = ["picture","actor","actress","director"]
     infos = []
