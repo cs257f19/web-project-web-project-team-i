@@ -91,9 +91,14 @@ def my_form_post():
 
     # when the input is year
     if length == 4:
-        year = int(key)
+        year = str(key)
+        integers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        for ch in year:
+            if ch not in integers:
+                title =  'The year ' + str(year) + ' is invalid. Please type in four integers.'
+                return render_template('result1.html', winners=[], year=year, title=title)
+        year = int(year)
         categories = ["picture","actor","actress","director"]
-
         if year < 1927 or year > 2018:
             title =  'The year ' + str(year) + ' is out of range. Please go back and type in again.'
             return render_template('result1.html', winners=[], year=year, title=title)
