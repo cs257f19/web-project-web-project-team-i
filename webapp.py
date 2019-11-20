@@ -119,7 +119,7 @@ def my_form_post():
             title =  'The year ' + str(year) + ' is out of range. Please go back and type in again.'
             display = False
         elif category != 'picture' and category != 'actor' and category != 'actress' and category != 'director':
-            title = str(key[5:length]).title() + ' is not a valid category. Please type either "best picture", "best actor", "best actoress", "best director".'
+            title = str(key[5:length]) + ' is not a valid category. Please type either "best picture", "best actor", "best actoress", "best director".'
             display = False
         else:
             title = str(key[5:]) + " of " + str(year)
