@@ -246,6 +246,62 @@ class DataSource:
 
          return avgScore
 
+    def get_Rating(self, connection, start, end):
+        '''
+        Returns an array of integers which include IMDb ratings of Best Picture winners in the year range.
+
+        PARAMETERS:
+            int the beginning year of the range
+            int the ending year of the range
+
+        RETURN:
+            Array of integers of average ratings of all Best Picture winners in the year range.
+        '''
+
+        start = start - 1
+        end = end - 1
+        ratings = []
+        bestPics = []
+        category = "picture"
+
+
+        try:
+            for year in range(start, end+1):
+                bestPic = self.get_winner(connection, year, category)
+                bestPics.append(bestPic)
+            for picture in bestPics[0]:
+                picture = picture[0]
+                if "'" in picture:
+                    picture = picture.replace("'", "''")
+                query = "SELECT rating FROM films WHERE picture = '"  + picture + "'"
+                rating = self.execute_query(connection, query)[0][0]
+                ratings.append(rating)
+
+        except Exception as e:
+            print("Connection error: ", e)
+            return None
+
+        return ratings
+
+    def get_avgRating(self, connection, ratings):
+         '''
+         Returns an integer value of average IMDb ratings of Best Picture winners in the year range.
+
+         PARAMETERS:
+             ratings - array of float IMDb ratings
+
+         RETURN:
+             Float of average IMDb rating of specific year range.
+         '''
+
+         total = 0.0
+         for rating in ratings:
+             total += rating
+
+         avgRating = total/len(ratings)
+
+         return avgRating
+
     def get_genre(self, connection, pictures):
         '''
         Returns an array of sets which include genre name and corresponding number of films in that genre within a given year.

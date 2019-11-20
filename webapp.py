@@ -319,6 +319,9 @@ def trends_by_decade(decade):
     scores = ds.get_Score(connection, start, end)
     avgScores = ds.get_avgScore(connection, scores)
 
+    ratings = ds.get_Rating(connection, start, end)
+    avgRatings = ds.get_avgRating(connection, scores)
+
     categories = ["picture","actor","actress","director"]
     infos = []
 
@@ -336,7 +339,7 @@ def trends_by_decade(decade):
             title = str(year) + ' Oscar Winners'
         infos.append([year, winners])
 
-    return render_template('trends-by-decade.html', start=start, end=end, counts=counts, avgScores=avgScores, infos=infos)
+    return render_template('trends-by-decade.html', start=start, end=end, counts=counts, avgScores=avgScores, avgRatings=avgRatings, infos=infos)
 
 
 @app.route('/trends')
