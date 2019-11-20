@@ -121,19 +121,19 @@ def my_form_post():
             picture = [None, None, None, None, None, None, None]
             person = None
             category = None
-            display = 'no'
+            display = False
         elif category != 'picture' and category != 'actor' and category != 'actress' and category != 'director':
             title = str(key[5:length]) + ' is not a valid category. Please type either "best picture", "best actor", "best actoress", "best director".'
             year = None
             picture = [None, None, None, None, None, None, None]
             person = None
             category = None
-            display = 'no'
+            display = False
         else:
             title = str(key[5:]) + " of " + str(year)
             picture = ds.get_by_year(connection, year, category)
             person = ds.get_winner(connection, year, category)[0]
-            display = 'yes'
+            display = True
         return render_template('result2.html', title= title, person=person, year=year, category=category, picture=picture[0], display=display)
 
 
