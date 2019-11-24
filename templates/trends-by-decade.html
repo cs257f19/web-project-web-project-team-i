@@ -52,7 +52,7 @@
                   <table class="result">
                       <tr class="result-title"><th>Genre</th><th>Count</th></tr>
                         {% for count in counts %}
-                            <tr><td>{{ count[] }}</td><td>{{ count[1] }}</td></tr>
+                            <tr><td>{{ count[0] }}</td><td>{{ count[1] }}</td></tr>
                         {% endfor %}
                 </table>
                     {% endblock %}
