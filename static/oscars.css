@@ -333,6 +333,14 @@ form button {
   color: white !important;
 }
 
+.sidenav .trends{
+  left: -70px;
+}
+
+.trends .best-content {
+  padding: 10px 20px 10px 50px;
+}
+
 
 .sidenav .title{
   font-size: 16px;
