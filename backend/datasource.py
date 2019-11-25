@@ -241,7 +241,7 @@ class DataSource:
          total = 0.0
          for score in scores:
              total += score
-
+             print(score)
          avgScore = total/len(scores)
 
          return avgScore
