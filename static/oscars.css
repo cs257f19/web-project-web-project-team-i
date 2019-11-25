@@ -361,7 +361,8 @@ form button {
   font-size: 28px;
   top: 30px;
   margin-bottom: 25px;
-  position: relative;  
+  position: relative; 
+  font-family: Georgia, 'Times New Roman', Times, serif; 
 }
 
 .sidenav .title{
