@@ -333,23 +333,11 @@ form button {
   color: white !important;
 }
 
-.trends-sidenav{
-  background-color: rgba(218, 165, 32, 0.76);
-  color: black;
-  height: 100%;
-  width: 285px;
-  position: fixed;
-  z-index: 0;
-  top: 161px;
+.trends-nav{
   left: -70px;
-  overflow-x: auto;
-  margin: 20px;
-  padding: 50px 20px;
-  text-align: right;
-  color: white !important;
 }
 
-.trend-by-decade .best-content {
+.trends-by-decade .best-content {
   padding: 10px 20px 10px 50px;
 }
 
