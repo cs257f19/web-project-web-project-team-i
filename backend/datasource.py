@@ -244,7 +244,7 @@ class DataSource:
 
          avgScore = total/len(scores)
 
-         return avgScore
+         return round(avgScore, 1)
 
     def get_Rating(self, connection, start, end):
         '''
