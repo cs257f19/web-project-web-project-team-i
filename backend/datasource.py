@@ -300,7 +300,7 @@ class DataSource:
 
          avgRating = total/len(ratings)
 
-         return avgRating
+         return round(avgRating, 1)
 
     def get_genre(self, connection, pictures):
         '''
@@ -337,6 +337,15 @@ class DataSource:
 
 
     def count_genre(self, connection, genres):
+        '''
+        Returns an integer which specifies the number of times a specific genre has won in a decade.
+
+        PARAMETERS:
+            Array of sets which have genre and count
+
+        RETURN:
+            Integer of count of number of times a specific genre has won in a decade
+        '''
         samples = ['Drama', 'Sport', 'History', 'Comedy', 'Biography', 'Crime', 'Adventure', 'Action', 'Western', 'Musical', 'Romance', 'Thriller', 'Mystery', 'Sci-Fi', 'Family']
         counts = []
         for sample in samples:
@@ -361,7 +370,13 @@ def main():
     category = "actor"
     item = "genre"
 
-
+    result_pictures = ds.get_pictures(connection, 1928, 2017)
+    pictures = result_pictures
+    result_genre = ds.get_genre(connection, pictures)
+    result_score = ds.get_Score(connection, 1927, 2018)
+    results.append(["result_score", result_score])
+    result_avgScore = ds.get_avgScore(connection, result_score)
+    results.append(["result_avgScore", result_avgScore])
 
     categories = ["picture","actor","actress","director"]
     infos = []
@@ -373,31 +388,11 @@ def main():
             result = ds.get_winner(connection, year, category)
             print(year, result)
 
-    # result_winner = ds.get_winner(connection, year, category)
-    # results.append(["result_winner", result_winner])
-    # result_film = ds.get_by_year(connection, year, category)
-    # results.append(["result_film", result_film])
-    # result_item = ds.get_by_picture(connection, item, film)
-    # results.append(["result_item", result_item])
-    # result_pictures = ds.get_pictures(connection, 1928, 2017)
-    # results.append(["result_pictures", result_pictures])
-
-    # pictures = result_pictures
-    # result_genre = ds.get_genre(connection, pictures)
-    # # results.append(["result_genre", result_genre])
-    # result_score = ds.get_Score(connection, 1927, 2018)
-    # results.append(["result_score", result_score])
-    # result_avgScore = ds.get_avgScore(connection, result_score)
-    # results.append(["result_avgScore", result_avgScore])
-
-    # result_count = ds.count_genre(connection, result_genre)
-    # results.append(["result_count", result_count])
-
-    # for result in results:
-    #     if result is not None:
-    #         print("Query results: " + str(result[0]) +  str(result[1]))
-    #     else:
-    #         print("The result was None.")
+    for result in results:
+        if result is not None:
+            print("Query results: " + str(result[0]) +  str(result[1]))
+        else:
+            print("The result was None.")
 
     connection.close()
 
