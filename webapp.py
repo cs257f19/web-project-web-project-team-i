@@ -100,7 +100,7 @@ def my_form_post():
         year = int(year)
         categories = ["picture","actor","actress","director"]
         #if year out of range, return error message
-        if year < 1927 or year > 2018:
+        if year < 1928 or year > 2018:
             title =  'The year ' + str(year) + ' is out of range. Please go back and type in again.'
             return render_template('result1.html', winners=[], year=year, title=title)
         #if year is in the valid range, return all winners from that year
