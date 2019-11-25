@@ -345,6 +345,25 @@ form button {
   width: 250px;
 }
 
+#trend-by-decade .title{
+  text-align: center;
+  font-size: 41px;
+  position: relative;
+  color: goldenrod;
+  left: 84px;
+}
+
+.result-title{
+  width: 100%;
+  color: darkgoldenrod;
+  font-style: italic;
+  text-align: center;
+  font-size: 28px;
+  top: 30px;
+  margin-bottom: 10px;
+  position: relative;  
+}
+
 .sidenav .title{
   font-size: 16px;
   color: white;
