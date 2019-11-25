@@ -99,7 +99,7 @@ def my_form_post():
                 return render_template('result1.html', winners=[], year=year, title=title)
         year = int(year)
         categories = ["picture","actor","actress","director"]
-        if year < 1927 or year > 2018:
+        if year < 1928 or year > 2018:
             title =  'The year ' + str(year) + ' is out of range. Please go back and type in again.'
             return render_template('result1.html', winners=[], year=year, title=title)
         #For search inputs only involving award category
@@ -354,8 +354,8 @@ def trends_by_decade(decade):
         start = 2010
         end = 2018
     elif int(decade) == 1920:
-        start = 1927
-        end = 1929
+        start = 1928
+        end = 1930
     else:
         start = int(decade)
         end = int(decade)+9
