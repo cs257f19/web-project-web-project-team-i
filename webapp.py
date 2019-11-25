@@ -161,7 +161,12 @@ def pictures():
     pictures = ds.get_winner(connection, year, category)
     return render_template('pictures.html', pictures=pictures)
 
-#Method for retrieving genre-specific Best Picture winners
+'''
+Retrieve genre-specific Best Picture winners
+
+PARAM: String genre
+RETURN: 
+'''
 @app.route('/pictures/<genre>')
 def pictures_by_genre(genre):
     ds = backend.datasource.DataSource()
@@ -204,7 +209,12 @@ def actors():
 
     return render_template('actors.html', actors=actors)
 
-#Method for retrieving genre-specific Best Actor winners
+'''
+Retrieve genre-specific Best Actor winners
+
+PARAM: String genre
+RETURN: 
+'''
 @app.route('/actors/<genre>')
 def actors_by_genre(genre):
     ds = backend.datasource.DataSource()
@@ -248,7 +258,12 @@ def actresses():
 
     return render_template('actresses.html', actresses=actresses)
 
-#Method for retrieving genre-specific Best Actress winners
+'''
+Retrieve genre-specific Best Actress winners
+
+PARAM: String genre
+RETURN: 
+'''
 @app.route('/actresses/<genre>')
 def actresses_by_genre(genre):
     ds = backend.datasource.DataSource()
@@ -292,7 +307,12 @@ def directors():
     directors = ds.get_winner(connection, year, category)
     return render_template('directors.html', directors=directors)
 
-#Method for retrieving genre-specific Best Director winners
+'''
+Retrieve genre-specific Best Director winners
+
+PARAM: String genre
+RETURN: 
+'''
 @app.route('/directors/<genre>')
 def directors_by_genre(genre):
     ds = backend.datasource.DataSource()
