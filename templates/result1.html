@@ -22,9 +22,9 @@
 
         {% block content %}
         <table class="result">
-                <tr class="result-title"><th>Award</th><th>Film</th><th>Winner</th></tr>
+                <tr class="result-title" style="border-bottom: groove gold 3px;"><th>Award</th><th>Film</th><th>Winner</th></tr>
             {% for winner in winners %}
-                <tr><td style="padding: 2px 20px;">{{ winner.award }}</td><td style="padding: 2px 20px;">{{ winner.film }}</td><td style="padding: 2px 20px;">{{ winner.person }}</td></tr>
+                <tr><td style="padding: 2px 20px; border-right: groove gold 3px;">{{ winner.award }}</td><td style="padding: 2px 20px;">{{ winner.film }}</td><td style="padding: 2px 20px;">{{ winner.person }}</td></tr>
             {% endfor %}
         </table>
         {% endblock %}
