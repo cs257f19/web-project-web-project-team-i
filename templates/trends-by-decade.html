@@ -28,7 +28,7 @@
                 <a href="{{ url_for('trends_by_decade', decade='1970') }}" >1970-1979</a>
                 <a href="{{ url_for('trends_by_decade', decade='1960') }}" >1960-1969</a>
                 <a href="{{ url_for('trends_by_decade', decade='1950') }}" >1950-1959</a>
-                <a href="{{ url_for('trends_by_decade', decade='1940') }}">1940-1949</a>
+                <a href="{{ url_for('trends_by_decade', decade='1940') }}" >1940-1949</a>
                 <a href="{{ url_for('trends_by_decade', decade='1930') }}" >1930-1939</a>
                 <a href="{{ url_for('trends_by_decade', decade='1920') }}" >1927-1929</a>
             </div>
@@ -39,10 +39,10 @@
                 Trends {{ start }}-{{ end }}
         </div>
         <div class="best-content">
-              <div class="result-subtitle">Average Critic Score & IMDM Rating</div>
+              <div class="result-subtitle">Average Metacritic Score & IMDb Rating</div>
 
             <table class="ratings">
-                <tr class="ratings-title"><th style="padding: 20px;">Avg Score</th><th style="padding: 20px;">Avg Rating</th></tr>
+                <tr class="ratings-title"><th style="padding: 20px;">Average Score</th><th style="padding: 20px;">Average Rating</th></tr>
                   <tr><td style="text-align: center;">{{avgScores}}</td><td style="text-align: center;">{{avgRatings}}</td></tr>
               </table>
 
