@@ -210,14 +210,12 @@ class DataSource:
             for year in range(start, end+1):
                 bestPic = self.get_winner(connection, year, category)
                 bestPics.append(bestPic)
-            print(bestPics)
             for picture in bestPics:
                 picture = picture[0][0]
                 if "'" in picture:
                     picture = picture.replace("'", "''")
                 query = "SELECT DISTINCT score FROM films WHERE picture = '"  + picture + "'"
                 score = self.execute_query(connection, query)[0][0]
-                print(year, score)
                 scores.append(score)
 
         except Exception as e:
@@ -258,8 +256,7 @@ class DataSource:
             Array of integers of average ratings of all Best Picture winners in the year range.
         '''
 
-        start = start - 1
-        end = end - 1
+
         ratings = []
         bestPics = []
         category = "picture"
@@ -269,8 +266,8 @@ class DataSource:
             for year in range(start, end+1):
                 bestPic = self.get_winner(connection, year, category)
                 bestPics.append(bestPic)
-            for picture in bestPics[0]:
-                picture = picture[0]
+            for picture in bestPics:
+                picture = picture[0][0]
                 if "'" in picture:
                     picture = picture.replace("'", "''")
                 query = "SELECT rating FROM films WHERE picture = '"  + picture + "'"
