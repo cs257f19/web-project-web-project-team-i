@@ -104,7 +104,7 @@ def my_form_post():
             return render_template('result1.html', winners=[], year=year, title=title)
         #For search inputs only involving award category
         else:
-            winners.append({"award":"Award", "film":"Film", "person":"Person"})
+            
             for category in categories:
                 result = ds.get_winner(connection, year, category)
                 film = result[0][0]
@@ -112,6 +112,7 @@ def my_form_post():
                     person = result[0][1]
                 else:
                     person = ""
+                category = "Best " + category.title()
                 winners.append({"award":category, "film":film, "person":person})
                 title = str(year) + ' Oscar Winners'
         return render_template('result1.html', winners=winners, title=title)
