@@ -341,6 +341,9 @@ form button {
   padding: 10px 20px 10px 50px;
 }
 
+#trend-by-decade .best-content td {
+  width: 250px;
+}
 
 .sidenav .title{
   font-size: 16px;
