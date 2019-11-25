@@ -89,7 +89,7 @@ def my_form_post():
     key = request.form['key']
     length = len(key)
 
-    # when the input is year
+    #When user searches by Year
     if length == 4:
         year = str(key)
         integers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
@@ -99,12 +99,12 @@ def my_form_post():
                 return render_template('result1.html', winners=[], year=year, title=title)
         year = int(year)
         categories = ["picture","actor","actress","director"]
+        #if year out of range, return error message
         if year < 1928 or year > 2018:
             title =  'The year ' + str(year) + ' is out of range. Please go back and type in again.'
             return render_template('result1.html', winners=[], year=year, title=title)
-        #For search inputs only involving award category
+        #if year is in the valid range, return all winners from that year
         else:
-            
             for category in categories:
                 result = ds.get_winner(connection, year, category)
                 film = result[0][0]
@@ -116,8 +116,9 @@ def my_form_post():
                 winners.append({"award":category, "film":film, "person":person})
                 title = str(year) + ' Oscar Winners'
         return render_template('result1.html', winners=winners, title=title)
-    #For search inputs involving year and award category
+    #When user searches Year + Category
     else:
+        #Check whether year is valid
         year = str(key[:4])
         integers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         for ch in year:
@@ -126,6 +127,7 @@ def my_form_post():
                 return render_template('result1.html', winners=[], year=year, title=title)
         year = int(year)
 
+        #Check whether category is valid
         length = len(key)
         category = str(key[10:length])
         if year < 1927 or year > 2018:
@@ -161,14 +163,14 @@ def pictures():
     pictures = ds.get_winner(connection, year, category)
     return render_template('pictures.html', pictures=pictures)
 
-'''
-Retrieve genre-specific Best Picture winners
-
-PARAM: String genre
-RETURN: 
-'''
 @app.route('/pictures/<genre>')
 def pictures_by_genre(genre):
+    '''
+    Retrieve genre-specific Best Picture winners
+
+    PARAM: String genre
+    RETURN: html page containing Best Picture winning genres and counts
+    '''
     ds = backend.datasource.DataSource()
     user = 'kuritar'
     password = 'lamp977python'
@@ -178,8 +180,11 @@ def pictures_by_genre(genre):
     category = "picture"
     pictures = ds.get_winner(connection, year, category)
 
+    '''
+    Iterating through all movies that won best picture
+    Filtering them by the given genre
+    '''
     results = []
-    #Iterate thru list of Best Picture winners and get their names by genre
     genres_with_pictures = []
     for picture in pictures:
         name = picture[0]
@@ -209,14 +214,14 @@ def actors():
 
     return render_template('actors.html', actors=actors)
 
-'''
-Retrieve genre-specific Best Actor winners
-
-PARAM: String genre
-RETURN: 
-'''
 @app.route('/actors/<genre>')
 def actors_by_genre(genre):
+    '''
+    Retrieve genre-specific Best Actor winners
+
+    PARAM: String genre
+    RETURN: html page containing Best Actor winning genres and counts
+    '''
     ds = backend.datasource.DataSource()
     user = 'kuritar'
     password = 'lamp977python'
@@ -226,15 +231,17 @@ def actors_by_genre(genre):
     category = "actor"
     pictures = ds.get_winner(connection, year, category)
 
+    '''
+    Iterating through all movies that won best actor
+    Filtering them by the given genre
+    '''
     results = []
-    #Iterate thru list of Best Actor winners and get their names by genre
     genres_with_pictures = []
     for picture in pictures:
         name = picture[0]
         if type(name) == str:
             if "'" not in name:
                 quered_genre = ds.get_by_picture(connection, 'genre', name)
-                # results.append(quered_genre)
                 if quered_genre == genre:
                     results.append({"picture": name, "year":picture[2], "person":picture[1]})
             else:
@@ -258,14 +265,14 @@ def actresses():
 
     return render_template('actresses.html', actresses=actresses)
 
-'''
-Retrieve genre-specific Best Actress winners
-
-PARAM: String genre
-RETURN: 
-'''
 @app.route('/actresses/<genre>')
 def actresses_by_genre(genre):
+    '''
+    Retrieve genre-specific Best Actress winners
+
+    PARAM: String genre
+    RETURN: html page containing Best Actress winning genres and counts
+    '''
     ds = backend.datasource.DataSource()
     user = 'kuritar'
     password = 'lamp977python'
@@ -275,15 +282,17 @@ def actresses_by_genre(genre):
     category = "actress"
     pictures = ds.get_winner(connection, year, category)
 
+    '''
+    Iterating through all movies that won best actress
+    Filtering them by the given genre
+    '''
     results = []
-    #Iterate thru list of Best Actress winners and get their names by genre
     genres_with_pictures = []
     for picture in pictures:
         name = picture[0]
         if type(name) == str:
             if "'" not in name:
                 quered_genre = ds.get_by_picture(connection, 'genre', name)
-                # results.append(quered_genre)
                 if quered_genre == genre:
                     results.append({"picture": name, "year":picture[2], "person":picture[1]})
             else:
@@ -307,14 +316,14 @@ def directors():
     directors = ds.get_winner(connection, year, category)
     return render_template('directors.html', directors=directors)
 
-'''
-Retrieve genre-specific Best Director winners
-
-PARAM: String genre
-RETURN: 
-'''
 @app.route('/directors/<genre>')
 def directors_by_genre(genre):
+    '''
+    Retrieve genre-specific Best Director winners
+
+    PARAM: String genre
+    RETURN: html page containing Best Director winning genres and counts
+    '''
     ds = backend.datasource.DataSource()
     user = 'kuritar'
     password = 'lamp977python'
@@ -324,15 +333,17 @@ def directors_by_genre(genre):
     category = "director"
     pictures = ds.get_winner(connection, year, category)
 
+    '''
+    Iterating through all movies that won best director
+    Filtering them by the given genre
+    '''
     results = []
-    #Iterate thru list of Best Director winners and get their names by genre
     genres_with_pictures = []
     for picture in pictures:
         name = picture[0]
         if type(name) == str:
             if "'" not in name:
                 quered_genre = ds.get_by_picture(connection, 'genre', name)
-                # results.append(quered_genre)
                 if quered_genre == genre:
                     results.append({"picture": name, "year":picture[2], "person":picture[1]})
             else:
@@ -345,6 +356,12 @@ def directors_by_genre(genre):
 
 @app.route('/trends_by_decade/<decade>')
 def trends_by_decade(decade):
+    '''
+    Retrieve information about Oscar winners by decade
+
+    PARAM: Integer decade
+    RETURN: html page containing all stats about Oscar winners from given decade
+    '''
     ds = backend.datasource.DataSource()
     user = 'kuritar'
     password = 'lamp977python'
@@ -372,6 +389,11 @@ def trends_by_decade(decade):
     categories = ["picture","actor","actress","director"]
     infos = []
 
+    '''
+    Adding award category, film and celebrity to winners array
+    by iterating thru all films that won specified category 
+    in the specified decade.
+    '''
     for year in range(start, end+1):
         winners = []
         winners.append({"award":"Award", "film":"Film", "person":"Person"})
@@ -388,7 +410,7 @@ def trends_by_decade(decade):
 
     return render_template('trends-by-decade.html', start=start, end=end, counts=counts, avgScores=avgScores, avgRatings=avgRatings, infos=infos)
 
-
+#Routes for all remaining links in header and footer
 @app.route('/trends')
 def trends():
     return render_template('trends.html')
