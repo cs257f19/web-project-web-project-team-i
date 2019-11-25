@@ -39,9 +39,14 @@
                 Trends {{ start }}-{{ end }}
         </div>
         <div class="best-content">
+              <div class="result-subtitle">Average Critic Score & IMDM Rating</div>
 
+            <table class="ratings">
+                <tr class="ratings-title"><th style="padding: 20px;">Avg Score</th><th style="padding: 20px;">Avg Rating</th></tr>
+                  <tr><td style="text-align: center;">{{avgScores}}</td><td style="text-align: center;">{{avgRatings}}</td></tr>
+              </table>
 
-
+              <div class="result-subtitle">Number of Awarded Movies for Each Genre</div>            
             <table class="result">
                 {% block content %}
                 <tr class="result-title"><th>Genre</th><th>Count</th></tr>
@@ -50,13 +55,7 @@
                   {% endfor %}
           </table>
 
-
-
-          <table class="ratings">
-            <tr class="ratings-title"><th>Avg Score</th><th>Avg Rating</th></tr>
-              <tr><td>{{avgScores}}</td><td>{{avgRatings}}</td></tr>
-          </table>
-         
+          <div class="result-subtitle">All Movies and Winners</div>
                 <table class="result">
                     <tr class="result-title"><th style="width:100px; text-align: center;">Year</th><th style="width:150px;">Best Picture</th><th>Best Actor</th><th>Best Actress</th><th>Best Director</th></tr>
                     {% for info in infos %}
