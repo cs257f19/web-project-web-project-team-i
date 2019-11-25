@@ -49,7 +49,7 @@
               <div class="result-subtitle">Number of Awarded Movies for Each Genre</div>            
             <table class="result">
                 {% block content %}
-                <tr class="result-title"><th>Genre</th><th>Count</th></tr>
+                <tr class="result-title"><th>Genre</th><th>Number of Movies</th></tr>
                   {% for count in counts %}
                       <tr><td>{{ count[0] }}</td><td>{{ count[1] }}</td></tr>
                   {% endfor %}
