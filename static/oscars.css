@@ -528,6 +528,7 @@ footer a {
     font-style: italic;
     color: darkgoldenrod;
     padding: 20px;
+    text-align: center;
 }
 
 .result-title {

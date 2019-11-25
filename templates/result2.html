@@ -20,25 +20,24 @@
 <div class="main">
         <div class="title" style="font-size: 36px;">{{ title }} </div>
 
-
         {% block content %}
-
             {% if display %}
       
-        
         <div class="result-person">{{ person[1] }} </div>
 
-        
-        <div class="name">Film: {{ picture[0] }}</div>
-        <div class="runtime">({{ picture[3] }}min)</div>
+        <table class="result">
 
-        <div class="rating"> Rating: {{ picture[2] }}</div>
-        <div class="genre">Genre: {{ picture[4] }}, {{ picture[5] }}</div>
-        <div class="score">Critic Score: {{ picture[7] }}</div>
-        <div class="synopsis">Synopsis: {{ picture[8] }}</div>
+        <tr><td style="padding: 10px 20px; border-right: groove gold 3px;">Film</td><td style="padding: 10px 20px;">{{ picture[0] } &nbsp; ({{ picture[3] }}min)</td></tr>
+        <tr><td style="padding: 10px 20px; border-right: groove gold 3px;">Genre</td><td style="padding: 10px 20px;">{{ picture[4] }, {{ picture[5] }</td></tr>
+        <tr><td style="padding: 10px 20px; border-right: groove gold 3px;">Rating</td><td style="padding: 10px 20px;">{{ picture[2] }</td></tr>
+        <tr><td style="padding: 10px 20px; border-right: groove gold 3px;">Critic Score</td><td style="padding: 10px 20px;">{{ picture[7] }</td></tr>
+        <tr><td style="padding: 10px 20px; border-right: groove gold 3px;">Synopsis</td><td style="padding: 10px 20px;">{{ picture[8] }</td></tr>
+
+    </table>
+
         {% endif %}
         {% endblock %}
-    </div>
+</div>
 
 <div id="footer">
     {% include "common/footer.html" %}
