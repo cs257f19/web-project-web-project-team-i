@@ -375,7 +375,7 @@ def main():
     # results.append(["result_avgScore", result_avgScore])
 
     result_testScore = ds.get_Score(connection, 1928, 1930)
-    results.append(["result_testScore", len(result_testScore]))
+    results.append(["result_testScore", len(result_testScore)])
 
     categories = ["picture","actor","actress","director"]
     infos = []
