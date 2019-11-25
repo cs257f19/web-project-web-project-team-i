@@ -43,6 +43,7 @@
 
 
             <table class="result">
+                {% block content %}
                 <tr class="result-title"><th>Genre</th><th>Count</th></tr>
                   {% for count in counts %}
                       <tr><td>{{ count[0] }}</td><td>{{ count[1] }}</td></tr>
@@ -62,6 +63,7 @@
                         <tr><td style="width:100px; text-align: center;">{{info[0]}}</td><td style="width:150px;">{{ info[1][1].film }}</td><td>{{ info[1][2].film }} ({{ info[1][2].person }})</td><td>{{ info[1][3].film }} ({{ info[1][3].person }})</td><td>{{ info[1][4].film }} ({{ info[1][4].person }})</td></tr>
                     {% endfor %}
               </table>
+              {% endblock %}
 
 
              
