@@ -140,11 +140,11 @@ def my_form_post():
             title = input_cat.title() + ' is not a valid category. Please type either "best picture", "best actor", "best actoress", "best director".'
             display = False
         else:
-            title = str(key[5:]) + " of " + str(year)
+            title_cat = str(key[5:])
+            title = title_cat.title() + " of " + str(year)
             picture = ds.get_by_year(connection, year, category)
             person = ds.get_winner(connection, year, category)[0]
             display = True
-        category = "Best " + category.title()
         return render_template('result2.html', title= title, person=person, year=year, category=category, picture=picture[0], display=display)
 
 
