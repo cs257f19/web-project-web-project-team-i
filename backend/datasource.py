@@ -216,6 +216,7 @@ class DataSource:
                     picture = picture.replace("'", "''")
                 query = "SELECT score FROM films WHERE picture = '"  + picture + "'"
                 score = self.execute_query(connection, query)[0][0]
+                print("get_score", score)
                 scores.append(score)
 
         except Exception as e:
@@ -238,6 +239,8 @@ class DataSource:
          total = 0.0
          for score in scores:
              total += score
+             print(score)
+             print("len", len(scores))
          avgScore = total/len(scores)
 
          return round(avgScore, 1)
