@@ -201,8 +201,6 @@ class DataSource:
         RETURN:
             Array of integers of average scores of all Best Picture winners in the year range.
         '''
-
-        start = start - 1
         scores = []
         bestPics = []
         category = "picture"
