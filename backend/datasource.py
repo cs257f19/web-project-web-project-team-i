@@ -210,6 +210,7 @@ class DataSource:
             for year in range(start, end+1):
                 bestPic = self.get_winner(connection, year, category)
                 bestPics.append(bestPic)
+            print(bestPics)
             for picture in bestPics[0]:
                 picture = picture[0]
                 if "'" in picture:
