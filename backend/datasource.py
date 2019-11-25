@@ -369,20 +369,23 @@ def main():
     result_pictures = ds.get_pictures(connection, 1928, 2017)
     pictures = result_pictures
     result_genre = ds.get_genre(connection, pictures)
-    result_score = ds.get_Score(connection, 1927, 2018)
-    results.append(["result_score", result_score])
-    result_avgScore = ds.get_avgScore(connection, result_score)
-    results.append(["result_avgScore", result_avgScore])
+    # result_score = ds.get_Score(connection, 1927, 2018)
+    # results.append(["result_score", result_score])
+    # result_avgScore = ds.get_avgScore(connection, result_score)
+    # results.append(["result_avgScore", result_avgScore])
+
+    result_testScore = ds.get_Score(connection, 1928, 1930)
+    results.append(["result_testScore", result_testScore])
 
     categories = ["picture","actor","actress","director"]
     infos = []
 
-    for year in range(1930, 1940):
+    for year in range(1928, 1930):
         # winners = []
         # winners.append({"award":"Award", "film":"Film", "person":"Person"})
         for category in categories:
             result = ds.get_winner(connection, year, category)
-            print(year, result)
+            # print(year, result)
 
     for result in results:
         if result is not None:
