@@ -217,7 +217,7 @@ class DataSource:
                 query = "SELECT score FROM films WHERE picture = '"  + picture + "'"
                 
                 score = self.execute_query(connection, query)[0][0]
-                print(year, score)
+                print(year, picture)
                 scores.append(score)
 
         except Exception as e:
