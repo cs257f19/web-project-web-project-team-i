@@ -371,7 +371,7 @@ def main():
         # winners.append({"award":"Award", "film":"Film", "person":"Person"})
         for category in categories:
             result = ds.get_winner(connection, year, category)
-            print(result)
+            print(year, result)
 
     # result_winner = ds.get_winner(connection, year, category)
     # results.append(["result_winner", result_winner])
