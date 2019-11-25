@@ -203,7 +203,6 @@ class DataSource:
         '''
 
         start = start - 1
-        end = end - 1
         scores = []
         bestPics = []
         category = "picture"
