@@ -523,6 +523,12 @@ footer a {
   padding-top: 36px;
 }
 
+result-person {
+  font-size: 50px;
+    font-style: italic;
+    color: darkgoldenrod;
+    padding: 20px;
+}
 
 .result-title {
   font-size: 22px;
