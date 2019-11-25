@@ -215,9 +215,8 @@ class DataSource:
                 if "'" in picture:
                     picture = picture.replace("'", "''")
                 query = "SELECT DISTINCT score FROM films WHERE picture = '"  + picture + "'"
-                print(query)
-                score = self.execute_query(connection, query)[0][0]
-                print(year, picture)
+                score = self.execute_query(connection, query)[0]
+                print(year, score)
                 scores.append(score)
 
         except Exception as e:
