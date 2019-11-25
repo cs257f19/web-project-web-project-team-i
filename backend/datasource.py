@@ -203,7 +203,6 @@ class DataSource:
         '''
 
         start = start - 1
-        end = end - 1
         scores = []
         bestPics = []
         category = "picture"
@@ -243,7 +242,7 @@ class DataSource:
              total += score
          avgScore = total/len(scores)
 
-         return avgScore
+         return round(avgScore, 1)
 
     def get_Rating(self, connection, start, end):
         '''
