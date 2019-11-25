@@ -300,7 +300,7 @@ class DataSource:
 
          avgRating = total/len(ratings)
 
-         return avgRating
+         return round(avgRating, 1)
 
     def get_genre(self, connection, pictures):
         '''
