@@ -211,8 +211,8 @@ class DataSource:
                 bestPic = self.get_winner(connection, year, category)
                 bestPics.append(bestPic)
             print(bestPics)
-            for picture in bestPics[0]:
-                picture = picture[0]
+            for picture in bestPics:
+                picture = picture[0][0]
                 if "'" in picture:
                     picture = picture.replace("'", "''")
                 query = "SELECT DISTINCT score FROM films WHERE picture = '"  + picture + "'"
