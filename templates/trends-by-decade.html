@@ -49,14 +49,14 @@
                       <tr><td>{{ count[0] }}</td><td>{{ count[1] }}</td></tr>
                   {% endfor %}
           </table>
-              {% endblock %}
+
 
 
           <table class="ratings">
             <tr class="ratings-title"><th>Avg Score</th><th>Avg Rating</th></tr>
               <tr><td>{{avgScores}}</td><td>{{avgRatings}}</td></tr>
           </table>
-                {% block content %}
+         
                 <table class="result">
                     <tr class="result-title"><th style="width:100px; text-align: center;">Year</th><th style="width:150px;">Best Picture</th><th>Best Actor</th><th>Best Actress</th><th>Best Director</th></tr>
                     {% for info in infos %}
