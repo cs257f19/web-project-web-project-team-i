@@ -360,7 +360,7 @@ form button {
   text-align: center;
   font-size: 28px;
   top: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   position: relative;  
 }
 
@@ -481,6 +481,9 @@ footer a {
   background-color: goldenrod !important;
 }
 
+.w3-dropdown-content {
+  min-width: 198.23px !important;
+}
 
 .trend-content {
   height: 760px;
