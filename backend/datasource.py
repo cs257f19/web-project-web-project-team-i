@@ -371,10 +371,13 @@ def main():
     result_pictures = ds.get_pictures(connection, 1928, 2017)
     pictures = result_pictures
     result_genre = ds.get_genre(connection, pictures)
-    result_score = ds.get_Score(connection, 1927, 2018)
-    results.append(["result_score", result_score])
+    # result_score = ds.get_Score(connection, 1927, 2018)
+    # results.append(["result_score", result_score])
     result_avgScore = ds.get_avgScore(connection, result_score)
     results.append(["result_avgScore", result_avgScore])
+
+    result_testScore = ds.get_Score(connection, 1927, 1929)
+    results.append(["result_testScore", result_testScore])
 
     categories = ["picture","actor","actress","director"]
     infos = []
